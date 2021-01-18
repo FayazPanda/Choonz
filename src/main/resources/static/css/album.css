@@ -28,5 +28,18 @@ body {
 #Search:hover {
     background-color: grey;
     color: white;
+}
 
+a:hover {
+    text-decoration: none;
+}
+
+.card {
+    max-width: 300px;
+    margin: 20px;
+}
+
+.albumCover {
+    max-width: 250px;
+    margin: 20px 0;
 }
