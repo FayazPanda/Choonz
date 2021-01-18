@@ -1,15 +1,18 @@
 package com.qa.choonz.utils;
 
-import static org.springframework.beans.BeanUtils.copyProperties;
+import org.springframework.beans.BeanWrapper;
+import org.springframework.beans.BeanWrapperImpl;
 
 import java.beans.PropertyDescriptor;
 import java.util.HashSet;
 import java.util.Set;
 
-import org.springframework.beans.BeanWrapper;
-import org.springframework.beans.BeanWrapperImpl;
+import static org.springframework.beans.BeanUtils.copyProperties;
 
 public class BeanUtils {
+
+    private BeanUtils() {
+    }
 
     public static void mergeNotNull(Object source, Object target) {
         copyProperties(source, target, getNullPropertyNames(source));
@@ -24,9 +27,6 @@ public class BeanUtils {
                 propertyNames.add(propertyDescriptors.getName());
         }
         return propertyNames.toArray(new String[propertyNames.size()]);
-    }
-
-    private BeanUtils() {
     }
 
 }

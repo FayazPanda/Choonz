@@ -1,15 +1,9 @@
 package com.qa.choonz.persistence.domain;
 
-import java.util.Objects;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.Objects;
 
 @Entity
 public class Track {
@@ -40,7 +34,7 @@ public class Track {
     }
 
     public Track(long id, @NotNull @Size(max = 100) String name, Album album, Playlist playlist, int duration,
-            String lyrics) {
+                 String lyrics) {
         super();
         this.id = id;
         this.name = name;

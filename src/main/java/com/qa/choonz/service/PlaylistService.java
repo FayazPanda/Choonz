@@ -1,21 +1,20 @@
 package com.qa.choonz.service;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
-import org.modelmapper.ModelMapper;
-import org.springframework.stereotype.Service;
-
 import com.qa.choonz.exception.PlaylistNotFoundException;
 import com.qa.choonz.persistence.domain.Playlist;
 import com.qa.choonz.persistence.repository.PlaylistRepository;
 import com.qa.choonz.rest.dto.PlaylistDTO;
+import org.modelmapper.ModelMapper;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class PlaylistService {
 
-    private PlaylistRepository repo;
-    private ModelMapper mapper;
+    private final PlaylistRepository repo;
+    private final ModelMapper mapper;
 
     public PlaylistService(PlaylistRepository repo, ModelMapper mapper) {
         super();

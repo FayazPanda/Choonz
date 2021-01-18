@@ -1,21 +1,20 @@
 package com.qa.choonz.service;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
-import org.modelmapper.ModelMapper;
-import org.springframework.stereotype.Service;
-
 import com.qa.choonz.exception.ArtistNotFoundException;
 import com.qa.choonz.persistence.domain.Artist;
 import com.qa.choonz.persistence.repository.ArtistRepository;
 import com.qa.choonz.rest.dto.ArtistDTO;
+import org.modelmapper.ModelMapper;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class ArtistService {
 
-    private ArtistRepository repo;
-    private ModelMapper mapper;
+    private final ArtistRepository repo;
+    private final ModelMapper mapper;
 
     public ArtistService(ArtistRepository repo, ModelMapper mapper) {
         super();

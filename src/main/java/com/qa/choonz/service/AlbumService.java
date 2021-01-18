@@ -1,21 +1,20 @@
 package com.qa.choonz.service;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
-import org.modelmapper.ModelMapper;
-import org.springframework.stereotype.Service;
-
 import com.qa.choonz.exception.AlbumNotFoundException;
 import com.qa.choonz.persistence.domain.Album;
 import com.qa.choonz.persistence.repository.AlbumRepository;
 import com.qa.choonz.rest.dto.AlbumDTO;
+import org.modelmapper.ModelMapper;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class AlbumService {
 
-    private AlbumRepository repo;
-    private ModelMapper mapper;
+    private final AlbumRepository repo;
+    private final ModelMapper mapper;
 
     public AlbumService(AlbumRepository repo, ModelMapper mapper) {
         super();

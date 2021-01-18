@@ -1,9 +1,9 @@
 package com.qa.choonz.exception;
 
-import javax.persistence.PersistenceException;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
+
+import javax.persistence.PersistenceException;
 
 @ResponseStatus(code = HttpStatus.NOT_FOUND, reason = "Playlist not found")
 public class PlaylistNotFoundException extends PersistenceException {

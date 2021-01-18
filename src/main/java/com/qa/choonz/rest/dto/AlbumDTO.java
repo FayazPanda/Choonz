@@ -1,11 +1,11 @@
 package com.qa.choonz.rest.dto;
 
-import java.util.List;
-import java.util.Objects;
-
 import com.qa.choonz.persistence.domain.Artist;
 import com.qa.choonz.persistence.domain.Genre;
 import com.qa.choonz.persistence.domain.Track;
+
+import java.util.List;
+import java.util.Objects;
 
 public class AlbumDTO {
 

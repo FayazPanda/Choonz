@@ -1,21 +1,20 @@
 package com.qa.choonz.service;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
-import org.modelmapper.ModelMapper;
-import org.springframework.stereotype.Service;
-
 import com.qa.choonz.exception.TrackNotFoundException;
 import com.qa.choonz.persistence.domain.Track;
 import com.qa.choonz.persistence.repository.TrackRepository;
 import com.qa.choonz.rest.dto.TrackDTO;
+import org.modelmapper.ModelMapper;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class TrackService {
 
-    private TrackRepository repo;
-    private ModelMapper mapper;
+    private final TrackRepository repo;
+    private final ModelMapper mapper;
 
     public TrackService(TrackRepository repo, ModelMapper mapper) {
         super();

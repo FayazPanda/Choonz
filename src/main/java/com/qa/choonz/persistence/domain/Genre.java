@@ -1,17 +1,10 @@
 package com.qa.choonz.persistence.domain;
 
-import java.util.List;
-import java.util.Objects;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.List;
+import java.util.Objects;
 
 @Entity
 public class Genre {
@@ -39,7 +32,7 @@ public class Genre {
     }
 
     public Genre(long id, @NotNull @Size(max = 100) String name, @NotNull @Size(max = 250) String description,
-            List<Album> albums) {
+                 List<Album> albums) {
         super();
         this.id = id;
         this.name = name;

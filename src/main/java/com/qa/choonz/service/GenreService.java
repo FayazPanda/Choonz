@@ -1,21 +1,20 @@
 package com.qa.choonz.service;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
-import org.modelmapper.ModelMapper;
-import org.springframework.stereotype.Service;
-
 import com.qa.choonz.exception.GenreNotFoundException;
 import com.qa.choonz.persistence.domain.Genre;
 import com.qa.choonz.persistence.repository.GenreRepository;
 import com.qa.choonz.rest.dto.GenreDTO;
+import org.modelmapper.ModelMapper;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class GenreService {
 
-    private GenreRepository repo;
-    private ModelMapper mapper;
+    private final GenreRepository repo;
+    private final ModelMapper mapper;
 
     public GenreService(GenreRepository repo, ModelMapper mapper) {
         super();
