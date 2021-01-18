@@ -7,6 +7,7 @@ import com.qa.choonz.rest.dto.UserDTO;
 import com.qa.choonz.service.TrackService;
 import com.qa.choonz.service.UserService;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCrypt;
@@ -21,6 +22,7 @@ public class UserController {
 
     private final UserService service;
 
+    @Autowired
     public UserController(UserService service) {
         super();
         this.service = service;

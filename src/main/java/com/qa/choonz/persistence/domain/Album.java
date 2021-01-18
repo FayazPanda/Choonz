@@ -1,12 +1,21 @@
 package com.qa.choonz.persistence.domain;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 @Entity
+@Data
+@NoArgsConstructor
 public class Album {
 
     @Id
@@ -18,8 +27,10 @@ public class Album {
     @Column(unique = true)
     private String name;
 
-    @OneToMany(mappedBy = "album", cascade = CascadeType.ALL)
-    private List<Track> tracks;
+    @JsonManagedReference
+    @OneToMany(mappedBy = "album", fetch = FetchType.EAGER)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private List<Track> tracks =  new ArrayList<>();
 
     @ManyToOne
     private Artist artist;
@@ -28,11 +39,6 @@ public class Album {
     private Genre genre;
 
     private String cover;
-
-    public Album() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
     public Album(long id, @NotNull @Size(max = 100) String name, List<Track> tracks, Artist artist, Genre genre,
                  String cover) {
@@ -43,82 +49,6 @@ public class Album {
         this.artist = artist;
         this.genre = genre;
         this.cover = cover;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public List<Track> getTracks() {
-        return tracks;
-    }
-
-    public void setTracks(List<Track> tracks) {
-        this.tracks = tracks;
-    }
-
-    public Artist getArtist() {
-        return artist;
-    }
-
-    public void setArtist(Artist artist) {
-        this.artist = artist;
-    }
-
-    public Genre getGenre() {
-        return genre;
-    }
-
-    public void setGenre(Genre genre) {
-        this.genre = genre;
-    }
-
-    public String getCover() {
-        return cover;
-    }
-
-    public void setCover(String cover) {
-        this.cover = cover;
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder builder = new StringBuilder();
-        builder.append("Album [id=").append(id).append(", name=").append(name).append(", tracks=").append(tracks)
-                .append(", artist=").append(artist).append(", genre=").append(genre).append(", cover=").append(cover)
-                .append("]");
-        return builder.toString();
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(artist, cover, genre, id, name, tracks);
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (!(obj instanceof Album)) {
-            return false;
-        }
-        Album other = (Album) obj;
-        return Objects.equals(artist, other.artist) && Objects.equals(cover, other.cover)
-                && Objects.equals(genre, other.genre) && id == other.id && Objects.equals(name, other.name)
-                && Objects.equals(tracks, other.tracks);
     }
 
 }

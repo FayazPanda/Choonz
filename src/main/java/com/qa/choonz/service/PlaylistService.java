@@ -5,6 +5,7 @@ import com.qa.choonz.persistence.domain.Playlist;
 import com.qa.choonz.persistence.repository.PlaylistRepository;
 import com.qa.choonz.rest.dto.PlaylistDTO;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,6 +17,7 @@ public class PlaylistService {
     private final PlaylistRepository repo;
     private final ModelMapper mapper;
 
+    @Autowired
     public PlaylistService(PlaylistRepository repo, ModelMapper mapper) {
         super();
         this.repo = repo;

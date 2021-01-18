@@ -5,6 +5,7 @@ import com.qa.choonz.persistence.domain.Track;
 import com.qa.choonz.persistence.repository.TrackRepository;
 import com.qa.choonz.rest.dto.TrackDTO;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,6 +17,7 @@ public class TrackService {
     private final TrackRepository repo;
     private final ModelMapper mapper;
 
+    @Autowired
     public TrackService(TrackRepository repo, ModelMapper mapper) {
         super();
         this.repo = repo;
@@ -43,7 +45,6 @@ public class TrackService {
     public TrackDTO update(Track track, long id) {
         Track toUpdate = this.repo.findById(id).orElseThrow(TrackNotFoundException::new);
         toUpdate.setName(track.getName());
-        toUpdate.setAlbum(track.getAlbum());
         toUpdate.setDuration(track.getDuration());
         toUpdate.setLyrics(track.getLyrics());
         toUpdate.setPlaylist(track.getPlaylist());
