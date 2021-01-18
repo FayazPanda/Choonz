@@ -1,9 +1,14 @@
 package com.qa.choonz.persistence.domain;
 
+import java.util.List;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import org.springframework.security.crypto.bcrypt.BCrypt;
 
@@ -20,12 +25,16 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 	
+    @Column(unique = true)
 	@NotNull
 	private String username;
 	
 	@NotNull
 	private String password;
 
+	@OneToMany
+	private List<Playlist> playlists;
+	
 	public User() {
 		super();
 	}
@@ -35,6 +44,14 @@ public class User {
 		this.id = id;
 		this.username = username;
 		this.password = password;
+	}
+
+	public User(long id, String username, String password, List<Playlist> playlists) {
+		super();
+		this.id = id;
+		this.username = username;
+		this.password = password;
+		this.playlists = playlists;
 	}
 
 	public long getId() {
@@ -60,6 +77,14 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 		//this.password = password;
+	}
+
+	public List<Playlist> getPlaylists() {
+		return playlists;
+	}
+
+	public void setPlaylists(List<Playlist> playlists) {
+		this.playlists = playlists;
 	}
 	
 	

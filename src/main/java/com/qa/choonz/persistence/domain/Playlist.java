@@ -31,6 +31,10 @@ public class Playlist {
     @OneToMany(mappedBy = "playlist", cascade = CascadeType.ALL)
     private List<Track> tracks;
 
+    @ManyToOne
+    @NotNull
+    private User user;
+    
     public Playlist() {
         super();
         // TODO Auto-generated constructor stub
@@ -46,7 +50,18 @@ public class Playlist {
         this.tracks = tracks;
     }
 
-    public long getId() {
+    public Playlist(long id, @NotNull @Size(max = 100) String name, @NotNull @Size(max = 500) String description,
+			@NotNull @Size(max = 1000) String artwork, List<Track> tracks, User user) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.description = description;
+		this.artwork = artwork;
+		this.tracks = tracks;
+		this.user = user;
+	}
+
+	public long getId() {
         return id;
     }
 
@@ -112,5 +127,13 @@ public class Playlist {
         return Objects.equals(artwork, other.artwork) && Objects.equals(description, other.description)
                 && id == other.id && Objects.equals(name, other.name) && Objects.equals(tracks, other.tracks);
     }
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
 
 }

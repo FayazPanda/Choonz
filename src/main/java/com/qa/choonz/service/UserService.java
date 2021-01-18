@@ -1,6 +1,7 @@
 package com.qa.choonz.service;
 
 import com.qa.choonz.exception.TrackNotFoundException;
+import com.qa.choonz.exception.UserNotFoundException;
 import com.qa.choonz.persistence.domain.User;
 import com.qa.choonz.persistence.repository.UserRepository;
 import com.qa.choonz.rest.dto.UserDTO;
@@ -51,10 +52,22 @@ public class UserService {
         return this.mapToDTO(found);
     }
     
+    public UserDTO find(String username) throws UserNotFoundException {
+    	List<UserDTO> all = read();
+    	User found = new User();
+    	for(UserDTO record : all) {
+    		if(record.getUsername().equals(username)) {
+    			found = this.repo.findById(record.getId()).orElseThrow(UserNotFoundException::new);
+    		}    		
+    	}
+       // User found = this.repo.findById(id).orElseThrow(TrackNotFoundException::new);
+        return this.mapToDTO(found);
+    }
+    
     // Takes in user with password, returns true if password is correct, false if not
     public Boolean login(User user) {
     	// Get the user from system to check against
-        User found = this.repo.findById(user.getId()).orElseThrow(TrackNotFoundException::new);
+        UserDTO found = find(user.getUsername());
         Boolean foundBool = false;
 
         // Checks inputted password against system
