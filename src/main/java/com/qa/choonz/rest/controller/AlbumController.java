@@ -3,6 +3,7 @@ package com.qa.choonz.rest.controller;
 import com.qa.choonz.persistence.domain.Album;
 import com.qa.choonz.rest.dto.AlbumDTO;
 import com.qa.choonz.service.AlbumService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +17,7 @@ public class AlbumController {
 
     private final AlbumService service;
 
+    @Autowired
     public AlbumController(AlbumService service) {
         super();
         this.service = service;
@@ -28,12 +30,12 @@ public class AlbumController {
 
     @GetMapping("/read")
     public ResponseEntity<List<AlbumDTO>> read() {
-        return new ResponseEntity<List<AlbumDTO>>(this.service.read(), HttpStatus.OK);
+        return new ResponseEntity<List<AlbumDTO>>(this.service.readAll(), HttpStatus.OK);
     }
 
     @GetMapping("/read/{id}")
     public ResponseEntity<AlbumDTO> read(@PathVariable long id) {
-        return new ResponseEntity<AlbumDTO>(this.service.read(id), HttpStatus.OK);
+        return new ResponseEntity<AlbumDTO>(this.service.readOne(id), HttpStatus.OK);
     }
 
     @PostMapping("/update/{id}")

@@ -5,6 +5,7 @@ import com.qa.choonz.persistence.domain.Album;
 import com.qa.choonz.persistence.repository.AlbumRepository;
 import com.qa.choonz.rest.dto.AlbumDTO;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,6 +17,7 @@ public class AlbumService {
     private final AlbumRepository repo;
     private final ModelMapper mapper;
 
+    @Autowired
     public AlbumService(AlbumRepository repo, ModelMapper mapper) {
         super();
         this.repo = repo;
@@ -27,17 +29,15 @@ public class AlbumService {
     }
 
     public AlbumDTO create(Album album) {
-        Album created = this.repo.save(album);
-        return this.mapToDTO(created);
+        return this.mapToDTO(this.repo.save(album));
     }
 
-    public List<AlbumDTO> read() {
+    public List<AlbumDTO> readAll() {
         return this.repo.findAll().stream().map(this::mapToDTO).collect(Collectors.toList());
     }
 
-    public AlbumDTO read(long id) {
-        Album found = this.repo.findById(id).orElseThrow(AlbumNotFoundException::new);
-        return this.mapToDTO(found);
+    public AlbumDTO readOne(Long id) {
+        return this.mapToDTO(this.repo.findById(id).orElseThrow());
     }
 
     public AlbumDTO update(Album album, long id) {

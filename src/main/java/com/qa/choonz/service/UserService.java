@@ -7,6 +7,7 @@ import com.qa.choonz.persistence.repository.UserRepository;
 import com.qa.choonz.rest.dto.UserDTO;
 
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +20,7 @@ public class UserService {
     private final UserRepository repo;
     private final ModelMapper mapper;
 
+    @Autowired
     public UserService(UserRepository repo, ModelMapper mapper) {
         super();
         this.repo = repo;

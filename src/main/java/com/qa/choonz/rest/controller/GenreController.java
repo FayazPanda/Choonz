@@ -3,6 +3,7 @@ package com.qa.choonz.rest.controller;
 import com.qa.choonz.persistence.domain.Genre;
 import com.qa.choonz.rest.dto.GenreDTO;
 import com.qa.choonz.service.GenreService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +17,7 @@ public class GenreController {
 
     private final GenreService service;
 
+    @Autowired
     public GenreController(GenreService service) {
         super();
         this.service = service;

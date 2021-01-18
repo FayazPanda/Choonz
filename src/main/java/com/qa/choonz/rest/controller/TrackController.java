@@ -3,6 +3,7 @@ package com.qa.choonz.rest.controller;
 import com.qa.choonz.persistence.domain.Track;
 import com.qa.choonz.rest.dto.TrackDTO;
 import com.qa.choonz.service.TrackService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +17,7 @@ public class TrackController {
 
     private final TrackService service;
 
+    @Autowired
     public TrackController(TrackService service) {
         super();
         this.service = service;
@@ -36,7 +38,7 @@ public class TrackController {
         return new ResponseEntity<TrackDTO>(this.service.read(id), HttpStatus.OK);
     }
 
-    @PostMapping("/update/{id}")
+    @PutMapping("/update/{id}")
     public ResponseEntity<TrackDTO> update(@RequestBody Track track, @PathVariable long id) {
         return new ResponseEntity<TrackDTO>(this.service.update(track, id), HttpStatus.ACCEPTED);
     }

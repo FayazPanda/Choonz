@@ -3,6 +3,7 @@ package com.qa.choonz.rest.controller;
 import com.qa.choonz.persistence.domain.Artist;
 import com.qa.choonz.rest.dto.ArtistDTO;
 import com.qa.choonz.service.ArtistService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +17,7 @@ public class ArtistController {
 
     private final ArtistService service;
 
+    @Autowired
     public ArtistController(ArtistService service) {
         super();
         this.service = service;

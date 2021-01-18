@@ -5,6 +5,7 @@ import com.qa.choonz.persistence.domain.Genre;
 import com.qa.choonz.persistence.repository.GenreRepository;
 import com.qa.choonz.rest.dto.GenreDTO;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,6 +17,7 @@ public class GenreService {
     private final GenreRepository repo;
     private final ModelMapper mapper;
 
+    @Autowired
     public GenreService(GenreRepository repo, ModelMapper mapper) {
         super();
         this.repo = repo;
