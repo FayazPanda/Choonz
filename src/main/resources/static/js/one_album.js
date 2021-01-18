@@ -15,7 +15,7 @@ function getAlbum(id) {
                     title.innerHTML = '';
 
                     title.insertAdjacentHTML("beforeend", albumData["name"]);
-                    
+
                 });
             }
         )

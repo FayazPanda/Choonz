@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.Objects;
 
 @Entity
 @Data
@@ -24,7 +23,7 @@ public class Track {
     private String name;
 
     @JsonBackReference
-    @ManyToOne (targetEntity = Album.class)
+    @ManyToOne(targetEntity = Album.class)
     private Album album;
 
     @ManyToOne(targetEntity = Playlist.class)
@@ -35,7 +34,7 @@ public class Track {
 
     private String lyrics;
 
-    public Track( @NotNull @Size(max = 100) String name, Playlist playlist, int duration,
+    public Track(@NotNull @Size(max = 100) String name, Playlist playlist, int duration,
                  String lyrics) {
         super();
         this.name = name;

@@ -1,16 +1,11 @@
 package com.qa.choonz.rest.controller;
 
-import com.qa.choonz.persistence.domain.Track;
 import com.qa.choonz.persistence.domain.User;
-import com.qa.choonz.rest.dto.TrackDTO;
 import com.qa.choonz.rest.dto.UserDTO;
-import com.qa.choonz.service.TrackService;
 import com.qa.choonz.service.UserService;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -35,10 +30,11 @@ public class UserController {
 
     @PostMapping("/login")
     public ResponseEntity<Boolean> login(@RequestBody User user) {
-    	
-    	return new ResponseEntity<Boolean>(this.service.login(user), HttpStatus.OK);
-    	
-    } 
+
+        return new ResponseEntity<Boolean>(this.service.login(user), HttpStatus.OK);
+
+    }
+
     @GetMapping("/read")
     public ResponseEntity<List<UserDTO>> read() {
         return new ResponseEntity<List<UserDTO>>(this.service.read(), HttpStatus.OK);

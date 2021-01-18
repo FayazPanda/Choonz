@@ -34,7 +34,7 @@ function albumCard(title) {
             class="card-img-top" alt="...">\
         <div class="card-body">\
             <a href="#" class="stretched-link">\
-                <h5 class="card-title">'+ title +'</h5>\
+                <h5 class="card-title">' + title + '</h5>\
                 <p class="card-text">Some quick example text to build on the album and some artist / track data</p>\
             </a>\
         </div>\

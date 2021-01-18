@@ -11,7 +11,6 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 @Entity
 @Data
@@ -30,7 +29,7 @@ public class Album {
     @JsonManagedReference
     @OneToMany(mappedBy = "album", fetch = FetchType.EAGER)
     @OnDelete(action = OnDeleteAction.CASCADE)
-    private List<Track> tracks =  new ArrayList<>();
+    private List<Track> tracks = new ArrayList<>();
 
     @ManyToOne
     private Artist artist;

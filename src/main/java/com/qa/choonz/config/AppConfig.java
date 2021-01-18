@@ -27,6 +27,7 @@ public class AppConfig {
             }
         };
     }
+
     @Bean
     public PasswordEncoder encoder() {
         return new BCryptPasswordEncoder();
