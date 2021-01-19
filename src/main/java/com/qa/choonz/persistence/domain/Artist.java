@@ -7,12 +7,17 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+<<<<<<< HEAD
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import java.util.ArrayList;
+=======
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+>>>>>>> feature_trackPage
 import java.util.List;
 
 @Entity
@@ -33,6 +38,7 @@ public class Artist {
     @OneToMany(mappedBy = "artist", fetch = FetchType.EAGER)
     @OnDelete(action = OnDeleteAction.CASCADE)
     private List<Album> albums = new ArrayList<>();
+
 
     public Artist(long id, @NotNull @Size(max = 100) String name, List<Album> albums) {
         super();

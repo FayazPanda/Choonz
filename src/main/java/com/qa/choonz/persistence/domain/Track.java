@@ -38,29 +38,27 @@ public class Track {
 
     private String lyrics;
 
-    public Track(@NotNull @Size(max = 100) String name, List<Playlist> playlist, int duration,
-                 String lyrics) {
-        super();
-        this.name = name;
-        this.playlist = playlist;
-        this.duration = duration;
-        this.lyrics = lyrics;
-    }
+	public Track(@NotNull @Size(max = 100) String name, Album album, List<Playlist> playlist, int duration,
+			String lyrics) {
+		super();
+		this.name = name;
+		this.album = album;
+		this.playlist = playlist;
+		this.duration = duration;
+		this.lyrics = lyrics;
+	}
 
-    public Track(long id, @NotNull @Size(max = 100) String name,  List<Playlist> playlist, int duration,
-                 String lyrics) {
-        super();
-        this.id = id;
-        this.name = name;
-        this.playlist = playlist;
-        this.duration = duration;
-        this.lyrics = lyrics;
-    }
-
-	public Track(long id, @NotNull @Size(max = 100) String name) {
+	public Track(long id, @NotNull @Size(max = 100) String name, Album album, List<Playlist> playlist, int duration,
+			String lyrics) {
 		super();
 		this.id = id;
 		this.name = name;
+		this.album = album;
+		this.playlist = playlist;
+		this.duration = duration;
+		this.lyrics = lyrics;
 	}
+
+  
 
 }
