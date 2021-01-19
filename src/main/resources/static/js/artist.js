@@ -8,17 +8,17 @@ function getArtist(id) {
                     return;
                 }
                 // Examine the text in the response
-                response.json().then(function (albumData) {
-                    console.log(albumData)
+                response.json().then(function (artistData) {
+                    console.log(artistData)
+                    let artistName = document.getElementById("artistName");
+                    artistName.innerHTML = "Artist: " + artistData["name"];
 
-                    // let row = document.getElementById("albumPlaceHolder");
-                    // row.innerHTML = '';
-                    // //let data = Object.keys(listData[0]);
+                    let gallery = document.getElementById("allAlbums");
+                    gallery.innerHTML = '';
 
-                    // for (let album of albumData) {
-                    //     //globalTaskList.push(list["items"]);
-                    //     row.insertAdjacentHTML("beforeend", albumCard(album["name"]));
-                    // }
+                    for (let album of artistData["albums"]) {
+                        gallery.insertAdjacentHTML("beforeend", albumCard(album["id"], album["name"], artistData["name"]));
+                    }
                 });
             }
         )
@@ -27,12 +27,12 @@ function getArtist(id) {
         });
 }
 
-function albumCard(id, title) {
+function albumCard(id, title, artist) {
     return '<div class="tile">\
     <a href="/one_album.html?id='+id+'">\
     <img src="img/album/alterbridge.png">\
     <h3>'+title+'</h3>\
-    <p>Artist/Creator</p>\
+    <p>By: '+ artist +'</p>\
     </a>\
 </div>'
 }
