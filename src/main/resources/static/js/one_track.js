@@ -32,7 +32,15 @@ function getAlbum(id) {
                  trackDuration.append(minutes.toString() + ":"+ seconds);
                  trackGenre.append(trackData.album.genre.name);
                  trackAlbum.append(trackData.album.name);
-
+                 document
+                 .querySelector("#trackAlbum")
+                 .addEventListener("click", function (stop) {
+                   stop.preventDefault();
+                  
+                   // Send to createItem with params
+                   window.location.replace("one_album.html?id="+trackData.album.id);
+               
+                 });
                  getArtist(trackData.album.id);
                //  trackArtist.append(trackData.album.artist.name);
                  trackLyrics.append(trackData.lyrics);
