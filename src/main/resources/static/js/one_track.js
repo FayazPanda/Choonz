@@ -32,6 +32,7 @@ function getAlbum(id) {
                  trackDuration.append(minutes.toString() + ":"+ seconds);
                  trackGenre.append(trackData.album.genre.name);
                  trackAlbum.append(trackData.album.name);
+
                  document
                  .querySelector("#trackAlbum")
                  .addEventListener("click", function (stop) {
@@ -41,6 +42,8 @@ function getAlbum(id) {
                    window.location.replace("album.html?id="+trackData.album.id);
                
                  });
+
+
                  getArtist(trackData.album.id);
                //  trackArtist.append(trackData.album.artist.name);
                  trackLyrics.append(trackData.lyrics);
@@ -65,6 +68,15 @@ function getArtist(id){
             // Examine the text in the response
             response.json().then(function (albumData) {
                 trackArtist.append(albumData.artist.name);
+                document
+                .querySelector("#trackArtist")
+                .addEventListener("click", function (stop) {
+                  stop.preventDefault();
+                 
+                  // Send to createItem with params
+                  window.location.replace("artist.html?id="+albumData.artist.id);
+              
+                });
             });
         }
     )
