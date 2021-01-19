@@ -6,6 +6,10 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import java.util.List;
 
 @Entity
@@ -32,9 +36,14 @@ public class Playlist {
     @Column(unique = true)
     private String artwork;
 
-    @OneToMany(mappedBy = "playlist", cascade = CascadeType.ALL)
+    @ManyToMany
     private List<Track> tracks;
 
+    @NotNull
+    @JsonBackReference
+    @ManyToOne
+    private User user;
+    
     public Playlist(long id, @NotNull @Size(max = 100) String name, @NotNull @Size(max = 500) String description,
                     @NotNull @Size(max = 1000) String artwork, List<Track> tracks) {
         super();
@@ -44,4 +53,27 @@ public class Playlist {
         this.artwork = artwork;
         this.tracks = tracks;
     }
+
+	public Playlist(long id, @NotNull @Size(max = 100) String name, @NotNull @Size(max = 500) String description,
+			@NotNull @Size(max = 1000) String artwork, List<Track> tracks, @NotNull User user) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.description = description;
+		this.artwork = artwork;
+		this.tracks = tracks;
+		this.user = user;
+	}
+
+	public Playlist(long id, @NotNull @Size(max = 100) String name, @NotNull @Size(max = 500) String description,
+			@NotNull @Size(max = 1000) String artwork, @NotNull User user) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.description = description;
+		this.artwork = artwork;
+		this.user = user;
+	}
+
+	
 }

@@ -1,6 +1,8 @@
 package com.qa.choonz.rest.dto;
 
 import com.qa.choonz.persistence.domain.Track;
+import com.qa.choonz.persistence.domain.User;
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -15,4 +17,5 @@ public class PlaylistDTO {
     private String description;
     private String artwork;
     private List<Track> tracks;
+    private User user;
 }
