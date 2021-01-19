@@ -25,11 +25,12 @@ function getAlbum(id) {
                  
                  let minutes = Math.floor(trackData.duration / 60);
                  let seconds = trackData.duration - minutes * 60;
-                 if(seconds==0){
+                 let formattedNumber = ("0" + seconds).slice(-2);
+/*                  if(seconds==0){
                      seconds= seconds.toString()+ "0";
-                 }
+                 } */
 
-                 trackDuration.append(minutes.toString() + ":"+ seconds);
+                 trackDuration.append(minutes.toString() + ":"+ formattedNumber);
                  trackGenre.append(trackData.album.genre.name);
                  trackAlbum.append(trackData.album.name);
 
