@@ -1,6 +1,7 @@
 package com.qa.choonz.service;
 
 import com.qa.choonz.exception.TrackNotFoundException;
+import com.qa.choonz.exception.UserNotFoundException;
 import com.qa.choonz.persistence.domain.User;
 import com.qa.choonz.persistence.repository.UserRepository;
 import com.qa.choonz.rest.dto.UserDTO;
@@ -48,21 +49,32 @@ public class UserService {
     }
 
     public UserDTO read(long id) {
-        User found = this.repo.findById(id).orElseThrow(TrackNotFoundException::new);
+        User found = this.repo.findById(id).orElseThrow(UserNotFoundException::new);
         return this.mapToDTO(found);
     }
-
+    public UserDTO find(String username) throws UserNotFoundException {
+    	List<UserDTO> all = read();
+    	User found = new User();
+    	for(UserDTO record : all) {
+    		if(record.getUsername().equals(username)) {
+    			found = this.repo.findById(record.getId()).orElseThrow(UserNotFoundException::new);
+    		}    		
+    	}
+       // User found = this.repo.findById(id).orElseThrow(TrackNotFoundException::new);
+        return this.mapToDTO(found);
+    }
     // Takes in user with password, returns true if password is correct, false if not
     public Boolean login(User user) {
-        // Get the user from system to check against
-        User found = this.repo.findById(user.getId()).orElseThrow(TrackNotFoundException::new);
+    	// Get the user from system to check against
+        UserDTO found = find(user.getUsername());
         Boolean foundBool = false;
 
         // Checks inputted password against system
         if (BCrypt.checkpw(user.getPassword(), found.getPassword())) {
             System.out.println("It matches");
-            foundBool = true;
-        } else {
+        	foundBool = true;
+        }
+        else {
             System.out.println("It does not match");
             foundBool = false;
         }
@@ -71,7 +83,7 @@ public class UserService {
     }
 
     public UserDTO update(User user, long id) {
-        User toUpdate = this.repo.findById(id).orElseThrow(TrackNotFoundException::new);
+        User toUpdate = this.repo.findById(id).orElseThrow(UserNotFoundException::new);
         toUpdate.setUsername(user.getUsername());
         toUpdate.setPassword(user.getPassword());
         User updated = this.repo.save(toUpdate);

@@ -2,6 +2,7 @@ package com.qa.choonz.service;
 
 import com.qa.choonz.exception.PlaylistNotFoundException;
 import com.qa.choonz.persistence.domain.Playlist;
+import com.qa.choonz.persistence.domain.User;
 import com.qa.choonz.persistence.repository.PlaylistRepository;
 import com.qa.choonz.rest.dto.PlaylistDTO;
 import org.modelmapper.ModelMapper;
@@ -42,12 +43,16 @@ public class PlaylistService {
         return this.mapToDTO(found);
     }
 
+    public PlaylistDTO readUser(Long id) {
+        Playlist found = this.repo.findById(id).orElseThrow(PlaylistNotFoundException::new);
+        return this.mapToDTO(found);
+    }
     public PlaylistDTO update(Playlist playlist, long id) {
         Playlist toUpdate = this.repo.findById(id).orElseThrow(PlaylistNotFoundException::new);
-        toUpdate.setName(toUpdate.getName());
-        toUpdate.setDescription(toUpdate.getDescription());
-        toUpdate.setArtwork(toUpdate.getArtwork());
-        toUpdate.setTracks(toUpdate.getTracks());
+        toUpdate.setName(playlist.getName());
+        toUpdate.setDescription(playlist.getDescription());
+        toUpdate.setArtwork(playlist.getArtwork());
+        toUpdate.setTracks(playlist.getTracks());
         Playlist updated = this.repo.save(toUpdate);
         return this.mapToDTO(updated);
     }

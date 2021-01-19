@@ -1,6 +1,7 @@
 package com.qa.choonz.rest.controller;
 
 import com.qa.choonz.persistence.domain.Playlist;
+import com.qa.choonz.persistence.domain.User;
 import com.qa.choonz.rest.dto.PlaylistDTO;
 import com.qa.choonz.service.PlaylistService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,7 +40,12 @@ public class PlaylistController {
         return new ResponseEntity<PlaylistDTO>(this.service.read(id), HttpStatus.OK);
     }
 
-    @PostMapping("/update/{id}")
+    @GetMapping("/readUser/{id}")
+    public ResponseEntity<PlaylistDTO> readUser(@PathVariable Long id) {
+        return new ResponseEntity<PlaylistDTO>(this.service.read(id), HttpStatus.OK);
+    }
+    
+    @PutMapping("/update/{id}")
     public ResponseEntity<PlaylistDTO> update(@RequestBody Playlist playlist, @PathVariable long id) {
         return new ResponseEntity<PlaylistDTO>(this.service.update(playlist, id), HttpStatus.ACCEPTED);
     }
