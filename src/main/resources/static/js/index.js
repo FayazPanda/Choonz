@@ -20,7 +20,7 @@ function getPopAlbums() {
                         console.log(i);
                         if(i < 5){
                             console.log(albumData[i]);
-                            gallery.insertAdjacentHTML("beforeend", albumCard(albumData[i]["id"],albumData[i]["name"]));
+                            gallery.insertAdjacentHTML("beforeend", albumCard(albumData[i]["id"],albumData[i]["name"], albumData[i]["artist"]["name"]));
                         }
                         else{
                             break
@@ -34,12 +34,12 @@ function getPopAlbums() {
         });
 }
 
-function albumCard(id, title) {
+function albumCard(id, title, artist) {
     return '<div class="tile">\
     <a href="/one_album.html?id='+id+'">\
     <img src="img/album/alterbridge.png">\
     <h3>'+title+'</h3>\
-    <p>Artist/Creator</p>\
+    <p>By: '+artist+'</p>\
     </a>\
 </div>'
 }
