@@ -23,7 +23,7 @@ function getAlbum(id) {
                     let trackList = albumData["tracks"];
                     let table = document.getElementById("table")
                     for (let track of trackList) {
-                        table.appendChild(trackRow(track["id"], track["name"], track["duration"]))
+                        table.appendChild(trackRow(track["id"], track["name"], duration(track["duration"])) )
                     }
 
 
