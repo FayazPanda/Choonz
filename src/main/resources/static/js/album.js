@@ -17,10 +17,9 @@ function getAlbum(id) {
                     title.insertAdjacentHTML("beforeend", albumData["name"]);
 
                     let trackList = albumData["tracks"];
-                    let table = document.getElementById("tableBody");
-                        table.innerHTML = '';
-                    for(let track of trackList){
-                        table.insertAdjacentHTML("beforeend", trackRow(track["id"],track["name"], track["duration"]))
+                    let table = document.getElementById("table")
+                    for (let track of trackList) {
+                        table.appendChild(trackRow(track["id"], track["name"], track["duration"]))
                     }
 
 
@@ -32,12 +31,22 @@ function getAlbum(id) {
         });
 }
 
-function trackRow(id, name, duration){
-    return '<tr>\
-    <th scope="row">'+id+'</th>\
-    <td>'+name+'</td>\
-    <td>'+duration+'</td>\
-  </tr>'
+function trackRow(id, name, duration) {
+    const a = document.createElement("a")
+
+    const pid = document.createElement("p")
+    pid.innerText = id
+    a.appendChild(pid)
+
+    const pname = document.createElement("p")
+    pname.innerText = name
+    a.appendChild(pname)
+
+    const pduration = document.createElement("p")
+    pduration.innerText = duration
+    a.appendChild(pduration)
+
+    return a
 }
 
 const queryString = window.location.search;

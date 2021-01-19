@@ -1,7 +1,7 @@
-.gallery{
+.gallery {
     flex-wrap: wrap;
 }
 
-.tile{
+.tile {
     padding: 40px;
 }
