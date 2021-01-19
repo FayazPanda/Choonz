@@ -16,6 +16,14 @@ function getAlbum(id) {
 
                     title.insertAdjacentHTML("beforeend", albumData["name"]);
 
+                    let trackList = albumData["tracks"];
+                    let table = document.getElementById("tableBody");
+                        table.innerHTML = '';
+                    for(let track of trackList){
+                        table.insertAdjacentHTML("beforeend", trackRow(track["id"],track["name"], track["duration"]))
+                    }
+
+
                 });
             }
         )
@@ -24,12 +32,17 @@ function getAlbum(id) {
         });
 }
 
+function trackRow(id, name, duration){
+    return '<tr>\
+    <th scope="row">'+id+'</th>\
+    <td>'+name+'</td>\
+    <td>'+duration+'</td>\
+  </tr>'
+}
+
 const queryString = window.location.search;
-
 const urlParams = new URLSearchParams(queryString);
-
 const id = urlParams.get('id');
-
 console.log(id);
 
 getAlbum(id);
