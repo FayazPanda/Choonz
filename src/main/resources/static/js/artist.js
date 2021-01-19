@@ -1,5 +1,5 @@
-function getPopAlbums() {
-    fetch('http://localhost:8082/albums/read')
+function getArtist(id) {
+    fetch('http://localhost:8082/artists/read/' + id)
         .then(
             function (response) {
                 if (response.status !== 200) {
@@ -11,21 +11,14 @@ function getPopAlbums() {
                 response.json().then(function (albumData) {
                     console.log(albumData)
 
-                    let gallery = document.getElementById("popAlbums");
-                    gallery.innerHTML = '';
+                    // let row = document.getElementById("albumPlaceHolder");
+                    // row.innerHTML = '';
+                    // //let data = Object.keys(listData[0]);
 
-                    let albumSize = Object.keys(albumData).length;
-                    console.log(albumSize);
-                    for (let i = 0; i < albumSize; i++) {
-                        console.log(i);
-                        if(i < 5){
-                            console.log(albumData[i]);
-                            gallery.insertAdjacentHTML("beforeend", albumCard(albumData[i]["id"],albumData[i]["name"]));
-                        }
-                        else{
-                            break
-                        }
-                    }
+                    // for (let album of albumData) {
+                    //     //globalTaskList.push(list["items"]);
+                    //     row.insertAdjacentHTML("beforeend", albumCard(album["name"]));
+                    // }
                 });
             }
         )
@@ -44,4 +37,9 @@ function albumCard(id, title) {
 </div>'
 }
 
-getPopAlbums();
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+const id = urlParams.get('id');
+console.log(id);
+
+getArtist(id);
