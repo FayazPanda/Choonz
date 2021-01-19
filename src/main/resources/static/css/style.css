@@ -25,19 +25,18 @@ h2{
 .wrapper{
     display: flex;
     flex-direction: column;
+    max-width: 1500px;
+    margin: 0 auto;
+    background: #282829;
 }
 
 .gallery{
     display: flex;
     margin: 0 10px 0 10px;
     padding: 0 10px 0 10px;
-    justify-content: space-between;
+    justify-content: space-evenly;
     border-top-color: #3273FF;
     border-top-style: solid;
-}
-
-.gallery:last-child{
-    display: none;
 }
 
 .tile{
@@ -66,9 +65,5 @@ h3{
 #Search:hover {
     background-color: grey;
     color: white;
-
-}
-
-@media screen and (min-width: 1000px) {
 
 }

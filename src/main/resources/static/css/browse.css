@@ -1,0 +1,7 @@
+.gallery{
+    flex-wrap: wrap;
+}
+
+.tile{
+    padding: 40px;
+}
