@@ -38,7 +38,7 @@ function getAlbum(id) {
                    stop.preventDefault();
                   
                    // Send to createItem with params
-                   window.location.replace("one_album.html?id="+trackData.album.id);
+                   window.location.replace("album.html?id="+trackData.album.id);
                
                  });
                  getArtist(trackData.album.id);
