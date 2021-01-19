@@ -32,7 +32,7 @@ public class Genre {
     
 
 
-    public Genre(long id, @NotNull @Size(max = 100) String name, @NotNull @Size(max = 250) String descriptions) {
+    public Genre(long id, @NotNull @Size(max = 100) String name, @NotNull @Size(max = 250) String description) {
         super();
         this.id = id;
         this.name = name;

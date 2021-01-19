@@ -22,7 +22,12 @@ function getAlbum(id) {
 
                  title.append(trackData.name);
                  th.append(trackData.id.toString());
-                 trackDuration.append(trackData.duration.toString());
+                 let minutes = Math.floor(trackData.duration / 60);
+                 let seconds = trackData.duration - minutes * 60;
+                 if(seconds==0){
+                     seconds= seconds.toString()+ "0";
+                 }
+                 trackDuration.append(minutes.toString() + ":"+ seconds);
                  trackGenre.append(trackData.album.genre.name);
                  trackAlbum.append(trackData.album.name);
                  trackArtist.append(trackData.album.artist.name);
