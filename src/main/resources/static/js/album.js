@@ -14,6 +14,10 @@ function getAlbum(id) {
                     let title = document.getElementById("albumTitle");
                     title.innerHTML = '';
 
+                    let artist = document.getElementById("artistNameDiv");
+                    artist.innerHTML = '';
+                    //artist.innerHTML = "Created by: " + albumData["artist"]["name"];
+                    artist.insertAdjacentHTML("beforeend", '<a href="/artist.html?id=' +albumData["artist"]["id"] + '"><p id="artistName">' + albumData["artist"]["name"] + '</p></a>');
                     title.insertAdjacentHTML("beforeend", albumData["name"]);
 
                     let trackList = albumData["tracks"];
@@ -33,6 +37,7 @@ function getAlbum(id) {
 
 function trackRow(id, name, duration) {
     const a = document.createElement("a")
+    a.href = "/one_track.html?id=" + id;
 
     const pid = document.createElement("p")
     pid.innerText = id
