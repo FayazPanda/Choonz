@@ -36,7 +36,7 @@ function getPopAlbums() {
 
 function albumCard(id, title, artist) {
     return '<div class="tile">\
-    <a href="/one_album.html?id='+id+'">\
+    <a href="/album.html?id='+id+'">\
     <img src="img/album/alterbridge.png">\
     <h3>'+title+'</h3>\
     <p>By: '+artist+'</p>\
