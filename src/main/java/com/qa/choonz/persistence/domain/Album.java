@@ -1,5 +1,6 @@
 package com.qa.choonz.persistence.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -30,10 +31,11 @@ public class Album {
     @OneToMany(mappedBy = "album", fetch = FetchType.EAGER)
     @OnDelete(action = OnDeleteAction.CASCADE)
     private List<Track> tracks = new ArrayList<>();
-
-    @ManyToOne
+    
+    @JsonBackReference
+    @ManyToOne(targetEntity = Artist.class)
     private Artist artist;
-
+    
     @ManyToOne
     private Genre genre;
 

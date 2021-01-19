@@ -14,10 +14,4 @@ public class ArtistDTO {
     private String name;
     private List<Album> albums;
 
-    public ArtistDTO(long id, String name, List<Album> albums) {
-        super();
-        this.id = id;
-        this.name = name;
-        this.albums = albums;
-    }
 }
