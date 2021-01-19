@@ -6,6 +6,9 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import java.util.List;
 
 @Entity
@@ -22,6 +25,8 @@ public class Artist {
     @Column(unique = true)
     private String name;
 
+
+    @JsonManagedReference
     @OneToMany(mappedBy = "artist", cascade = CascadeType.ALL)
     private List<Album> albums;
 

@@ -11,15 +11,21 @@ function getAlbum(id) {
                 // Examine the text in the response
                 response.json().then(function (trackData) {
                     console.log(trackData)
-  
+                    console.log(trackData.album.genre.name)
                     let title = document.getElementById("trackName");
                     let th = document.getElementById("trackid");
                     let trackDuration = document.getElementById("trackDuration");
+                    let trackGenre = document.getElementById("trackGenre");
+                    let trackAlbum = document.getElementById("trackAlbum");
+                    let trackArtist = document.getElementById("trackArtist");
                     let trackLyrics = document.getElementById("trackLyrics");
 
                  title.append(trackData.name);
                  th.append(trackData.id.toString());
                  trackDuration.append(trackData.duration.toString());
+                 trackGenre.append(trackData.album.genre.name);
+                 trackAlbum.append(trackData.album.name);
+                 trackArtist.append(trackData.album.artist.name);
                  trackLyrics.append(trackData.lyrics);
                 });
             }

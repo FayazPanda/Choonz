@@ -1,5 +1,6 @@
 package com.qa.choonz.persistence.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -31,8 +32,10 @@ public class Album {
     @OnDelete(action = OnDeleteAction.CASCADE)
     private List<Track> tracks = new ArrayList<>();
 
+    @JsonBackReference
     @ManyToOne
     private Artist artist;
+    
 
     @ManyToOne
     private Genre genre;
@@ -49,5 +52,13 @@ public class Album {
         this.genre = genre;
         this.cover = cover;
     }
+
+	public Album(long id, @NotNull @Size(max = 100) String name, List<Track> tracks, Genre genre) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.tracks = tracks;
+		this.genre = genre;
+	}
 
 }
