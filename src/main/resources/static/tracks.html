@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
-    <link href="/css/style.css" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
     <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
           integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" rel="stylesheet">
-    <title>Choonz Tracks</title>
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/track.css" rel="stylesheet">
+    <title>Choonz Music</title>
 </head>
-
 <body>
 <nav class="navbar fixed-top navbar-expand-xl navbar-dark bg-dark">
     <a class="navbar-brand" href="./">
@@ -35,13 +36,24 @@
         </form>
     </div>
 </nav>
-<!-- /Navbar -->
 
-<!-- /main -->
-
-<h1> Put some stuff here</h1>
-
-
+<main>
+    <div class="wrapper">
+        <div>
+            <img class="albumCover" src="img/album/alterbridge.png">
+            <div>
+                <h1>Title</h1>
+                <h3>Album - Genre</h3>
+                <a><p>artist</p></a>
+                <p>duration</p>
+            </div>
+        </div>
+        <div>
+            <h2>Lyrics</h2>
+            <p class="lyrics">lyrics text here</p>
+        </div>
+    </div>
+</main>
 <script crossorigin="anonymous"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -51,5 +63,8 @@
 <script crossorigin="anonymous"
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="js/one_track.js"></script>
+<script src="js/duration.js"></script>
 </body>
+
 </html>

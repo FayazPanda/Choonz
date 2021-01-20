@@ -1,0 +1,21 @@
+.wrapper div:first-child {
+    display: flex;
+    align-items: center;
+}
+.wrapper img {
+    margin: 50px 5px 50px 100px;
+}
+
+h1, h3, p {
+    padding: 10px;
+    margin: 0 0 0 30px;
+}
+
+h2{
+    margin-left: 100px;
+}
+
+.lyrics{
+    padding: 1em;
+    margin-left: 100px;
+}

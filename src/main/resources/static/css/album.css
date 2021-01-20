@@ -27,7 +27,7 @@ h1, h4, p {
     margin: 50px 5px 50px 50px;
 }
 
-.wrapper a {
+.track {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     border-top-style: solid;
@@ -37,7 +37,7 @@ h1, h4, p {
     transition: 0.3s;
 }
 
-.wrapper a:hover {
+.track:hover {
     background: #19191a;
 }
 
@@ -45,9 +45,10 @@ h1, h4, p {
     font-weight: bold;
     font-size: 18px;
     cursor: default;
+
 }
 
-.wrapper a:last-child {
+.track:last-child {
     border-bottom-style: solid;
     border-bottom-color: #3273FF;
     margin-bottom: 50px;
