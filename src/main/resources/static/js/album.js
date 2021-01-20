@@ -22,8 +22,10 @@ function getAlbum(id) {
 
                     let trackList = albumData["tracks"];
                     let table = document.getElementById("table")
+                    let trackNumber = 1;
                     for (let track of trackList) {
-                        table.appendChild(trackRow(track["id"], track["name"], duration(track["duration"])) )
+                        table.appendChild(trackRow(trackNumber ,track["id"], track["name"], duration(track["duration"])));
+                        trackNumber++;
                     }
 
 
@@ -35,12 +37,12 @@ function getAlbum(id) {
         });
 }
 
-function trackRow(id, name, duration) {
+function trackRow(trackNumber, id, name, duration) {
     const a = document.createElement("a")
     a.href = "/one_track.html?id=" + id;
 
     const pid = document.createElement("p")
-    pid.innerText = id
+    pid.innerText = trackNumber
     a.appendChild(pid)
 
     const pname = document.createElement("p")
