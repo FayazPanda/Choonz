@@ -44,7 +44,8 @@ function getPlaylist(id) {
 
 function trackRow(trackNumber ,id, name, duration) {
     const a = document.createElement("a")
-    a.href = "/one_track.html?id=" + id;
+    a.href = "/tracks.html?id=" + id;
+    a.className = "track"
 
     const pid = document.createElement("p")
     pid.innerText = trackNumber
