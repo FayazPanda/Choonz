@@ -16,9 +16,15 @@ function getAlbum(id) {
 
                     let artist = document.getElementById("artistNameDiv");
                     artist.innerHTML = '';
+
+                    let genre = document.getElementById("albumGenreDiv");
+                    genre.innerHTML = '';
+
+
                     //artist.innerHTML = "Created by: " + albumData["artist"]["name"];
-                    artist.insertAdjacentHTML("beforeend", '<a href="/artist.html?id=' +albumData["artist"]["id"] + '"><p id="artistName">' + albumData["artist"]["name"] + '</p></a>');
+                    artist.insertAdjacentHTML("beforeend", '<a href="/artist.html?id=' +albumData["artist"]["id"] + '"><p id="artistName"> Artist: ' + albumData["artist"]["name"] + '</p></a>');
                     title.insertAdjacentHTML("beforeend", albumData["name"]);
+                    genre.insertAdjacentHTML("beforeend", '<a href="/genre.html?id=' +albumData["genre"]["id"] + '"><p id="albumGenre"> Genre: ' + albumData["genre"]["name"] + '</p></a>');
 
                     let trackList = albumData["tracks"];
                     let table = document.getElementById("table")
