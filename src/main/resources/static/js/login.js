@@ -94,7 +94,7 @@ function login(username){
                 let date = new Date();
                 date.setTime(date.getTime() + (1*24*60*60*1000));
                 let expires = "expires="+ date.toUTCString();
-                document.cookie = "userid=" + "=" + data.id + ";" + expires;
+                document.cookie = "userid=" + data.id + ";" + expires;
             }
                
             });
