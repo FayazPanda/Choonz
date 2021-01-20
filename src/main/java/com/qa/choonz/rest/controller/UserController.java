@@ -28,10 +28,11 @@ public class UserController {
         return new ResponseEntity<UserDTO>(this.service.create(user), HttpStatus.CREATED);
     }
 
-    @PostMapping("/login")
-    public ResponseEntity<Boolean> login(@RequestBody User user) {
+    @GetMapping("/login/{username}/{password}")
+    @ResponseBody
+    public ResponseEntity<Boolean> login(@PathVariable String username,@PathVariable String password ) {
 
-        return new ResponseEntity<Boolean>(this.service.login(user), HttpStatus.OK);
+        return new ResponseEntity<Boolean>(this.service.login(username, password), HttpStatus.OK);
 
     }
     

@@ -14,11 +14,10 @@ document
     "password":password
 
   }
-  // Send to create function
-  checkLogin(data); 
 
-  // Send to createItem with params
-  //window.location.replace("album.html?id="+trackData.album.id);
+  checkLogin(username,password); 
+  window.location.replace("index.html");
+
 
 });
 
@@ -43,27 +42,35 @@ document
       }
       // Send to create function
       register(data); 
-    
-      // Send to createItem with params
-      //window.location.replace("album.html?id="+trackData.album.id);
+
+      window.location.replace("index.html");
     
   }
   
 });
-
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+const username = urlParams.get('username');
+const password = urlParams.get('password');
 // Checks if login details work
-function checkLogin(dataIn){
-    fetch("http://localhost:8082/users/login", {
-        method: 'post',
-        headers: {
-          "Content-type": "application/json; charset=UTF-8"
-        },
-        body:JSON.stringify(dataIn)
-      })
-      .then(function (data) {
+function checkLogin(username,password){
+    fetch("http://localhost:8082/users/login/"+username+"/"+password)
+      .then(function (response) {
+        if (response.status !== 200) {
+            console.log('Looks like there was a problem. Status Code: ' +
+                response.status);
+            return;
+        }
+        response.json().then(function (data) {
           // Logs in and adds cookie
-          login(dataIn.username)
+          if(data==true){
+            login(username)
             console.log('Success! Response: ', data.body);
+          }
+        
+               
+            });
+
       })
       .catch(function (error) {
         console.log('Failed! Response: ', error);
@@ -83,11 +90,13 @@ function login(username){
 
             // Examine the text in the response
             response.json().then(function (data) {
-
+            if(data.id>0){
                 let date = new Date();
                 date.setTime(date.getTime() + (1*24*60*60*1000));
                 let expires = "expires="+ date.toUTCString();
                 document.cookie = "userid=" + "=" + data.id + ";" + expires;
+            }
+               
             });
         }
     )
@@ -108,7 +117,7 @@ function register(dataIn){
       })
       .then(function (data) {
          // console.log(data);
-          checkLogin(dataIn)
+          checkLogin(dataIn.username, dataIn.password)
        
       //console.log(dataIn)
           
