@@ -64,20 +64,24 @@ public class UserService {
         return this.mapToDTO(found);
     }
     // Takes in user with password, returns true if password is correct, false if not
-    public Boolean login(User user) {
+    public Boolean login(String username, String password) {
     	// Get the user from system to check against
-        UserDTO found = find(user.getUsername());
+        UserDTO found = find(username);
         Boolean foundBool = false;
 
-        // Checks inputted password against system
-        if (BCrypt.checkpw(user.getPassword(), found.getPassword())) {
-            System.out.println("It matches");
-        	foundBool = true;
+        if(found.getUsername()!=null) {
+        	 // Checks inputted password against system
+            if (BCrypt.checkpw(password, found.getPassword())) {
+                System.out.println("It matches");
+            	foundBool = true;
+            }
+            else {
+                System.out.println("It does not match");
+                foundBool = false;
+            }
         }
-        else {
-            System.out.println("It does not match");
-            foundBool = false;
-        }
+
+       
         // Returns true if password matches, false if not
         return foundBool;
     }

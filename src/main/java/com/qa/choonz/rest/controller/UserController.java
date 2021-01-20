@@ -28,13 +28,18 @@ public class UserController {
         return new ResponseEntity<UserDTO>(this.service.create(user), HttpStatus.CREATED);
     }
 
-    @PostMapping("/login")
-    public ResponseEntity<Boolean> login(@RequestBody User user) {
+    @GetMapping("/login/{username}/{password}")
+    @ResponseBody
+    public ResponseEntity<Boolean> login(@PathVariable String username,@PathVariable String password ) {
 
-        return new ResponseEntity<Boolean>(this.service.login(user), HttpStatus.OK);
+        return new ResponseEntity<Boolean>(this.service.login(username, password), HttpStatus.OK);
 
     }
-
+    
+    @GetMapping("/find/{username}")
+    public ResponseEntity<UserDTO> login(@PathVariable String username) {
+        return new ResponseEntity<UserDTO>(this.service.find(username), HttpStatus.OK);
+    }
     @GetMapping("/read")
     public ResponseEntity<List<UserDTO>> read() {
         return new ResponseEntity<List<UserDTO>>(this.service.read(), HttpStatus.OK);
