@@ -1,4 +1,4 @@
-function getArtist(id) {
+function getGenre(id) {
     fetch('http://localhost:8082/artists/read/' + id)
         .then(
             function (response) {
@@ -42,4 +42,4 @@ const urlParams = new URLSearchParams(queryString);
 const id = urlParams.get('id');
 console.log(id);
 
-getArtist(id);
+getGenre(id);

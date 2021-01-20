@@ -1,0 +1,55 @@
+a:hover {
+    text-decoration: none;
+}
+
+.card {
+    max-width: 300px;
+    margin: 20px;
+}
+
+.albumCover {
+    max-width: 220px;
+    max-height: 220px;
+    margin: 20px;
+}
+
+.wrapper div:first-child {
+    display: flex;
+    align-items: center;
+}
+
+h1, h4, p {
+    padding: 10px;
+    overflow: hidden;
+}
+
+.wrapper img {
+    margin: 50px 5px 50px 50px;
+}
+
+.wrapper a {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    border-top-style: solid;
+    border-top-color: #3273FF;
+    border-width: thin;
+    margin: 0 20px 0 20px;
+    transition: 0.3s;
+}
+
+.wrapper a:hover {
+    background: #19191a;
+}
+
+.header {
+    font-weight: bold;
+    font-size: 18px;
+    cursor: default;
+}
+
+.wrapper a:last-child {
+    border-bottom-style: solid;
+    border-bottom-color: #3273FF;
+    margin-bottom: 50px;
+}
+
