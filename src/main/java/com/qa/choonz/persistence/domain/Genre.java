@@ -7,8 +7,12 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -30,7 +34,10 @@ public class Genre {
     @Column(unique = true)
     private String description;
     
-
+    @JsonManagedReference
+    @OneToMany(mappedBy = "genre", fetch = FetchType.LAZY)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private List<Album> albums = new ArrayList<>();
 
     public Genre(long id, @NotNull @Size(max = 100) String name, @NotNull @Size(max = 250) String description) {
         super();
