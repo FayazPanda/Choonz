@@ -39,6 +39,13 @@ public class Genre {
     @OnDelete(action = OnDeleteAction.CASCADE)
     private List<Album> albums = new ArrayList<>();
 
+    public Genre( @NotNull @Size(max = 100) String name, @NotNull @Size(max = 250) String description) {
+        super();
+        this.name = name;
+        this.description = description;
+
+    }
+
     public Genre(long id, @NotNull @Size(max = 100) String name, @NotNull @Size(max = 250) String description) {
         super();
         this.id = id;

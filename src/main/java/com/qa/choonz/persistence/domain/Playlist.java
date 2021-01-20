@@ -39,37 +39,22 @@ public class Playlist {
     @JsonBackReference
     @ManyToOne
     private User user;
-    
-    public Playlist(long id, @NotNull @Size(max = 100) String name, @NotNull @Size(max = 500) String description,
-                    @NotNull @Size(max = 1000) String artwork, List<Track> tracks) {
+
+    public Playlist(@NotNull @Size(max = 100) String name, @NotNull @Size(max = 500) String description, @NotNull @Size(max = 1000) String artwork, @NotNull User user) {
+        super();
+        this.name = name;
+        this.description = description;
+        this.artwork = artwork;
+        this.user = user;
+    }
+
+    public Playlist(long id, @NotNull @Size(max = 100) String name, @NotNull @Size(max = 500) String description, @NotNull @Size(max = 1000) String artwork, @NotNull User user) {
         super();
         this.id = id;
         this.name = name;
         this.description = description;
         this.artwork = artwork;
-        this.tracks = tracks;
+        this.user = user;
     }
 
-	public Playlist(long id, @NotNull @Size(max = 100) String name, @NotNull @Size(max = 500) String description,
-			@NotNull @Size(max = 1000) String artwork, List<Track> tracks, @NotNull User user) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.description = description;
-		this.artwork = artwork;
-		this.tracks = tracks;
-		this.user = user;
-	}
-
-	public Playlist(long id, @NotNull @Size(max = 100) String name, @NotNull @Size(max = 500) String description,
-			@NotNull @Size(max = 1000) String artwork, @NotNull User user) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.description = description;
-		this.artwork = artwork;
-		this.user = user;
-	}
-
-	
 }

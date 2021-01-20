@@ -33,25 +33,21 @@ public class Track {
 
     private String lyrics;
 
-	public Track(@NotNull @Size(max = 100) String name, Album album, int duration,
-			String lyrics) {
-		super();
-		this.name = name;
+	public Track(@NotNull @Size(max = 100) String name, Album album, int duration, String lyrics) {
+        super();
+	    this.name = name;
 		this.album = album;
 		this.duration = duration;
 		this.lyrics = lyrics;
 	}
 
-	public Track(long id, @NotNull @Size(max = 100) String name, Album album, int duration,
-			String lyrics) {
-		super();
-		this.id = id;
+	public Track(long id, @NotNull @Size(max = 100) String name, Album album, int duration, String lyrics) {
+        super();
+	    this.id = id;
 		this.name = name;
 		this.album = album;
 		this.duration = duration;
 		this.lyrics = lyrics;
 	}
-
-  
 
 }
