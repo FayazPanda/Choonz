@@ -65,18 +65,18 @@ function getArtist(id){
                 trackAlbum.append(albumData.name + " - " +albumData.genre.name);
 
                 document
-                .querySelector("#trackAlbum")
+                .querySelector("#linkAlbum")
                 .addEventListener("click", function (stop) {
                   stop.preventDefault();
-                 
+                 //console.log("hi "+ albumData.id)
                   // Send to createItem with params
-                  window.location.replace("album.html?id="+albumData.album.id);
+                  window.location.replace("album.html?id="+albumData.id);
               
                 });
 
                 trackArtist.append(albumData.artist.name);
                 document
-                .querySelector("#trackArtist")
+                .querySelector("#linkArtist")
                 .addEventListener("click", function (stop) {
                   stop.preventDefault();
                  
