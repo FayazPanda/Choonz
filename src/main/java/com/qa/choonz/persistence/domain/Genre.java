@@ -34,7 +34,7 @@ public class Genre {
     @Column(unique = true)
     private String description;
     
-    @JsonManagedReference
+    @JsonManagedReference(value = "albumGenre")
     @OneToMany(mappedBy = "genre", fetch = FetchType.LAZY)
     @OnDelete(action = OnDeleteAction.CASCADE)
     private List<Album> albums = new ArrayList<>();

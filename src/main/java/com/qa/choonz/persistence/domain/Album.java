@@ -36,7 +36,7 @@ public class Album {
     @ManyToOne(targetEntity = Artist.class)
     private Artist artist;
     
-    @JsonBackReference
+    @JsonBackReference(value = "albumGenre")
     @ManyToOne
     private Genre genre;
 
