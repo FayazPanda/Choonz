@@ -10,33 +10,20 @@ function getAlbum(id) {
 
                 // Examine the text in the response
                 response.json().then(function (trackData) {
-                    console.log(trackData)
-                //    console.log(trackData.album.genre.name)
+                    //console.log(trackData)
+
                     let title = document.getElementById("trackName");
-                   // let th = document.getElementById("trackid");
+
                     let trackDuration = document.getElementById("trackDuration");
                   
                     let trackLyrics = document.getElementById("trackLyrics");
 
                  title.append(trackData.name);
-                // th.append(trackData.id.toString());
-
-                 
-
-
-/*                  if(seconds==0){
-                     seconds= seconds.toString()+ "0";
-                 } */
 
                  trackDuration.append(duration(trackData.duration));
                  
                  getArtist(trackData.album.id);
 
-
-                
-
-                 
-               //  trackArtist.append(trackData.album.artist.name);
                  trackLyrics.append(trackData.lyrics);
                 });
             }
@@ -46,7 +33,7 @@ function getAlbum(id) {
         });
 }
 
-function getArtist(id){
+function getArtist(id){ 
     fetch('http://localhost:8082/albums/read/' + id)
     .then(
         function (response) {
@@ -58,32 +45,18 @@ function getArtist(id){
 
             // Examine the text in the response
             response.json().then(function (albumData) {
-               // let trackGenre = document.getElementById("trackGenre");
-                let trackAlbum = document.getElementById("trackAlbum");
-                let trackArtist = document.getElementById("trackArtist");
-                //trackGenre.append(albumData.album.genre.name);
-                trackAlbum.append(albumData.name + " - " +albumData.genre.name);
+                console.log(albumData)
 
-                document
-                .querySelector("#linkAlbum")
-                .addEventListener("click", function (stop) {
-                  stop.preventDefault();
-                 //console.log("hi "+ albumData.id)
-                  // Send to createItem with params
-                  window.location.replace("album.html?id="+albumData.id);
-              
-                });
+                let trackAlbum = document.getElementById("linkAlbumDiv");
+                let trackArtist = document.getElementById("linkArtistDiv");
 
-                trackArtist.append(albumData.artist.name);
-                document
-                .querySelector("#linkArtist")
-                .addEventListener("click", function (stop) {
-                  stop.preventDefault();
-                 
-                  // Send to createItem with params
-                  window.location.replace("artist.html?id="+albumData.artist.id);
-              
-                });
+                //trackAlbum.append(albumData.name + " - " +albumData.genre.name);
+                trackAlbum.insertAdjacentHTML("beforeend", '<a id="linkAlbum" href="album.html?id='+albumData.id+'"><h3 id="trackAlbum">'+albumData.name+'</h3></a>');
+                trackAlbum.insertAdjacentHTML("beforeend", '<h3 id="dash">-</h3>');
+                trackAlbum.insertAdjacentHTML("beforeend", '<a id="linkGenre" href="genre.html?id='+albumData.genre.id+'"><h3 id="trackGenre">'+albumData.genre.name+'</h3></a>');
+
+                trackArtist.insertAdjacentHTML("beforeend", '<a id="linkArtist" href="artist.html?id='+ albumData.artist.id +'"><p id="trackArtist">'+ albumData.artist.name +'</p></a>');
+
             });
         }
     )
