@@ -8,7 +8,6 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import java.util.List;
 
@@ -36,7 +35,7 @@ public class Playlist {
     @Column(unique = true)
     private String artwork;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY)
     private List<Track> tracks;
 
     @NotNull
