@@ -11,17 +11,15 @@ function getAlbum(id) {
                 // Examine the text in the response
                 response.json().then(function (trackData) {
                     console.log(trackData)
-                    console.log(trackData.album.genre.name)
+                //    console.log(trackData.album.genre.name)
                     let title = document.getElementById("trackName");
-                    let th = document.getElementById("trackid");
+                   // let th = document.getElementById("trackid");
                     let trackDuration = document.getElementById("trackDuration");
-                    let trackGenre = document.getElementById("trackGenre");
-                    let trackAlbum = document.getElementById("trackAlbum");
-                    let trackArtist = document.getElementById("trackArtist");
+                  
                     let trackLyrics = document.getElementById("trackLyrics");
 
                  title.append(trackData.name);
-                 th.append(trackData.id.toString());
+                // th.append(trackData.id.toString());
 
                  
 
@@ -31,21 +29,13 @@ function getAlbum(id) {
                  } */
 
                  trackDuration.append(duration(trackData.duration));
-                 trackGenre.append(trackData.album.genre.name);
-                 trackAlbum.append(trackData.album.name);
-
-                 document
-                 .querySelector("#trackAlbum")
-                 .addEventListener("click", function (stop) {
-                   stop.preventDefault();
-                  
-                   // Send to createItem with params
-                   window.location.replace("album.html?id="+trackData.album.id);
-               
-                 });
-
-
+                 
                  getArtist(trackData.album.id);
+
+
+                
+
+                 
                //  trackArtist.append(trackData.album.artist.name);
                  trackLyrics.append(trackData.lyrics);
                 });
@@ -68,9 +58,25 @@ function getArtist(id){
 
             // Examine the text in the response
             response.json().then(function (albumData) {
+               // let trackGenre = document.getElementById("trackGenre");
+                let trackAlbum = document.getElementById("trackAlbum");
+                let trackArtist = document.getElementById("trackArtist");
+                //trackGenre.append(albumData.album.genre.name);
+                trackAlbum.append(albumData.name + " - " +albumData.genre.name);
+
+                document
+                .querySelector("#linkAlbum")
+                .addEventListener("click", function (stop) {
+                  stop.preventDefault();
+                 //console.log("hi "+ albumData.id)
+                  // Send to createItem with params
+                  window.location.replace("album.html?id="+albumData.id);
+              
+                });
+
                 trackArtist.append(albumData.artist.name);
                 document
-                .querySelector("#trackArtist")
+                .querySelector("#linkArtist")
                 .addEventListener("click", function (stop) {
                   stop.preventDefault();
                  
