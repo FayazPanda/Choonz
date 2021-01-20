@@ -19,3 +19,17 @@ h2{
     padding: 1em;
     margin-left: 100px;
 }
+
+#linkAlbumDiv {
+    display: flex;
+}
+
+#trackGenre {
+    margin: 0;
+    padding: 10px 0;
+}
+
+#dash {
+    padding: 10px;
+    margin: 0;
+}
