@@ -39,25 +39,25 @@
     <div class="wrapper">
         <div>
             <h1>Login</h1>
-            <form>
-                <input name="log-username" placeholder="Enter Username" type="text">
-                <input name="log-password" placeholder="Enter Password" type="password">
-                <button>Login</button>
+            <form class="logInForm" method="post">
+                <input id="logInName" name="log-username" placeholder="Enter Username" type="text">
+                <input id="logInPassword" name="log-password" placeholder="Enter Password" type="password">
+                <button type="" id="logInButton">Login</button>
             </form>
         </div>
         <div>
             <h1>Register</h1>
-            <form>
-                <input class="idk" name="log-username" placeholder="Enter Username" type="text">
-                <input name="sign-password" placeholder="Password" type="password">
-                <input name="sign-password-repeat" placeholder="Password" type="password">
-                <button>Login</button>
+            <form class="signUpForm" method="post">
+                <input id="signUpName" class="idk" name="log-username" placeholder="Enter Username" type="text">
+                <input id="signUpPassword1" name="sign-password" placeholder="Password" type="password">
+                <input id="signUpPassword2" name="sign-password-repeat" placeholder="Password" type="password">
+                <button id="registerButton">Register</button>
             </form>
         </div>
     </div>
 </main>
 
-
+<script src="js/login.js"></script>
 <script crossorigin="anonymous"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -67,5 +67,6 @@
 <script crossorigin="anonymous"
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
 </body>
 </html>

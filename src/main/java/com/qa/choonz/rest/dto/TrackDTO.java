@@ -11,7 +11,6 @@ public class TrackDTO {
 
     private Long id;
     private String name;
-    private Playlist playlist;
     private int duration;
     private String lyrics;
     private Album album;

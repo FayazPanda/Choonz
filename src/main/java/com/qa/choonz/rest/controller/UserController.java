@@ -34,7 +34,11 @@ public class UserController {
         return new ResponseEntity<Boolean>(this.service.login(user), HttpStatus.OK);
 
     }
-
+    
+    @GetMapping("/find/{username}")
+    public ResponseEntity<UserDTO> login(@PathVariable String username) {
+        return new ResponseEntity<UserDTO>(this.service.find(username), HttpStatus.OK);
+    }
     @GetMapping("/read")
     public ResponseEntity<List<UserDTO>> read() {
         return new ResponseEntity<List<UserDTO>>(this.service.read(), HttpStatus.OK);
