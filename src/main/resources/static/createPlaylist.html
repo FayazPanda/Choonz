@@ -43,12 +43,15 @@
             <form class="playlistForm" method="post">
                 <input id="name" name="name" placeholder="Enter playlist name" type="text">
                 <input id="desc" name="desc" placeholder="Enter description" type="text">
-                <input id="logInPassword" name="log-password" placeholder="Enter Password" type="password">
-                <button type="" id="logInButton">Login</button>
+                <input id="art" name="art" placeholder="Enter art url" type="text">
+                <input id="user" name="user" type="text" disabled>
+                <button type="" id="createPlaylist">Create</button>
             </form>
         </div>
     </div>
 </main>
+<script src="js/readCookie.js"></script>
+<script src="js/create_playlist.js"></script>
 <script crossorigin="anonymous"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
