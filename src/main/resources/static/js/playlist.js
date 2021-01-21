@@ -17,6 +17,9 @@ function getPlaylist(id) {
                     let description = document.getElementById("description");
                     description.innerHTML = '';
 
+                    let artwork = document.getElementById("playlistCover");
+                    artwork.src = playlistData["artwork"]
+
                     let user = document.getElementById("userNameDiv");
                     user.innerHTML = '';
                     //artist.innerHTML = "Created by: " + albumData["artist"]["name"];

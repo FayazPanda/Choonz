@@ -49,6 +49,8 @@ function getArtist(id){
 
                 let trackAlbum = document.getElementById("linkAlbumDiv");
                 let trackArtist = document.getElementById("linkArtistDiv");
+                let albumCover = document.getElementById("albumCover");
+                albumCover.src = albumData["cover"]
 
                 //trackAlbum.append(albumData.name + " - " +albumData.genre.name);
                 trackAlbum.insertAdjacentHTML("beforeend", '<a id="linkAlbum" href="album.html?id='+albumData.id+'"><h3 id="trackAlbum">'+albumData.name+'</h3></a>');

@@ -11,7 +11,7 @@ a:hover {
     margin: 20px;
 }
 
-.albumCover {
+#albumCover {
     max-width: 220px;
     max-height: 220px;
     margin: 20px;

@@ -20,6 +20,8 @@ function getAlbum(id) {
                     let genre = document.getElementById("albumGenreDiv");
                     genre.innerHTML = '';
 
+                    let albumCover = document.getElementById("albumCover");
+                    albumCover.src = albumData["cover"];
 
                     //artist.innerHTML = "Created by: " + albumData["artist"]["name"];
                     artist.insertAdjacentHTML("beforeend", '<a href="/artist.html?id=' +albumData["artist"]["id"] + '"><p id="artistName"> Artist: ' + albumData["artist"]["name"] + '</p></a>');

@@ -33,3 +33,9 @@ h2{
     padding: 10px;
     margin: 0;
 }
+
+#albumCover {
+    max-width: 220px;
+    max-height: 220px;
+    margin: 20px;
+}

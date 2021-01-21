@@ -20,7 +20,7 @@ function getPopAlbums() {
                         console.log(i);
                         if(i < 5){
                             console.log(albumData[i]);
-                            gallery.insertAdjacentHTML("beforeend", albumCard(albumData[i]["id"],albumData[i]["name"], albumData[i]["artist"]["name"]));
+                            gallery.insertAdjacentHTML("beforeend", albumCard(albumData[i]["id"],albumData[i]["name"], albumData[i]["artist"]["name"], albumData[i]["cover"]));
                         }
                         else{
                             break
@@ -56,7 +56,7 @@ function getPopPlaylist() {
                         console.log(i);
                         if(i < 5){
                             console.log(playlistData[i]);
-                            gallery.insertAdjacentHTML("beforeend", playlistCard(playlistData[i]["id"],playlistData[i]["name"], playlistData[i]["user"]["username"]));
+                            gallery.insertAdjacentHTML("beforeend", playlistCard(playlistData[i]["id"],playlistData[i]["name"], playlistData[i]["user"]["username"], playlistData[i]["artwork"]));
                         }
                         else{
                             break
@@ -70,20 +70,20 @@ function getPopPlaylist() {
         });
 }
 
-function albumCard(id, title, artist) {
+function albumCard(id, title, artist, cover) {
     return '<div class="tile">\
     <a href="/album.html?id='+id+'">\
-    <img src="img/album/alterbridge.png">\
+    <img id="cover" src="'+cover+'">\
     <h3>'+title+'</h3>\
     <p>By: '+artist+'</p>\
     </a>\
 </div>'
 }
 
-function playlistCard(id, title, artist) {
+function playlistCard(id, title, artist, cover) {
     return '<div class="tile">\
     <a href="/playlist.html?id='+id+'">\
-    <img src="img/album/alterbridge.png">\
+    <img id="cover" src="'+cover+'">\
     <h3>'+title+'</h3>\
     <p>By: '+artist+'</p>\
     </a>\
