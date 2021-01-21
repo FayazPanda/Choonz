@@ -7,4 +7,35 @@ function userId(){
   .split('=')[1];
   return userID;
 }
+
+function username(){
+  let username=cookie
+ .split('; ')
+ .find(row => row.startsWith('name'))
+ .split('=')[1];
+ return username;
+}
+
+function loginCheck(){
+  let userID = userId();
+
+  let loggedIn = document.getElementById("logInVisibility");
+  let loggedOut = document.getElementById("logInVisibilty2");
+  let welcomeMesssage = document.getElementById("welcomeMessage");
+
+  if(userID >0){
+    loggedIn.style.visibility="visible";
+    loggedIn.style.display="block";
+    loggedOut.style.visibility="hidden";
+    loggedOut.style.display="none";
+    welcomeMessage.append(" "+username());
+  }
+  else{
+    loggedOut.style.visibility="hidden";
+    loggedOut.style.display="none";
+    loggedIn.style.visibility="visible";
+    loggedIn.style.display="block";
+  }
+}
+loginCheck();
 console.log(cookie);
