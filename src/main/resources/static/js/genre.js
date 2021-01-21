@@ -21,7 +21,8 @@ function getGenre(id) {
                     description.innerHTML = "Description: " + genreData["description"]
 
                     for (let album of genreData["albums"]) {
-                        gallery.insertAdjacentHTML("beforeend", albumCard(album["id"], album["name"], getAlbumArtist(album.id)));
+                        gallery.insertAdjacentHTML("beforeend", albumCard(album["id"], album["name"], album["cover"]));
+                        getAlbumArtist(album.id)
                     }
                 });
             }
@@ -52,10 +53,10 @@ function getAlbumArtist(id) {
         });
 }
 
-function albumCard(id, title) {
+function albumCard(id, title, cover) {
     return '<div class="tile">\
     <a href="/album.html?id='+id+'">\
-    <img src="img/album/alterbridge.png">\
+    <img id="albumCover" src="'+cover+'">\
     <h3>'+title+'</h3>\
     <p id='+id+'>By:</p>\
     </a>\
