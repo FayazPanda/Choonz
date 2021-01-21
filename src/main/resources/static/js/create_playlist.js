@@ -1,5 +1,6 @@
 const cookieValue = userId();
-
+let formElements = document.querySelector("form.playlistForm").elements;
+formElements["user"].value=cookieValue;
 // Creates a user
 document
 .querySelector("form.playlistForm")
@@ -25,8 +26,9 @@ document
   }
 
   create(data); 
-  console.log(data);
-  //window.location.replace("index.html");
+  //console.log(data);
+
+  //window.location.replace("playlist.html?id=");
 
 
 });
@@ -45,7 +47,7 @@ function create(dataIn){
        
       //console.log(dataIn)
           
-        console.log('Success! Response: ', data.body);
+        console.log('Success! Response: ', data);
       })
       .catch(function (error) {
         console.log('Failed! Response: ', error);

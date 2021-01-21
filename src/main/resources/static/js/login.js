@@ -1,3 +1,4 @@
+document.cookie = "userid=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 
 document
 .querySelector("form.logInForm")
@@ -16,7 +17,7 @@ document
   }
 
   checkLogin(username,password); 
-  window.location.replace("index.html");
+
 
 
 });
@@ -48,10 +49,7 @@ document
   }
   
 });
-const queryString = window.location.search;
-const urlParams = new URLSearchParams(queryString);
-const username = urlParams.get('username');
-const password = urlParams.get('password');
+
 // Checks if login details work
 function checkLogin(username,password){
     fetch("http://localhost:8082/users/login/"+username+"/"+password)
@@ -95,6 +93,7 @@ function login(username){
                 date.setTime(date.getTime() + (1*24*60*60*1000));
                 let expires = "expires="+ date.toUTCString();
                 document.cookie = "userid=" + data.id + ";" + expires;
+                window.location.replace("index.html");
             }
                
             });
