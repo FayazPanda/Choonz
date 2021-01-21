@@ -71,16 +71,23 @@
     <br>
     <br>   
     <div class="wrapper">
-        <div>
+        <div class="row justify-content-center">
+        <div class="form-group col-4">
             <h1>Create Playlist</h1>
             <form class="playlistForm" method="post">
-                <input id="name" name="name" placeholder="Enter playlist name" type="text">
-                <input id="desc" name="desc" placeholder="Enter description" type="text">
-                <input id="art" name="art" placeholder="Enter art url" type="text">
-                <input id="user" name="user" type="text" disabled>
-                <button type="" id="createPlaylist">Create</button>
+                <input id="name" class="form-control" name="name" placeholder="Enter playlist name" type="text">
+                <br>
+                <input id="desc" name="desc" class="form-control"placeholder="Enter description" type="text">
+                <br>
+                <input id="art" name="art" class="form-control"placeholder="Enter art url" type="text">
+                <br>
+                <label for="user" style="color:rgb(180, 180, 180);">User ID:</label>
+                <input id="user" name="user" class="form-control"type="text" disabled>
+                <br>
+                <button type=""class="btn btn-primary" id="createPlaylist">Create</button>
             </form>
         </div>
+    </div>
     </div>
 </main>
 <script src="js/readCookie.js"></script>
