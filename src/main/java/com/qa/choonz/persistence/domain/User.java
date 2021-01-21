@@ -30,6 +30,13 @@ public class User {
     @NotNull
     private String password;
 
+    public User(String username, String password) {
+        super();
+        this.id = id;
+        this.username = username;
+        this.password = password;
+    }
+
     public User(long id, String username, String password) {
         super();
         this.id = id;

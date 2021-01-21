@@ -22,7 +22,7 @@ VALUES  ('Alone in the Dark',2,4,'https://d1csarkz8obe9u.cloudfront.net/posterpr
         ('Bright day outside',1,1,'https://img.apmcdn.org/4f25ecdbbd7af5fed833153302515a94c990de11/square/7aacc5-20130508-favorite-album-covers.jpg'),
         ('Can you hear the music',1,3,'https://glide-assets-media.s3.amazonaws.com/wp-content/uploads/2013/10/21170759/Queen-The-Miracle.jpg'),
         ('Did you know?',3,1,'https://i.pinimg.com/originals/3a/f0/e5/3af0e55ea66ea69e35145fb108b4a636.jpg'),
-        ('E',1,1, 'https://i.pinimg.com/originals/c5/30/52/c53052a1bfbd92bcd48b63389d5de8bf.jpg');
+        ('E',1,1, 'https://i.kym-cdn.com/photos/images/newsfeed/001/365/818/183.jpg');
 
 INSERT INTO playlist (artwork,description,name,user_id)
 VALUES  ('https://cms-assets.tutsplus.com/uploads/users/114/posts/34296/image/Final-image.jpg','when you go on one of those cheese binges','aardvarks',1),

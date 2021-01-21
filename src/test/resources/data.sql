@@ -17,19 +17,19 @@ VALUES  ('test','$2a$10$U7fFuQzETf8RxNgoYuHqQ.j5eybKjBc0.Fxo8DK3UwnfkGdYFk4qy'),
         ('dog','$2a$10$7aYV7xZrlbHt0L.w4qnnduBhYviB6it69lxUV6aTQtlOY4NeDvz.2');
 
 
-INSERT INTO album (name,artist_id,genre_id)
-VALUES  ('Alone in the Dark',2,4),
-        ('Bright day outside',1,1),
-        ('Can you hear the music',1,3),
-        ('Did you know?',3,1),
-        ('E',1,1);
+INSERT INTO album (name,artist_id,genre_id, cover)
+VALUES  ('Alone in the Dark',2,4,'https://d1csarkz8obe9u.cloudfront.net/posterpreviews/artistic-album-cover-design-template-d12ef0296af80b58363dc0deef077ecc_screen.jpg?ts=1561488440'),
+        ('Bright day outside',1,1,'https://img.apmcdn.org/4f25ecdbbd7af5fed833153302515a94c990de11/square/7aacc5-20130508-favorite-album-covers.jpg'),
+        ('Can you hear the music',1,3,'https://glide-assets-media.s3.amazonaws.com/wp-content/uploads/2013/10/21170759/Queen-The-Miracle.jpg'),
+        ('Did you know?',3,1,'https://i.pinimg.com/originals/3a/f0/e5/3af0e55ea66ea69e35145fb108b4a636.jpg'),
+        ('E',1,1, 'https://i.kym-cdn.com/photos/images/newsfeed/001/365/818/183.jpg');
 
 INSERT INTO playlist (artwork,description,name,user_id)
-VALUES  ('artwork','when you go on one of those cheese binges','aardvarks',1),
-        ('artwork2','just a barrel of juice','beetle joose',1),
-        ('artwork3','I lost the keys to my house playlist','canary opener',1),
-        ('artwork4','I saw this on facebook','dairy dialect',2),
-        ('artwork5','dont try this at homekids','equidistant parabolas',3);
+VALUES  ('https://cms-assets.tutsplus.com/uploads/users/114/posts/34296/image/Final-image.jpg','when you go on one of those cheese binges','aardvarks',1),
+        ('https://www.digitalartsonline.co.uk/cmsdata/slideshow/3776245/beck_-_hyperspace.jpg','just a barrel of juice','beetle joose',1),
+        ('https://www.digitalmusicnews.com/wp-content/uploads/2020/04/DaBaby-Blame-It-On-Baby.jpg','I lost the keys to my house playlist','canary opener',1),
+        ('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmDcpTFXJ_bv1dga9Bag1ryJ7xEY3ztLwAyg&usqp=CAU','I saw this on facebook','dairy dialect',2),
+        ('https://www.sleek-mag.com/wp-content/uploads/2016/08/AlbumCovers_Blonde.jpg','dont try this at homekids','equidistant parabolas',3);
 
 INSERT INTO track (duration,lyrics,name,album_id)
 VALUES  (3363,'Lorem Ipsum is simply dummy text of the printing and','Angsty Teen',1),

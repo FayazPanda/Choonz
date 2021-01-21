@@ -32,11 +32,11 @@ public class AlbumService {
         return this.mapToDTO(this.repo.save(album));
     }
 
-    public List<AlbumDTO> readAll() {
+    public List<AlbumDTO> read() {
         return this.repo.findAll().stream().map(this::mapToDTO).collect(Collectors.toList());
     }
 
-    public AlbumDTO readOne(Long id) {
+    public AlbumDTO read(Long id) {
         return this.mapToDTO(this.repo.findById(id).orElseThrow());
     }
 

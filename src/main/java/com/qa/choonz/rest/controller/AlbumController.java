@@ -30,12 +30,12 @@ public class AlbumController {
 
     @GetMapping("/read")
     public ResponseEntity<List<AlbumDTO>> read() {
-        return new ResponseEntity<List<AlbumDTO>>(this.service.readAll(), HttpStatus.OK);
+        return new ResponseEntity<List<AlbumDTO>>(this.service.read(), HttpStatus.OK);
     }
 
     @GetMapping("/read/{id}")
     public ResponseEntity<AlbumDTO> read(@PathVariable long id) {
-        return new ResponseEntity<AlbumDTO>(this.service.readOne(id), HttpStatus.OK);
+        return new ResponseEntity<AlbumDTO>(this.service.read(id), HttpStatus.OK);
     }
 
     @PostMapping("/update/{id}")
