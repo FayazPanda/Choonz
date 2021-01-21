@@ -6,6 +6,7 @@ import com.qa.choonz.service.GenreService;
 import org.junit.jupiter.api.Test;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.HttpStatus;
@@ -20,6 +21,7 @@ import static org.mockito.Mockito.*;
 
 @SpringBootTest
 @ActiveProfiles("dev")
+@AutoConfigureTestDatabase
 public class GenreControllerUnitTest {
 
     private final Genre TGENRE1 = new Genre("Pop", "coca cola, pepsi, fanta");

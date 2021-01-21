@@ -6,6 +6,7 @@ import com.qa.choonz.service.ArtistService;
 import org.junit.jupiter.api.Test;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.HttpStatus;
@@ -20,6 +21,7 @@ import static org.mockito.Mockito.*;
 
 @SpringBootTest
 @ActiveProfiles("dev")
+@AutoConfigureTestDatabase
 public class ArtistControllerUnitTest {
 
     private final Artist TARTIST1 = new Artist("Alice");

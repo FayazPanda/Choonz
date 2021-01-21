@@ -6,6 +6,7 @@ import com.qa.choonz.service.PlaylistService;
 import org.junit.jupiter.api.Test;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.HttpStatus;
@@ -20,6 +21,7 @@ import static org.mockito.Mockito.*;
 
 @SpringBootTest
 @ActiveProfiles("dev")
+@AutoConfigureTestDatabase
 public class PlaylistControllerUnitTest {
 
     private final Playlist TPLAYLIST1 = new Playlist("aardvarks","when you go on one of those cheese binges","https://cms-assets.tutsplus.com/uploads/users/114/posts/34296/image/Final-image.jpg");
