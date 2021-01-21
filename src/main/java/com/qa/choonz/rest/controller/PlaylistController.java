@@ -1,10 +1,16 @@
 package com.qa.choonz.rest.controller;
 
 import com.qa.choonz.persistence.domain.Playlist;
+import com.qa.choonz.persistence.domain.Track;
 import com.qa.choonz.persistence.domain.User;
+import com.qa.choonz.persistence.repository.PlaylistRepository;
+import com.qa.choonz.persistence.repository.TrackRepository;
 import com.qa.choonz.rest.dto.PlaylistDTO;
 import com.qa.choonz.service.PlaylistService;
+import com.sipios.springsearch.anotation.SearchSpec;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,12 +22,13 @@ import java.util.List;
 @CrossOrigin
 public class PlaylistController {
 
-
+	private final PlaylistRepository playlistRepository;
     private final PlaylistService service;
 
     @Autowired
-    public PlaylistController(PlaylistService service) {
+    public PlaylistController(PlaylistService service,PlaylistRepository playlistRepository) {
         super();
+        this.playlistRepository = playlistRepository;
         this.service = service;
     }
 
@@ -54,6 +61,11 @@ public class PlaylistController {
     public ResponseEntity<PlaylistDTO> delete(@PathVariable long id) {
         return this.service.delete(id) ? new ResponseEntity<PlaylistDTO>(HttpStatus.NO_CONTENT)
                 : new ResponseEntity<PlaylistDTO>(HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+    
+    @GetMapping("/search")
+    public ResponseEntity<List<Playlist>> searchForPlaylists(@SearchSpec Specification<Playlist> specs) {
+        return new ResponseEntity<>(playlistRepository.findAll(Specification.where(specs)), HttpStatus.OK);
     }
 
 }

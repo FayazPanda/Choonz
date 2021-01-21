@@ -1,9 +1,15 @@
 package com.qa.choonz.rest.controller;
 
 import com.qa.choonz.persistence.domain.Album;
+import com.qa.choonz.persistence.domain.Artist;
+import com.qa.choonz.persistence.repository.AlbumRepository;
+import com.qa.choonz.persistence.repository.ArtistRepository;
 import com.qa.choonz.rest.dto.AlbumDTO;
 import com.qa.choonz.service.AlbumService;
+import com.sipios.springsearch.anotation.SearchSpec;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,12 +20,14 @@ import java.util.List;
 @RequestMapping("/albums")
 @CrossOrigin
 public class AlbumController {
-
+	
+	private final AlbumRepository albumRepository;
     private final AlbumService service;
 
     @Autowired
-    public AlbumController(AlbumService service) {
+    public AlbumController(AlbumService service, AlbumRepository albumRepository) {
         super();
+        this.albumRepository = albumRepository;
         this.service = service;
     }
 
@@ -47,6 +55,11 @@ public class AlbumController {
     public ResponseEntity<AlbumDTO> delete(@PathVariable long id) {
         return this.service.delete(id) ? new ResponseEntity<AlbumDTO>(HttpStatus.NO_CONTENT)
                 : new ResponseEntity<AlbumDTO>(HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+    
+    @GetMapping("/search")
+    public ResponseEntity<List<Album>> searchForAlbums(@SearchSpec Specification<Album> specs) {
+        return new ResponseEntity<>(albumRepository.findAll(Specification.where(specs)), HttpStatus.OK);
     }
 
 }
