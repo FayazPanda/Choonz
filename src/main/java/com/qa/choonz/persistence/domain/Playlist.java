@@ -34,8 +34,8 @@ public class Playlist {
     @Size(max = 1000)
     private String artwork;
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    @OnDelete(action = OnDeleteAction.NO_ACTION)
+    @JsonBackReference(value = "playlist")
+    @OneToMany(mappedBy = "playlist", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Track> tracks;
 
     @NotNull

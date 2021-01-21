@@ -10,6 +10,9 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -27,6 +30,9 @@ public class Track {
     @JsonBackReference
     @ManyToOne(targetEntity = Album.class)
     private Album album;
+    
+    @ManyToOne
+    private Playlist playlist;
 
     // in seconds
     private int duration;
