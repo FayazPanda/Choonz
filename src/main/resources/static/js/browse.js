@@ -26,7 +26,7 @@ function getGenre() {
         });
 }
 
-function card(id, title, artist, cover) {
+function card(id, title) {
     return '<div class="tile">\
     <a href="/genre.html?id='+id+'">\
     <h3>'+title+'</h3>\
@@ -73,6 +73,42 @@ function albumCard(id, title, artist, cover) {
     </a>\
 </div>'
 }
+
+function getArtist() {
+    fetch('http://localhost:8082/artists/read')
+        .then(
+            function (response) {
+                if (response.status !== 200) {
+                    console.log('Looks like there was a problem. Status Code: ' +
+                        response.status);
+                    return;
+                }
+                // Examine the text in the response
+                response.json().then(function (data) {
+                    console.log(data)
+                    let name = document.getElementById("name");
+                    name.append("Artists");
+                    let gallery = document.getElementById("all");
+                    gallery.innerHTML = '';
+
+                    for (let artist of data) {
+                        gallery.insertAdjacentHTML("beforeend", artistCard(artist["id"], artist["name"],));
+                    }
+                });
+            }
+        )
+        .catch(function (err) {
+            console.log('Fetch Error :-S', err);
+        });
+}
+function artistCard(id, title, artist, cover) {
+    return '<div class="tile">\
+    <a href="/artist.html?id='+id+'">\
+    <h3>'+title+'</h3>\
+    </a>\
+</div>'
+}
+
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const page = urlParams.get('page');
@@ -85,7 +121,7 @@ else if(page=="albums"){
     getAlbums();
 }
 else if(page=="artists"){
-
+    getArtist();
 }
 else if(page=="playlists"){
 
