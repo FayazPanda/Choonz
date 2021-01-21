@@ -93,6 +93,7 @@ function login(username){
                 date.setTime(date.getTime() + (1*24*60*60*1000));
                 let expires = "expires="+ date.toUTCString();
                 document.cookie = "userid=" + data.id + ";" + expires;
+                document.cookie = "name=" + data.username + ";" + expires;
                 window.location.replace("index.html");
             }
                

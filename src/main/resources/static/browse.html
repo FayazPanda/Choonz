@@ -13,31 +13,64 @@
 </head>
 
 <body>
-<nav class="navbar fixed-top navbar-expand-xl navbar-dark bg-dark">
-    <a class="navbar-brand" href="./">
-        <img class="logo" height="50" ml-auto src="img/Choonz.png" width="auto"></a>
-    <button aria-controls="navbarsExample06" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"
-            data-target="#navbarsExample06" data-toggle="collapse" type="button">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarsExample06">
-        <ul class="navbar-nav mr-auto">
+    <nav class="navbar fixed-top navbar-expand-xl navbar-dark bg-dark">
+        <a class="navbar-brand" href="./">
+            <img class="logo" height="50" ml-auto src="img/Choonz.png" width="auto"></a>
+        <button aria-controls="navbarsExample06" aria-expanded="false" aria-label="Toggle navigation"
+            class="navbar-toggler" data-target="#navbarsExample06" data-toggle="collapse" type="button">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarsExample06">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/genres">Genres</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/albums">Albums</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/artists">Artists</a>
+                </li>
+    
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Playlists
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="#">All Playlists</a>
+                      <a class="dropdown-item" href="#">My Playlists</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="createPlaylist.html">Create Playlist</a>
+                    </div>
+                  </li>
+                  <li>
+                    <form class="form-inline my-2 my-md-0">
+                        <input class="form-control" placeholder="Search" type="text">
+                    </form>
+                  </li>        
+            </ul> 
+    
             <li class="nav-item">
-                <a class="nav-link" href="/tracks">Featured Tracks</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/artists">Artists</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/playlists">Top Playlists</a>
-            </li>
-        </ul>
-        <form class="form-inline my-2 my-md-0">
-            <input class="form-control" placeholder="Search" type="text">
-        </form>
-    </div>
-</nav>
+                <div id="logInVisibility" style="visibility: hidden;">
+                   <p1 id="welcomeMessage" style="color:rgb(185, 184, 184); ">Hi, </p1>
+                   <a class="btn btn-primary" href="/login.html" role="button">Log Out</a>
+                </div>
+               </li>
+             <li class="nav-item">
+               <div id="logInVisibilty2">
+                    <a class="btn btn-primary" href="/login.html" role="button">Log In</a> 
+               </div>
+             </li>
+           
+        </div>
+    
+    
+       
+    </nav>
 <main>
+    <br>
+    <br>
+    <br>   
     <div class="wrapper">
         <h1>Browse Albums/Playlists/Artist</h1>
         <div class="gallery">
@@ -81,6 +114,7 @@
 </main>
 
 
+<script src="js/readCookie.js"></script>
 <script crossorigin="anonymous"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
