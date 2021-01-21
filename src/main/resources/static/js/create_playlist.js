@@ -28,7 +28,7 @@ document
   create(data); 
   //console.log(data);
 
-  //window.location.replace("playlist.html?id=");
+  window.location.replace("browse.html?page=playlists");
 
 
 });
