@@ -54,7 +54,7 @@ VALUES  (3363,'Lorem Ipsum is simply dummy text of the printing and','Angsty Tee
         (3066,'f Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bono','Thanks god im done',4),
         (12,'here can I get','u iz rite',5);
 
-INSERT INTO playlist_tracks (playlist_id,tracks_id)
+INSERT INTO track_playlists (playlists_id,tracks_id)
 VALUES  (1,20),
         (1,2),
         (1,15),

@@ -2,6 +2,7 @@ package com.qa.choonz.service;
 
 import com.qa.choonz.exception.PlaylistNotFoundException;
 import com.qa.choonz.persistence.domain.Playlist;
+import com.qa.choonz.persistence.domain.Track;
 import com.qa.choonz.persistence.domain.User;
 import com.qa.choonz.persistence.repository.PlaylistRepository;
 import com.qa.choonz.rest.dto.PlaylistDTO;
@@ -58,6 +59,10 @@ public class PlaylistService {
     }
 
     public boolean delete(long id) {
+    	Playlist playlist = this.repo.findById(id).orElseThrow(PlaylistNotFoundException::new);
+    	for (Track track : playlist.getTracks()) {
+    	    playlist.removeTrack(track);
+    	}
         this.repo.deleteById(id);
         return !this.repo.existsById(id);
     }

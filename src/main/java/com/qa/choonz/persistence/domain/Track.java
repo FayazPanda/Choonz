@@ -6,6 +6,9 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+import java.util.Set;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -27,6 +30,10 @@ public class Track {
     @JsonBackReference
     @ManyToOne(targetEntity = Album.class)
     private Album album;
+    
+    @JsonBackReference(value = "track_playlists")
+    @ManyToMany
+    private List<Playlist> playlists;
 
     // in seconds
     private int duration;
