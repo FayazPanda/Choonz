@@ -147,6 +147,38 @@ function playlistCard(id, title, cover, user) {
     </a>\
 </div>'
 }
+
+
+
+function myPlaylists() {
+    fetch('http://localhost:8082/playlists/search/?search=user.id:'+userId())
+        .then(
+            function (response) {
+                if (response.status !== 200) {
+                    console.log('Looks like there was a problem. Status Code: ' +
+                        response.status);
+                    return;
+                }
+                // Examine the text in the response
+                response.json().then(function (data) {
+                    console.log(data)
+                    let playlist = document.getElementById("name");
+                    playlist.innerHTML = "All Playlists";
+
+                    let gallery = document.getElementById("all");
+                    gallery.innerHTML = '';
+
+                    for (let playlist of data) {
+                        gallery.insertAdjacentHTML("beforeend", playlistCard(playlist["id"], playlist["name"], playlist["artwork"],username()));
+                    }
+                });
+            }
+        )
+        .catch(function (err) {
+            console.log('Fetch Error :-S', err);
+        });
+}
+
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const page = urlParams.get('page');
@@ -165,5 +197,11 @@ else if(page=="playlists"){
     getPlaylists();
 }
 else if(page=="myplaylists"){
-
+    if (userId()>0){
+  myPlaylists();
+    }
+    else{
+       alert("You are not currently logged in. Please log in to view your playlists");
+    }
+  
 }

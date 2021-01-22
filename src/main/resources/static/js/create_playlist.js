@@ -1,34 +1,38 @@
 const cookieValue = userId();
 let formElements = document.querySelector("form.playlistForm").elements;
-formElements["user"].value=cookieValue;
+
 // Creates a user
 document
 .querySelector("form.playlistForm")
 .addEventListener("submit", function (stop) {
   stop.preventDefault();
-  let formElements = document.querySelector("form.playlistForm").elements;
 
-  let name=formElements["name"].value;
-  let desc=formElements["desc"].value;
-  let art=formElements["art"].value;
-  let user=cookieValue;
 
-  // JSON object for data
-  let data = {
+    let formElements = document.querySelector("form.playlistForm").elements;
 
-        "name":name,
-        "description": desc,
-        "artwork": art,
-        "user": {
-            "id": user
-        }
- 
-  }
+    let name=formElements["name"].value;
+    let desc=formElements["desc"].value;
+    let art=formElements["art"].value;
+    let user=cookieValue;
+  
+    // JSON object for data
+    let data = {
+  
+          "name":name,
+          "description": desc,
+          "artwork": art,
+          "user": {
+              "id": user
+          }
+   
+    }
+  
+    create(data); 
+    //console.log(data);
+  
 
-  create(data); 
-  //console.log(data);
 
-  window.location.replace("browse.html?page=playlists");
+  
 
 
 });
@@ -46,7 +50,7 @@ function create(dataIn){
           //checkLogin(dataIn.username, dataIn.password)
        
       //console.log(dataIn)
-          
+      window.location.replace("browse.html?page=playlists");
         console.log('Success! Response: ', data);
       })
       .catch(function (error) {
