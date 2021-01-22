@@ -41,11 +41,15 @@ document
         "password":password1
     
       }
+
       // Send to create function
       register(data); 
 
-      window.location.replace("index.html");
+     // window.location.replace("index.html");
     
+  }
+  else{
+    alert("The passwords do not match, try again");
   }
   
 });
@@ -64,6 +68,9 @@ function checkLogin(username,password){
           if(data==true){
             login(username)
             console.log('Success! Response: ', data.body);
+          }
+          else{
+            alert("Incorrect Credentials, try again.");
           }
         
                
