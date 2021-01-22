@@ -57,6 +57,11 @@ public class PlaylistController {
         return new ResponseEntity<PlaylistDTO>(this.service.update(playlist, id), HttpStatus.ACCEPTED);
     }
 
+    @PutMapping("/add/{trackID}")
+    public ResponseEntity<PlaylistDTO> addTrack(@RequestBody Playlist playlist, @PathVariable long trackID) {
+        return new ResponseEntity<PlaylistDTO>(this.service.addTrack(playlist, trackID), HttpStatus.ACCEPTED);
+    }
+    
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<PlaylistDTO> delete(@PathVariable long id) {
         return this.service.delete(id) ? new ResponseEntity<PlaylistDTO>(HttpStatus.NO_CONTENT)
