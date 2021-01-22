@@ -120,7 +120,6 @@ public class PlaylistService {
     }
     public boolean delete(long id) {
     	Playlist toUpdate = this.repo.findById(id).orElseThrow(PlaylistNotFoundException::new);
-    	List<Track> tracks = toUpdate.getTracks();
     	
     	clearTracks(toUpdate);
         this.repo.deleteById(id);

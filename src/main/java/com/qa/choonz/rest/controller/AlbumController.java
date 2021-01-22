@@ -2,9 +2,11 @@ package com.qa.choonz.rest.controller;
 
 import com.qa.choonz.persistence.domain.Album;
 import com.qa.choonz.persistence.domain.Artist;
+import com.qa.choonz.persistence.domain.Playlist;
 import com.qa.choonz.persistence.repository.AlbumRepository;
 import com.qa.choonz.persistence.repository.ArtistRepository;
 import com.qa.choonz.rest.dto.AlbumDTO;
+import com.qa.choonz.rest.dto.PlaylistDTO;
 import com.qa.choonz.service.AlbumService;
 import com.sipios.springsearch.anotation.SearchSpec;
 
@@ -60,6 +62,18 @@ public class AlbumController {
     @GetMapping("/search")
     public ResponseEntity<List<Album>> searchForAlbums(@SearchSpec Specification<Album> specs) {
         return new ResponseEntity<>(albumRepository.findAll(Specification.where(specs)), HttpStatus.OK);
+    }
+    
+    @PutMapping("/add/{trackID}")
+    public ResponseEntity<AlbumDTO> addTrack(@RequestBody Album album, @PathVariable long trackID) {
+        return new ResponseEntity<AlbumDTO>(this.service.addTrack(album, trackID), HttpStatus.ACCEPTED);
+    }
+    
+    
+    @PutMapping("/deleteTrack/{trackID}")
+    public ResponseEntity<AlbumDTO> deleteTrack(@RequestBody Album album, @PathVariable long trackID){
+    	System.out.println("1");
+        return new ResponseEntity<AlbumDTO>(this.service.deleteTrack(album, trackID), HttpStatus.ACCEPTED);
     }
 
 }
