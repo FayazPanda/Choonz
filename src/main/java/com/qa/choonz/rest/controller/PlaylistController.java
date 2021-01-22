@@ -63,6 +63,12 @@ public class PlaylistController {
                 : new ResponseEntity<PlaylistDTO>(HttpStatus.INTERNAL_SERVER_ERROR);
     }
     
+    @PutMapping("/deleteTrack/{trackID}")
+    public ResponseEntity<PlaylistDTO> deleteTrack(@RequestBody Playlist playlist, @PathVariable long trackID){
+    	System.out.println("1");
+        return new ResponseEntity<PlaylistDTO>(this.service.deleteTrack(playlist, trackID), HttpStatus.ACCEPTED);
+    }
+    
     @GetMapping("/search")
     public ResponseEntity<List<Playlist>> searchForPlaylists(@SearchSpec Specification<Playlist> specs) {
         return new ResponseEntity<>(playlistRepository.findAll(Specification.where(specs)), HttpStatus.OK);

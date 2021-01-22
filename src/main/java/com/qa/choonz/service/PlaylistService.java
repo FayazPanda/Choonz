@@ -1,7 +1,9 @@
 package com.qa.choonz.service;
 
 import com.qa.choonz.exception.PlaylistNotFoundException;
+import com.qa.choonz.exception.TrackNotFoundException;
 import com.qa.choonz.persistence.domain.Playlist;
+import com.qa.choonz.persistence.domain.Track;
 import com.qa.choonz.persistence.domain.User;
 import com.qa.choonz.persistence.repository.PlaylistRepository;
 import com.qa.choonz.rest.dto.PlaylistDTO;
@@ -57,6 +59,29 @@ public class PlaylistService {
         return this.mapToDTO(updated);
     }
 
+    public PlaylistDTO deleteTrack(Playlist playlist, long trackID) {
+    	System.out.println("2");
+    	Playlist toUpdate = this.repo.findById(playlist.getId()).orElseThrow(PlaylistNotFoundException::new);
+    	List<Track> tracks = toUpdate.getTracks();
+    	
+ 
+    	Track toRemove = new Track();
+    	toRemove.setId(trackID);
+    	
+    	for(Track track : tracks) {
+    		if(track.getId()==trackID) {
+    			toRemove = track;
+    			
+    		}
+    	}
+    	tracks.remove(toRemove);
+    	toUpdate.setTracks(tracks);
+
+		update(toUpdate, toUpdate.getId());
+		return this.mapToDTO(toUpdate);
+    	
+    }
+    
     public boolean delete(long id) {
         this.repo.deleteById(id);
         return !this.repo.existsById(id);
