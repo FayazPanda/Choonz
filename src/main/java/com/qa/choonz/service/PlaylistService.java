@@ -61,6 +61,7 @@ public class PlaylistService {
 
     public PlaylistDTO deleteTrack(Playlist playlist, long trackID) {
     	System.out.println("2");
+    	// Find the playlist in DB
     	Playlist toUpdate = this.repo.findById(playlist.getId()).orElseThrow(PlaylistNotFoundException::new);
     	List<Track> tracks = toUpdate.getTracks();
     	
@@ -81,8 +82,28 @@ public class PlaylistService {
 		return this.mapToDTO(toUpdate);
     	
     }
-    
+    public PlaylistDTO clearTracks(Playlist playlist) {
+    	System.out.println("2");
+    	// Find the playlist in DB
+    	Playlist toUpdate = this.repo.findById(playlist.getId()).orElseThrow(PlaylistNotFoundException::new);
+    	List<Track> tracks = toUpdate.getTracks();
+    	
+ 
+    	Track toRemove = new Track();
+
+
+    	tracks.removeAll(tracks);
+    	toUpdate.setTracks(tracks);
+
+		update(toUpdate, toUpdate.getId());
+		return this.mapToDTO(toUpdate);
+    	
+    }
     public boolean delete(long id) {
+    	Playlist toUpdate = this.repo.findById(id).orElseThrow(PlaylistNotFoundException::new);
+    	List<Track> tracks = toUpdate.getTracks();
+    	
+    	clearTracks(toUpdate);
         this.repo.deleteById(id);
         return !this.repo.existsById(id);
     }
