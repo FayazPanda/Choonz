@@ -1,3 +1,13 @@
+let trackToAdd = 0;
+
+var loggedIn = false;
+if (loginCheck() == 0) {
+    loggedIn = false;
+}
+else {
+    loggedIn = true;
+}
+
 function getPlaylist(id) {
     fetch('http://localhost:8082/playlists/read/' + id)
         .then(
@@ -32,7 +42,7 @@ function getPlaylist(id) {
 
                     let trackNumber = 1;
                     for (let track of trackList) {
-                        table.appendChild(trackRow(trackNumber,track["id"], track["name"], duration(track["duration"])))
+                        table.insertAdjacentHTML("beforeend",trackRow(trackNumber,track["id"], track["name"], duration(track["duration"])))
                         trackNumber++
                     }
 
@@ -45,24 +55,53 @@ function getPlaylist(id) {
         });
 }
 
-function trackRow(trackNumber ,id, name, duration) {
-    const a = document.createElement("a")
-    a.href = "/tracks.html?id=" + id;
-    a.className = "track"
+function trackRow(trackNumber, id, name, duration) {
+    if (loggedIn) {
+        return '<div class="tracks">\
+                <button class="fas fa-plus plus" data-toggle="modal" data-target="#addToPlaylist" type="button" data-button="'+ id + '"></button>\
+                <a href="/tracks.html?id='+ id + '" class="track">\
+                    <p>'+ trackNumber + '</p>\
+                    <p>'+ name + '</p>\
+                    <p>'+ duration + '</p>\
+                </a>\
+            </div>'
+    }
 
-    const pid = document.createElement("p")
-    pid.innerText = trackNumber
-    a.appendChild(pid)
+    return '<div class="tracks">\
+                <button class="fas fa-plus plus" data-toggle="modal" data-target="#notLoggedIn" type="button" data-button="'+ id + '"></button>\
+                <a href="/tracks.html?id='+ id + '" class="track">\
+                    <p>'+ trackNumber + '</p>\
+                    <p>'+ name + '</p>\
+                    <p>'+ duration + '</p>\
+                </a>\
+            </div>'
 
-    const pname = document.createElement("p")
-    pname.innerText = name
-    a.appendChild(pname)
+}
 
-    const pduration = document.createElement("p")
-    pduration.innerText = duration
-    a.appendChild(pduration)
+function myPlaylists() {
+    fetch('http://localhost:8082/playlists/search/?search=user.id:' + userId())
+        .then(
+            function (response) {
+                if (response.status !== 200) {
+                    console.log('Looks like there was a problem. Status Code: ' +
+                        response.status);
+                    return;
+                }
+                // Examine the text in the response
+                response.json().then(function (data) {
+                    console.log(data)
+                    let list = document.getElementById("listSelect");
+                    list.innerHTML = "";
 
-    return a
+                    for (let playlist of data) {
+                        list.insertAdjacentHTML("beforeend", '<option value="' + playlist.id + '">' + playlist.name + '</option>')
+                    }
+                });
+            }
+        )
+        .catch(function (err) {
+            console.log('Fetch Error :-S', err);
+        });
 }
 
 const queryString = window.location.search;
@@ -71,3 +110,18 @@ const id = urlParams.get('id');
 console.log(id);
 
 getPlaylist(id);
+
+$('#addToPlaylist').on('show.bs.modal', function (e) {
+    var $trigger = $(e.relatedTarget);
+
+    let id = $trigger.data('button');
+    trackToAdd = id;
+    myPlaylists();
+})
+
+$(document).on("click", "#addTrack", function () {
+    let playlistId = document.getElementById("listSelect").value;
+    console.log("Add " + trackToAdd + " " + playlistId);
+
+    //putListData(data);
+});
