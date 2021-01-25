@@ -2,6 +2,7 @@ package com.qa.choonz.service;
 
 import com.qa.choonz.exception.PlaylistNotFoundException;
 import com.qa.choonz.persistence.domain.Playlist;
+import com.qa.choonz.persistence.domain.Track;
 import com.qa.choonz.persistence.domain.User;
 import com.qa.choonz.persistence.repository.PlaylistRepository;
 import com.qa.choonz.rest.dto.PlaylistDTO;
@@ -9,6 +10,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -57,7 +59,74 @@ public class PlaylistService {
         return this.mapToDTO(updated);
     }
 
+    
+    public PlaylistDTO deleteTrack(Playlist playlist, long trackID) {
+
+    	// Find the playlist in DB
+    	Playlist toUpdate = this.repo.findById(playlist.getId()).orElseThrow(PlaylistNotFoundException::new);
+    	List<Track> tracks = toUpdate.getTracks();
+    	
+ 
+    	Track toRemove = new Track();
+    	toRemove.setId(trackID);
+    	
+    	for(Track track : tracks) {
+    		if(track.getId()==trackID) {
+    			toRemove = track;
+    			
+    		}
+    	}
+    	tracks.remove(toRemove);
+    	toUpdate.setTracks(tracks);
+
+		update(toUpdate, toUpdate.getId());
+		return this.mapToDTO(toUpdate);
+    	
+    }
+    
+    public PlaylistDTO addTrack(Playlist playlist, long trackID) {
+   
+    	// Find the playlist in DB
+    	Playlist toUpdate = this.repo.findById(playlist.getId()).orElseThrow(PlaylistNotFoundException::new);
+    	List<Track> tracks = toUpdate.getTracks();
+    	
+ 
+    	Track toAdd = new Track();
+    	toAdd.setId(trackID);
+    	
+    	tracks.add(toAdd);
+    	toUpdate.setTracks(tracks);
+
+		update(toUpdate, toUpdate.getId());
+		return this.mapToDTO(toUpdate);
+    	
+    }
+    
+    public PlaylistDTO clearTracks(Playlist playlist) {
+
+    	// Find the playlist in DB
+    	Playlist toUpdate = this.repo.findById(playlist.getId()).orElseThrow(PlaylistNotFoundException::new);
+    	
+    	// Gets tracks
+    	List<Track> tracks = toUpdate.getTracks();
+
+    	tracks.clear();
+    	// Adds empty track list to playlist object
+    	toUpdate.setTracks(tracks);
+
+    	// Updates it
+		update(toUpdate, toUpdate.getId());
+		return this.mapToDTO(toUpdate);
+    	
+    }
+    
+    
     public boolean delete(long id) {
+    	// Gets playlist
+    	Playlist toUpdate = this.repo.findById(id).orElseThrow(PlaylistNotFoundException::new);
+    	
+    	// Clears the tracks
+    	clearTracks(toUpdate);
         this.repo.deleteById(id);
         return !this.repo.existsById(id);
     }
