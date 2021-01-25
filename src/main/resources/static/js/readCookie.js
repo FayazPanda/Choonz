@@ -1,17 +1,11 @@
 let cookie = document.cookie;
 
 function userId(){
-
-    let userID=cookie
-    .split('; ')
-    .find(row => row.startsWith('userid'))
-    .split('=')[1];
-
-    if(userID!="0"){
-      return userID;
-    }
-
-  
+   let userID=cookie
+  .split('; ')
+  .find(row => row.startsWith('userid'))
+  .split('=')[1];
+  return userID;
 }
 
 function username(){
