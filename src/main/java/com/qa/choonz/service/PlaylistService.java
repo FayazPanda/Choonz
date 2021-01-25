@@ -108,7 +108,7 @@ public class PlaylistService {
     	List<Track> tracks = toUpdate.getTracks();
     	
  
-    	Track toRemove = new Track();
+  
 
 
     	tracks.removeAll(tracks);

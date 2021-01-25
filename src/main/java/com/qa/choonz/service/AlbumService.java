@@ -6,6 +6,8 @@ import com.qa.choonz.persistence.domain.Album;
 import com.qa.choonz.persistence.domain.Playlist;
 import com.qa.choonz.persistence.domain.Track;
 import com.qa.choonz.persistence.repository.AlbumRepository;
+import com.qa.choonz.persistence.repository.PlaylistRepository;
+import com.qa.choonz.persistence.repository.TrackRepository;
 import com.qa.choonz.rest.dto.AlbumDTO;
 import com.qa.choonz.rest.dto.PlaylistDTO;
 
@@ -19,13 +21,15 @@ import java.util.stream.Collectors;
 @Service
 public class AlbumService {
 
+	private final TrackRepository trackRepo;
     private final AlbumRepository repo;
     private final ModelMapper mapper;
 
     @Autowired
-    public AlbumService(AlbumRepository repo, ModelMapper mapper) {
+    public AlbumService(AlbumRepository repo,  TrackRepository trackRepo, ModelMapper mapper) {
         super();
         this.repo = repo;
+        this.trackRepo = trackRepo;
         this.mapper = mapper;
     }
 
@@ -101,13 +105,18 @@ public AlbumDTO clearTracks(Album album) {
 	// Find the playlist in DB
 	Album toUpdate = this.repo.findById(album.getId()).orElseThrow(PlaylistNotFoundException::new);
 	List<Track> tracks = toUpdate.getTracks();
-
 	
 	
-	tracks.removeAll(tracks);
-	toUpdate.setTracks(tracks);
+	for(Track track : tracks) {
+		System.out.println("HI" + track.getId());
+		this.trackRepo.deleteById(track.getId());
+		
+	}
+	
+	//tracks.removeAll(tracks);
+	//toUpdate.setTracks(tracks);
 
-	update(toUpdate, toUpdate.getId());
+	//update(toUpdate, toUpdate.getId());
 	return this.mapToDTO(toUpdate);
 	
 }
@@ -116,8 +125,9 @@ public AlbumDTO clearTracks(Album album) {
     	
        	clearTracks(toUpdate);
        	
-        this.repo.deleteById(id);
-        return !this.repo.existsById(id);
+        //this.repo.deleteById(id);
+        //return !this.repo.existsById(id);
+       	return false;
     }
 
 }
