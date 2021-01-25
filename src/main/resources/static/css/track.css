@@ -35,7 +35,8 @@ h2{
 }
 
 #albumCover {
-    max-width: 220px;
-    max-height: 220px;
+    object-fit: cover;
+    width: 220px;
+    height: 220px;
     margin: 20px;
 }

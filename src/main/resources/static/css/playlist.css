@@ -8,8 +8,9 @@ a:hover {
 }
 
 #playlistCover {
-    max-width: 220px;
-    max-height: 220px;
+    object-fit: cover;
+    width: 220px;
+    height: 220px;
     margin: 20px;
 }
 
@@ -27,18 +28,24 @@ h1, h4, p {
     margin: 50px 5px 50px 50px;
 }
 
-.wrapper a {
+.tracks {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 35px 1fr;
     border-top-style: solid;
     border-top-color: #3273FF;
     border-width: thin;
     margin: 0 20px 0 20px;
     transition: 0.3s;
+    align-items: center;
 }
 
-.wrapper a:hover {
+.tracks:hover {
     background: #19191a;
+}
+
+.tracks a{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
 }
 
 .header {
@@ -47,9 +54,13 @@ h1, h4, p {
     cursor: default;
 }
 
-.wrapper a:last-child {
+.tracks:last-child {
     border-bottom-style: solid;
     border-bottom-color: #3273FF;
     margin-bottom: 50px;
 }
 
+.tracks i{
+    margin-left: 5px;
+    color: #3273FF;
+}
