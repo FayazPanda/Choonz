@@ -30,7 +30,7 @@ public class Artist {
     @Column(unique = true)
     private String name;
     
-    @JsonManagedReference
+    @JsonManagedReference(value = "artistAlbum")
     @OneToMany(mappedBy = "artist", fetch = FetchType.LAZY)
     @OnDelete(action = OnDeleteAction.CASCADE)
     private List<Album> albums = new ArrayList<>();

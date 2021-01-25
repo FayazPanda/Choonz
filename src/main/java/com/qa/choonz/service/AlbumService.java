@@ -121,13 +121,13 @@ public AlbumDTO clearTracks(Album album) {
 	
 }
     public boolean delete(long id) {
-       	Album toUpdate = this.repo.findById(id).orElseThrow(PlaylistNotFoundException::new);
+       	//Album toUpdate = this.repo.findById(id).orElseThrow(PlaylistNotFoundException::new);
     	
-       	clearTracks(toUpdate);
+       	//clearTracks(toUpdate);
        	
-        //this.repo.deleteById(id);
-        //return !this.repo.existsById(id);
-       	return false;
+        this.repo.deleteById(id);
+        return !this.repo.existsById(id);
+       //	return false;
     }
 
 }

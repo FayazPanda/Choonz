@@ -8,6 +8,8 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
@@ -34,6 +36,7 @@ public class Playlist {
     @Size(max = 1000)
     private String artwork;
 
+    @JsonManagedReference(value = "track_playlists")
     @ManyToMany(fetch = FetchType.LAZY)
     @OnDelete(action = OnDeleteAction.NO_ACTION)
     private List<Track> tracks;
