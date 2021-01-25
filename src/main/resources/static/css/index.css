@@ -9,5 +9,7 @@
 }
 
 #cover {
-    max-width: 220px;
+    object-fit: cover;
+    width: 220px;
+    height: 220px;
 }
