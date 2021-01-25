@@ -34,47 +34,94 @@
                 </li>
 
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Playlists
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Playlists
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item" href="/browse.html?page=playlists">All Playlists</a>
-                      <a class="dropdown-item" href="/browse.html?page=myplaylists">My Playlists</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="createPlaylist.html">Create Playlist</a>
+                        <a class="dropdown-item" href="/browse.html?page=playlists">All Playlists</a>
+                        <a class="dropdown-item" href="/browse.html?page=myplaylists">My Playlists</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="createPlaylist.html">Create Playlist</a>
                     </div>
-                  </li>
-                  <li>
+                </li>
+                <li>
                     <form class="form-inline my-2 my-md-0">
                         <input class="form-control" placeholder="Search" type="text">
                     </form>
-                  </li>        
-            </ul> 
+                </li>
+            </ul>
             <ul class="navbar-nav ml-auto">
 
-            <li class="nav-item">
-                <div id="logInVisibility" style="visibility: hidden;">
-                   <p1 id="welcomeMessage" style="color:rgb(185, 184, 184); ">Hi, </p1>
-                   <a class="btn btn-primary" href="/login.html" role="button">Log Out</a>
-                </div>
-               </li>
-             <li class="nav-item">
-               <div id="logInVisibilty2">
-                    <a class="btn btn-primary" href="/login.html" role="button">Log In</a> 
-               </div>
-             </li>
-           </ul> 
+                <li class="nav-item">
+                    <div id="logInVisibility" style="visibility: hidden;">
+                        <p1 id="welcomeMessage" style="color:rgb(185, 184, 184); ">Hi, </p1>
+                        <a class="btn btn-primary" href="/login.html" role="button">Log Out</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div id="logInVisibilty2">
+                        <a class="btn btn-primary" href="/login.html" role="button">Log In</a>
+                    </div>
+                </li>
+            </ul>
         </div>
-
-
-       
     </nav>
+
+    <!-- Add to Playlist Modal -->
+    <div class="modal fade" id="addToPlaylist" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Add to Playlist</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form class="addToPlaylist">
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Add to:</label>
+                            <select class="form-control" id="listSelect">
+                                <option value="1">1</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="addTrack" data-dismiss="modal">Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Not logged in Modal -->
+    <div class="modal fade" id="notLoggedIn" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Not Logged In</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h1>Please log in to add a track to a playlist!</h1>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="confirmEdit">Login</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     <main>
         <br>
         <br>
-        <br>    
+        <br>
         <div class="wrapper" id=table>
             <div>
                 <img id="albumCover" src="img/album/alterbridge.png">
@@ -97,14 +144,14 @@
                     <p class="header">Duration</p>
                 </a>
             </div>
-            <div class="tracks">
+            <!-- <div class="tracks">
                 <button class="fas fa-plus" id="plus"></button>
                 <a href="#" class="track">
                     <p>#</p>
                     <p>Name</p>
                     <p>Duration</p>
                 </a>
-            </div>
+            </div> -->
         </div>
     </main>
 

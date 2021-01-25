@@ -32,7 +32,8 @@ function getAlbum(id) {
                     let table = document.getElementById("table")
                     let trackNumber = 1;
                     for (let track of trackList) {
-                        table.appendChild(trackRow(trackNumber ,track["id"], track["name"], duration(track["duration"])));
+                        table.insertAdjacentHTML("beforeend", trackRow(trackNumber ,track["id"], track["name"], duration(track["duration"])))
+                        
                         trackNumber++;
                     }
 
@@ -64,7 +65,7 @@ function trackRow(trackNumber, id, name, duration) {
 
 
     return '<div class="tracks">\
-                <button class="fas fa-plus" id="plus"></button>\
+                <button class="fas fa-plus plus" data-toggle="modal" data-target="#addToPlaylist" type="button" data-button="'+ id + '"></button>\
                 <a href="/tracks.html?id='+ id +'" class="track">\
                     <p>'+ trackNumber +'</p>\
                     <p>'+name+'</p>\
@@ -79,3 +80,23 @@ const id = urlParams.get('id');
 console.log(id);
 
 getAlbum(id);
+
+$(document).on("click", ".plus", function () {
+    //console.log("Add to " + listToAdd)
+    if(loginCheck() != null){
+        $('#addToPlaylist').modal('toggle');
+    }
+    else{
+        $('#notLoggedIn').modal('toggle');
+    }
+    
+});
+
+$('#addToPlaylist').on('show.bs.modal', function (e) {
+    var $trigger = $(e.relatedTarget);
+    //console.log($trigger.data('button'))
+    let id = $trigger.data('button');
+    // let currentList = $($trigger).closest(".col-xl-4");
+    // console.log(currentList[0].id);
+    // taskToEdit = id;
+})

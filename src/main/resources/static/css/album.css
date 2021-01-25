@@ -73,7 +73,7 @@ h1, h4, p {
     visibility: hidden;
 }
 
-#plus {
+.plus {
     opacity: 0.5;
     color: #3273FF;
     background-color: Transparent;
@@ -84,6 +84,6 @@ h1, h4, p {
     outline:none;
 }
 
-#plus:hover {
+.plus:hover {
     opacity: 1;
 }

@@ -23,19 +23,23 @@ function loginCheck(){
   let loggedOut = document.getElementById("logInVisibilty2");
   let welcomeMesssage = document.getElementById("welcomeMessage");
 
-  if(userID >0){
+  if(userID > 0){
     loggedIn.style.visibility="visible";
     loggedIn.style.display="block";
     loggedOut.style.visibility="hidden";
     loggedOut.style.display="none";
-    welcomeMessage.append(" "+username());
+    welcomeMesssage.innerHTML = "";
+    welcomeMessage.append("Hi, "+username());
+    return userID;
   }
   else{
     loggedOut.style.visibility="hidden";
     loggedOut.style.display="none";
     loggedIn.style.visibility="visible";
     loggedIn.style.display="block";
+    return null;
   }
 }
+
 loginCheck();
 console.log(cookie);
