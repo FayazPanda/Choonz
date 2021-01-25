@@ -53,7 +53,7 @@ function getArtist(id){
                 albumCover.src = albumData["cover"]
 
                 //trackAlbum.append(albumData.name + " - " +albumData.genre.name);
-                trackAlbum.insertAdjacentHTML("beforeend", '<a id="linkAlbum" href="album.html?id='+albumData.id+'"><h3 id="trackAlbum">'+albumData.name+'</h3></a>');
+                trackAlbum.insertAdjacentHTML("beforeend", '<a id="linkAlbum" href="album.html?id='+albumData.id+'"><h3 id="trackAlbum">'+albumData.name+'</h3></a></i>');
                 trackAlbum.insertAdjacentHTML("beforeend", '<h3 id="dash">-</h3>');
                 trackAlbum.insertAdjacentHTML("beforeend", '<a id="linkGenre" href="genre.html?id='+albumData.genre.id+'"><h3 id="trackGenre">'+albumData.genre.name+'</h3></a>');
 
