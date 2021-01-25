@@ -1,3 +1,5 @@
+let trackToAdd = 0;
+
 function getAlbum(id) {
     fetch('http://localhost:8082/albums/read/' + id)
         .then(
@@ -38,6 +40,32 @@ function getAlbum(id) {
                     }
 
 
+                });
+            }
+        )
+        .catch(function (err) {
+            console.log('Fetch Error :-S', err);
+        });
+}
+
+function myPlaylists() {
+    fetch('http://localhost:8082/playlists/search/?search=user.id:'+userId())
+        .then(
+            function (response) {
+                if (response.status !== 200) {
+                    console.log('Looks like there was a problem. Status Code: ' +
+                        response.status);
+                    return;
+                }
+                // Examine the text in the response
+                response.json().then(function (data) {
+                    console.log(data)
+                    let list = document.getElementById("listSelect");
+                    list.innerHTML = "";
+
+                    for (let playlist of data) {
+                        list.insertAdjacentHTML("beforeend", '<option value="'+playlist.id+'">'+playlist.name+'</option>')
+                    }
                 });
             }
         )
@@ -94,9 +122,19 @@ $(document).on("click", ".plus", function () {
 
 $('#addToPlaylist').on('show.bs.modal', function (e) {
     var $trigger = $(e.relatedTarget);
+    
     //console.log($trigger.data('button'))
     let id = $trigger.data('button');
+    trackToAdd = id;
     // let currentList = $($trigger).closest(".col-xl-4");
     // console.log(currentList[0].id);
     // taskToEdit = id;
+    myPlaylists();
 })
+
+$(document).on("click", "#addTrack", function () {
+    let playlistId = document.getElementById("listSelect").value;
+    console.log("Add " + trackToAdd + " " + playlistId);
+
+    //putListData(data);
+});

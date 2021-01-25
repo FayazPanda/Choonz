@@ -37,8 +37,8 @@ function loginCheck(){
     loggedOut.style.display="none";
     loggedIn.style.visibility="visible";
     loggedIn.style.display="block";
-    return null;
   }
+  return null;
 }
 
 loginCheck();
