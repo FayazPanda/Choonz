@@ -30,10 +30,10 @@ public class Track {
     @JsonBackReference
     @ManyToOne(targetEntity = Album.class)
     private Album album;
-    
-    @JsonBackReference(value = "track_playlists")
-    @ManyToMany
-    private List<Playlist> playlists;
+
+    @JsonManagedReference
+    @OneToMany(mappedBy = "tracks", cascade = CascadeType.ALL)
+    private List<Track_Playlist> trackPlaylists;
 
     // in seconds
     private int duration;

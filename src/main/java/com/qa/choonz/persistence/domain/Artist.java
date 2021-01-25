@@ -31,8 +31,7 @@ public class Artist {
     private String name;
     
     @JsonManagedReference(value = "artistAlbum")
-    @OneToMany(mappedBy = "artist", fetch = FetchType.LAZY)
-    @OnDelete(action = OnDeleteAction.CASCADE)
+    @OneToMany(mappedBy = "artist", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Album> albums = new ArrayList<>();
 
     public Artist(@NotNull @Size(max = 100) String name) {

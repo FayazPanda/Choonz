@@ -36,10 +36,10 @@ public class Playlist {
     @NotNull
     @Size(max = 1000)
     private String artwork;
-    
-    @JsonManagedReference(value = "track_playlists")
-    @ManyToMany(mappedBy = "playlists", fetch = FetchType.LAZY)
-    private List<Track> tracks;
+
+    @OneToMany(mappedBy = "playlists",cascade = CascadeType.ALL)
+    @JsonManagedReference
+    private List<Track_Playlist> trackPlaylists;
 
     @NotNull
     @ManyToOne
@@ -59,15 +59,4 @@ public class Playlist {
         this.description = description;
         this.artwork = artwork;
     }
-    
-    public void addTrack(Track track) {
-        this.tracks.add(track);
-        track.getPlaylists().add(this);
-    }
-  
-    public void removeTrack(Track track) {
-        this.tracks.remove(track);
-        track.getPlaylists().remove(this);
-    }
-
 }

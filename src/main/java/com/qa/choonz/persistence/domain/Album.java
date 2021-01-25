@@ -28,16 +28,17 @@ public class Album {
     private String name;
 
     @JsonManagedReference
-    @OneToMany(mappedBy = "album", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @OnDelete(action = OnDeleteAction.CASCADE)
+    @OneToMany(mappedBy = "album", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Track> tracks = new ArrayList<>();
 
     @JsonBackReference(value = "artistAlbum")
     @ManyToOne(targetEntity = Artist.class)
+    @JoinColumn(name = "artist_id")
     private Artist artist;
     
     @JsonBackReference(value = "albumGenre")
     @ManyToOne
+    @JoinColumn(name = "genre_id")
     private Genre genre;
 
     private String cover;
