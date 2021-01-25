@@ -46,23 +46,31 @@ function getAlbum(id) {
 }
 
 function trackRow(trackNumber, id, name, duration) {
-    const a = document.createElement("a")
-    a.href = "/tracks.html?id=" + id;
-    a.className = "track"
+    // const a = document.createElement("a")
+    // a.href = "/tracks.html?id=" + id;
+    // a.className = "track"
 
-    const pid = document.createElement("p")
-    pid.innerText = trackNumber
-    a.appendChild(pid)
+    // const pid = document.createElement("p")
+    // pid.innerText = trackNumber
+    // a.appendChild(pid)
 
-    const pname = document.createElement("p")
-    pname.innerText = name
-    a.appendChild(pname)
+    // const pname = document.createElement("p")
+    // pname.innerText = name
+    // a.appendChild(pname)
 
-    const pduration = document.createElement("p")
-    pduration.innerText = duration
-    a.appendChild(pduration)
+    // const pduration = document.createElement("p")
+    // pduration.innerText = duration
+    // a.appendChild(pduration)
 
-    return a
+
+    return '<div class="tracks">\
+                <button class="fas fa-plus" id="plus"></button>\
+                <a href="/tracks.html?id='+ id +'" class="track">\
+                    <p>'+ trackNumber +'</p>\
+                    <p>'+name+'</p>\
+                    <p>'+duration+'</p>\
+                </a>\
+            </div>'
 }
 
 const queryString = window.location.search;

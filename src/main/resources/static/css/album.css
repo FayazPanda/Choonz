@@ -68,3 +68,22 @@ h1, h4, p {
     margin-left: 5px;
     color: #3273FF;
 }
+
+#firstPlus {
+    visibility: hidden;
+}
+
+#plus {
+    opacity: 0.5;
+    color: #3273FF;
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+}
+
+#plus:hover {
+    opacity: 1;
+}
