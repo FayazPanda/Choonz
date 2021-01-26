@@ -14,7 +14,12 @@ function getGenre() {
                     name.append("Genres");
                     let gallery = document.getElementById("all");
                     gallery.innerHTML = '';
-
+                    if(getPermission()==1){
+                        let playlistDataHTML = document.getElementById("all");
+                        playlistDataHTML.insertAdjacentHTML("beforeend", '<button id="delete" style="visibility: visible" class="btn btn-success" href="#" onclick="addGenre();">Add</button>');
+                      
+                    }
+                   
                     for (let genre of data) {
                         gallery.insertAdjacentHTML("beforeend", card(genre["id"], genre["name"],));
                     }
@@ -25,7 +30,9 @@ function getGenre() {
             console.log('Fetch Error :-S', err);
         });
 }
-
+function addGenre() {
+window.location.replace("addGenre.html");
+}
 function card(id, title) {
     return '<div class="tile">\
     <a href="/genre.html?id=' + id + '">\
