@@ -19,13 +19,13 @@ public class Track_Playlist implements Serializable {
 
     @ManyToOne
     @NotNull
-    @JsonBackReference
+    @JsonBackReference(value = "playlist_tracks")
     @JoinColumn(name = "tracks_id")
     Track tracks;
 
     @ManyToOne
     @NotNull
-    @JsonBackReference
+    @JsonBackReference(value = "track_Playlist")
     @JoinColumn(name = "playlists_id")
     Playlist playlists;
 

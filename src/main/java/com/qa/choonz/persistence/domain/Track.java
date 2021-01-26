@@ -31,7 +31,7 @@ public class Track {
     @ManyToOne(targetEntity = Album.class)
     private Album album;
 
-    @JsonManagedReference
+    @JsonManagedReference(value = "playlist_tracks")
     @OneToMany(mappedBy = "tracks", cascade = CascadeType.ALL)
     private List<Track_Playlist> trackPlaylists;
 

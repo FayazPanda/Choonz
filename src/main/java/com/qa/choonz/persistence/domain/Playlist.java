@@ -38,10 +38,12 @@ public class Playlist {
     private String artwork;
 
     @OneToMany(mappedBy = "playlists",cascade = CascadeType.ALL)
-    @JsonManagedReference
+    @JsonManagedReference(value = "track_Playlist")
     private List<Track_Playlist> trackPlaylists;
-
+    
+    
     @NotNull
+    @JsonBackReference(value = "playlist_user")
     @ManyToOne
     private User user;
 

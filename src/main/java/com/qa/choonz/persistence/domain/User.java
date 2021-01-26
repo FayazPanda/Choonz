@@ -1,6 +1,7 @@
 package com.qa.choonz.persistence.domain;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.sun.istack.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -36,7 +37,7 @@ public class User {
     @NotNull
     private String password;
     
-    @JsonBackReference(value = "userPlaylist")
+    @JsonManagedReference(value = "playlist_user")
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Playlist> playlists;
 
