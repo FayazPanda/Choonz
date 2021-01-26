@@ -75,10 +75,7 @@ console.log(id);
 
 getAlbum(id);
 
-if(getPermission()==1){
-    let deleteButton = document.getElementById("delete");
-    deleteButton.style.visibility = "visible";
-}
+
 
 // Delete function
 function deleteTrack(){

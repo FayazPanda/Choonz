@@ -65,3 +65,10 @@ function loginCheck() {
 
 loginCheck();
 
+if(getPermission()==1){
+
+  let deleteButton = document.getElementById("delete");
+  deleteButton.style.visibility = "visible";
+  let editButton = document.getElementById("edit");
+  editButton.style.visibility = "visible";
+}

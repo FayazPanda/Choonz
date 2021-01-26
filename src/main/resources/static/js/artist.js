@@ -44,11 +44,7 @@ console.log(id);
 
 getArtist(id);
 
-if(getPermission()==1){
 
-    let deleteButton = document.getElementById("delete");
-    deleteButton.style.visibility = "visible";
-}
 
 // Delete function
 function deleteArtist(){

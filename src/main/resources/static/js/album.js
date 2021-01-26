@@ -125,10 +125,7 @@ $(document).on("click", "#addTrack", function () {
     //putListData(data);
 });
 
-if(getPermission()==1){
-    let deleteButton = document.getElementById("delete");
-    deleteButton.style.visibility = "visible";
-}
+
 
 // Delete function
 function deleteAlbum(){
