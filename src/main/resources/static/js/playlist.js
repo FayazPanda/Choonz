@@ -1,11 +1,16 @@
 let trackToAdd = 0;
 
 var loggedIn = false;
+var currentUsername = "";
+
 if (loginCheck() == 0) {
     loggedIn = false;
 } else {
     loggedIn = true;
+    currentUsername = username();
 }
+
+var isMyPlaylist = false;
 
 function getPlaylist(id) {
     fetch('http://localhost:8082/playlists/read/' + id)
@@ -31,21 +36,32 @@ function getPlaylist(id) {
 
                     let user = document.getElementById("userNameDiv");
                     user.innerHTML = '';
+
+                    if(currentUsername == playlistData["user"]["username"]){
+                        isMyPlaylist = true;
+                    }
                     //artist.innerHTML = "Created by: " + albumData["artist"]["name"];
                     user.insertAdjacentHTML("beforeend", '<p id="userName"> Created by: ' + playlistData["user"]["username"] + '</p>');
                     title.insertAdjacentHTML("beforeend", playlistData["name"]);
                     description.insertAdjacentHTML("beforeend", "Description: " + playlistData["description"]);
 
-                    let trackList = playlistData["tracks"];
+                    let trackList = playlistData["trackPlaylists"];
                     let table = document.getElementById("table")
 
                     let trackNumber = 1;
-                    for (let track of trackList) {
-                        table.insertAdjacentHTML("beforeend", trackRow(trackNumber, track["id"], track["name"], duration(track["duration"])))
-                        trackNumber++
+                    if(isMyPlaylist){
+                        for (let track of trackList) {
+                            table.insertAdjacentHTML("beforeend", myTrackRow(trackNumber, track["tracks"]["id"], track["tracks"]["name"], duration(track["tracks"]["duration"])))
+                            trackNumber++
+                        }
+                    }else{
+                        for (let track of trackList) {
+                            table.insertAdjacentHTML("beforeend", trackRow(trackNumber, track["tracks"]["id"], track["tracks"]["name"], duration(track["tracks"]["duration"])))
+                            trackNumber++
+                        }
                     }
 
-
+                    console.log(isMyPlaylist)
                 });
             }
         )
@@ -75,6 +91,17 @@ function trackRow(trackNumber, id, name, duration) {
                 </a>\
             </div>'
 
+}
+
+function myTrackRow(trackNumber, id, name, duration) {
+        return '<div class="tracks">\
+                <button class="fas fa-trash trash" data-toggle="modal" data-target="#addToPlaylist" type="button" data-button="' + id + '"></button>\
+                <a href="/tracks.html?id=' + id + '" class="track">\
+                    <p>' + trackNumber + '</p>\
+                    <p>' + name + '</p>\
+                    <p>' + duration + '</p>\
+                </a>\
+            </div>'
 }
 
 function myPlaylists() {
@@ -122,5 +149,5 @@ $(document).on("click", "#addTrack", function () {
     let playlistId = document.getElementById("listSelect").value;
     console.log("Add " + trackToAdd + " " + playlistId);
 
-    //putListData(data);
+    putListData(data);
 });

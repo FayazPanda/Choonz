@@ -83,3 +83,18 @@ h1, h4, p {
 .plus:hover {
     opacity: 1;
 }
+
+.trash {
+    opacity: 0.5;
+    color: red;
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+}
+
+.trash:hover {
+    opacity: 1;
+}
