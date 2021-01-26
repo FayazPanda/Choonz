@@ -24,12 +24,12 @@ import static org.mockito.Mockito.*;
 @AutoConfigureTestDatabase
 public class PlaylistControllerUnitTest {
 
-    private final Playlist TPLAYLIST1 = new Playlist("aardvarks","when you go on one of those cheese binges","https://cms-assets.tutsplus.com/uploads/users/114/posts/34296/image/Final-image.jpg");
-    private final Playlist TPLAYLIST2 = new Playlist("beetle joose","just a barrel of juice","https://www.digitalartsonline.co.uk/cmsdata/slideshow/3776245/beck_-_hyperspace.jpg");
-    private final Playlist TPLAYLIST3 = new Playlist("canary opener","I lost the keys to my house playlist","https://www.digitalmusicnews.com/wp-content/uploads/2020/04/DaBaby-Blame-It-On-Baby.jpg");
-    private final Playlist TPLAYLIST4 = new Playlist("dairy dialect","I saw this on facebook","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmDcpTFXJ_bv1dga9Bag1ryJ7xEY3ztLwAyg&usqp=CAU");
-    private final Playlist TPLAYLIST5 = new Playlist("equidistant parabolas","dont try this at homekids","https://www.sleek-mag.com/wp-content/uploads/2016/08/AlbumCovers_Blonde.jpg");
-    private final List<Playlist> PLAYLISTS = List.of(TPLAYLIST1, TPLAYLIST2, TPLAYLIST3, TPLAYLIST4,TPLAYLIST5);
+    private final Playlist TPLAYLIST1 = new Playlist("aardvarks", "when you go on one of those cheese binges", "https://cms-assets.tutsplus.com/uploads/users/114/posts/34296/image/Final-image.jpg");
+    private final Playlist TPLAYLIST2 = new Playlist("beetle joose", "just a barrel of juice", "https://www.digitalartsonline.co.uk/cmsdata/slideshow/3776245/beck_-_hyperspace.jpg");
+    private final Playlist TPLAYLIST3 = new Playlist("canary opener", "I lost the keys to my house playlist", "https://www.digitalmusicnews.com/wp-content/uploads/2020/04/DaBaby-Blame-It-On-Baby.jpg");
+    private final Playlist TPLAYLIST4 = new Playlist("dairy dialect", "I saw this on facebook", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmDcpTFXJ_bv1dga9Bag1ryJ7xEY3ztLwAyg&usqp=CAU");
+    private final Playlist TPLAYLIST5 = new Playlist("equidistant parabolas", "dont try this at homekids", "https://www.sleek-mag.com/wp-content/uploads/2016/08/AlbumCovers_Blonde.jpg");
+    private final List<Playlist> PLAYLISTS = List.of(TPLAYLIST1, TPLAYLIST2, TPLAYLIST3, TPLAYLIST4, TPLAYLIST5);
     @Autowired
     private PlaylistController controller;
     @MockBean
@@ -71,7 +71,7 @@ public class PlaylistControllerUnitTest {
     void updateTest() throws Exception {
         when(this.service.update(TPLAYLIST1, TPLAYLIST1.getId())).thenReturn(this.maptoDto(TPLAYLIST1));
         assertThat(new ResponseEntity<PlaylistDTO>(this.maptoDto(TPLAYLIST1), HttpStatus.ACCEPTED))
-                .isEqualTo(this.controller.update(TPLAYLIST1,TPLAYLIST1.getId()));
+                .isEqualTo(this.controller.update(TPLAYLIST1, TPLAYLIST1.getId()));
         verify(this.service, atLeastOnce()).update(TPLAYLIST1, TPLAYLIST1.getId());
     }
 

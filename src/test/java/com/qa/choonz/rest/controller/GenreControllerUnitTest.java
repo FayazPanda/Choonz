@@ -71,7 +71,7 @@ public class GenreControllerUnitTest {
     void updateTest() throws Exception {
         when(this.service.update(TGENRE1, TGENRE1.getId())).thenReturn(this.maptoDto(TGENRE1));
         assertThat(new ResponseEntity<GenreDTO>(this.maptoDto(TGENRE1), HttpStatus.ACCEPTED))
-                .isEqualTo(this.controller.update(TGENRE1,TGENRE1.getId()));
+                .isEqualTo(this.controller.update(TGENRE1, TGENRE1.getId()));
         verify(this.service, atLeastOnce()).update(TGENRE1, TGENRE1.getId());
     }
 

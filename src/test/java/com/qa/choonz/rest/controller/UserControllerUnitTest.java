@@ -69,7 +69,7 @@ public class UserControllerUnitTest {
     void updateTest() throws Exception {
         when(this.service.update(TUSER1, TUSER1.getId())).thenReturn(this.maptoDto(TUSER1));
         assertThat(new ResponseEntity<UserDTO>(this.maptoDto(TUSER1), HttpStatus.ACCEPTED))
-                .isEqualTo(this.controller.update(TUSER1,TUSER1.getId()));
+                .isEqualTo(this.controller.update(TUSER1, TUSER1.getId()));
         verify(this.service, atLeastOnce()).update(TUSER1, TUSER1.getId());
     }
 

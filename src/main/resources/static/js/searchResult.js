@@ -2,16 +2,15 @@ function getAlbums(query) {
     let apiURL = 'http://localhost:8082/albums/search?search='
     for (let i = 0; i < query.length; i++) {
         let search;
-        if(i != query.length-1){
+        if (i != query.length - 1) {
             search = "name:*" + query[i] + "* and "
-        }
-        else{
+        } else {
             search = "name:*" + query[i] + "*"
         }
-        
+
         apiURL = apiURL.concat(search)
     }
-    
+
     fetch(apiURL)
         .then(
             function (response) {
@@ -28,9 +27,9 @@ function getAlbums(query) {
                     let gallery = document.getElementById("resultAlbums");
                     gallery.innerHTML = '';
                     // console.log(albumData.length);
-                    if(albumData.length == 0){
+                    if (albumData.length == 0) {
                         gallery.insertAdjacentHTML("beforeend", "<h1>No Albums Found</h1>");
-                    }else{
+                    } else {
                         for (let album of albumData) {
                             gallery.insertAdjacentHTML("beforeend", albumCard(album["id"], album["name"], album["cover"]));
                             getAlbumArtist(album["id"]);
@@ -48,16 +47,15 @@ function getPlaylist(query) {
     let apiURL = 'http://localhost:8082/playlists/search?search='
     for (let i = 0; i < query.length; i++) {
         let search;
-        if(i != query.length-1){
+        if (i != query.length - 1) {
             search = "name:*" + query[i] + "* and "
-        }
-        else{
+        } else {
             search = "name:*" + query[i] + "*"
         }
-        
+
         apiURL = apiURL.concat(search)
     }
-    
+
     fetch(apiURL)
         .then(
             function (response) {
@@ -74,9 +72,9 @@ function getPlaylist(query) {
                     let gallery = document.getElementById("resultPlaylist");
                     gallery.innerHTML = '';
 
-                    if(playlistData.length == 0){
+                    if (playlistData.length == 0) {
                         gallery.insertAdjacentHTML("beforeend", "<h1>No Playlists Found</h1>");
-                    }else{
+                    } else {
                         for (let playlist of playlistData) {
                             gallery.insertAdjacentHTML("beforeend", playlistCard(playlist["id"], playlist["name"], playlist["artwork"]));
                             getPlaylistUser(playlist["id"]);
@@ -101,7 +99,7 @@ function getAlbumArtist(id) {
                 }
                 // Examine the text in the response
                 response.json().then(function (albumData) {
-                    let tile = document.getElementById("album"+id);
+                    let tile = document.getElementById("album" + id);
                     tile.innerHTML = "By: " + albumData.artist.name;
                 });
             }
@@ -123,7 +121,7 @@ function getPlaylistUser(id) {
                 // Examine the text in the response
                 response.json().then(function (playlistData) {
                     // console.log(playlistData)
-                    let tile = document.getElementById("playlist"+id);
+                    let tile = document.getElementById("playlist" + id);
                     tile.innerHTML = "By: " + playlistData.user.username;
                 });
             }
@@ -135,20 +133,20 @@ function getPlaylistUser(id) {
 
 function albumCard(id, title, cover) {
     return '<div class="tile">\
-    <a href="/album.html?id='+id+'">\
-    <img id="cover" src="'+cover+'">\
-    <h3>'+title+'</h3>\
-    <p id="album'+ id+'">By:</p>\
+    <a href="/album.html?id=' + id + '">\
+    <img id="cover" src="' + cover + '">\
+    <h3>' + title + '</h3>\
+    <p id="album' + id + '">By:</p>\
     </a>\
 </div>'
 }
 
 function playlistCard(id, title, cover) {
     return '<div class="tile">\
-    <a href="/playlist.html?id='+id+'">\
-    <img id="cover" src="'+cover+'">\
-    <h3>'+title+'</h3>\
-    <p id="playlist'+id+'">By:</p>\
+    <a href="/playlist.html?id=' + id + '">\
+    <img id="cover" src="' + cover + '">\
+    <h3>' + title + '</h3>\
+    <p id="playlist' + id + '">By:</p>\
     </a>\
 </div>'
 }

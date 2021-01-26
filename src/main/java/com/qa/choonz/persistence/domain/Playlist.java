@@ -1,20 +1,14 @@
 package com.qa.choonz.persistence.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
-
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Data
@@ -37,11 +31,11 @@ public class Playlist {
     @Size(max = 1000)
     private String artwork;
 
-    @OneToMany(mappedBy = "playlists",cascade = CascadeType.ALL)
-    @JsonManagedReference(value = "track_Playlist")
-    private List<Track_Playlist> trackPlaylists;
-    
-    
+    @OneToMany(mappedBy = "playlists", cascade = CascadeType.ALL)
+    @JsonBackReference(value = "track_Playlist")
+    private List<Track_Playlist> trackPlaylists = new ArrayList<>();
+
+
     @NotNull
     @JsonBackReference(value = "playlist_user")
     @ManyToOne

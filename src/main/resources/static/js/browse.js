@@ -28,8 +28,8 @@ function getGenre() {
 
 function card(id, title) {
     return '<div class="tile">\
-    <a href="/genre.html?id='+id+'">\
-    <h3>'+title+'</h3>\
+    <a href="/genre.html?id=' + id + '">\
+    <h3>' + title + '</h3>\
     </a>\
 </div>'
 }
@@ -66,10 +66,10 @@ function getAlbums() {
 
 function albumCard(id, title, artist, cover) {
     return '<div class="tile">\
-    <a href="/album.html?id='+id+'">\
-    <img id="albumCover" src="'+cover+'">\
-    <h3>'+title+'</h3>\
-    <p>By: '+ artist +'</p>\
+    <a href="/album.html?id=' + id + '">\
+    <img id="albumCover" src="' + cover + '">\
+    <h3>' + title + '</h3>\
+    <p>By: ' + artist + '</p>\
     </a>\
 </div>'
 }
@@ -101,10 +101,11 @@ function getArtist() {
             console.log('Fetch Error :-S', err);
         });
 }
+
 function artistCard(id, title) {
     return '<div class="tile">\
-    <a href="/artist.html?id='+id+'">\
-    <h3>'+title+'</h3>\
+    <a href="/artist.html?id=' + id + '">\
+    <h3>' + title + '</h3>\
     </a>\
 </div>'
 }
@@ -140,18 +141,17 @@ function getPlaylists() {
 
 function playlistCard(id, title, cover, user) {
     return '<div class="tile">\
-    <a href="/playlist.html?id='+id+'">\
-    <img id="albumCover" src="'+cover+'">\
-    <h3>'+title+'</h3>\
-    <p>By: '+ user +'</p>\
+    <a href="/playlist.html?id=' + id + '">\
+    <img id="albumCover" src="' + cover + '">\
+    <h3>' + title + '</h3>\
+    <p>By: ' + user + '</p>\
     </a>\
 </div>'
 }
 
 
-
 function myPlaylists() {
-    fetch('http://localhost:8082/playlists/search/?search=user.id:'+userId())
+    fetch('http://localhost:8082/playlists/search/?search=user.id:' + userId())
         .then(
             function (response) {
                 if (response.status !== 200) {
@@ -169,7 +169,7 @@ function myPlaylists() {
                     gallery.innerHTML = '';
 
                     for (let playlist of data) {
-                        gallery.insertAdjacentHTML("beforeend", playlistCard(playlist["id"], playlist["name"], playlist["artwork"],username()));
+                        gallery.insertAdjacentHTML("beforeend", playlistCard(playlist["id"], playlist["name"], playlist["artwork"], username()));
                     }
                 });
             }
@@ -184,24 +184,19 @@ const urlParams = new URLSearchParams(queryString);
 const page = urlParams.get('page');
 console.log(page);
 
-if(page=="genres"){
+if (page == "genres") {
     getGenre();
-}
-else if(page=="albums"){
+} else if (page == "albums") {
     getAlbums();
-}
-else if(page=="artists"){
+} else if (page == "artists") {
     getArtist();
-}
-else if(page=="playlists"){
+} else if (page == "playlists") {
     getPlaylists();
-}
-else if(page=="myplaylists"){
-    if (userId()>0){
-  myPlaylists();
+} else if (page == "myplaylists") {
+    if (userId() > 0) {
+        myPlaylists();
+    } else {
+        alert("You are not currently logged in. Please log in to view your playlists");
     }
-    else{
-       alert("You are not currently logged in. Please log in to view your playlists");
-    }
-  
+
 }

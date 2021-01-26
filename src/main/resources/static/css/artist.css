@@ -4,21 +4,21 @@ body {
     background: #323334;
 }
 
-h1,h2,h3,p {
+h1, h2, h3, p {
     color: #f5f5f5;
 }
 
-h1{
+h1 {
     padding: 20px;
     font-size: 40px;
 }
 
-h2{
+h2 {
     margin-left: 20px;
     font-size: 27px;
 }
 
-.wrapper{
+.wrapper {
     display: flex;
     flex-direction: column;
     max-width: 1400px;
@@ -26,7 +26,7 @@ h2{
     background: #282829;
 }
 
-.gallery{
+.gallery {
     display: flex;
     margin: 0 10px 0 10px;
     padding: 0 10px 0 10px;
@@ -36,17 +36,17 @@ h2{
     flex-wrap: wrap;
 }
 
-.tile{
+.tile {
     padding: 15px;
     transition: 0.5s;
     cursor: pointer;
 }
 
-.tile:hover{
+.tile:hover {
     background: #19191a;
 }
 
-h3{
+h3 {
     font-size: 23px;
 }
 

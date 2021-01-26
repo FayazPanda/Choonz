@@ -1,19 +1,13 @@
 package com.qa.choonz.persistence.domain;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
-
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-
 import java.util.ArrayList;
-
 import java.util.List;
 
 @Entity
@@ -29,7 +23,7 @@ public class Artist {
     @Size(max = 100)
     @Column(unique = true)
     private String name;
-    
+
     @JsonManagedReference(value = "artistAlbum")
     @OneToMany(mappedBy = "artist", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Album> albums = new ArrayList<>();

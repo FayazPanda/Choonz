@@ -1,9 +1,6 @@
 package com.qa.choonz.rest.dto;
 
-import java.util.List;
-
 import com.qa.choonz.persistence.domain.Album;
-import com.qa.choonz.persistence.domain.Playlist;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

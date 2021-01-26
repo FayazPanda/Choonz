@@ -4,8 +4,6 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -35,7 +33,7 @@ public class Album {
     @ManyToOne(targetEntity = Artist.class)
     @JoinColumn(name = "artist_id")
     private Artist artist;
-    
+
     @JsonBackReference(value = "albumGenre")
     @ManyToOne
     @JoinColumn(name = "genre_id")

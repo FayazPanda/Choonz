@@ -47,7 +47,7 @@ h1, h4, p {
     background: #19191a;
 }
 
-.tracks a{
+.tracks a {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 }
@@ -64,7 +64,7 @@ h1, h4, p {
     margin-bottom: 50px;
 }
 
-.tracks i{
+.tracks i {
     margin-left: 5px;
     color: #3273FF;
 }
@@ -77,11 +77,11 @@ h1, h4, p {
     opacity: 0.5;
     color: #3273FF;
     background-color: Transparent;
-    background-repeat:no-repeat;
+    background-repeat: no-repeat;
     border: none;
-    cursor:pointer;
+    cursor: pointer;
     overflow: hidden;
-    outline:none;
+    outline: none;
 }
 
 .plus:hover {
