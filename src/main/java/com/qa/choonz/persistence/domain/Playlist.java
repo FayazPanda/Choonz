@@ -1,6 +1,7 @@
 package com.qa.choonz.persistence.domain;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -32,7 +33,7 @@ public class Playlist {
     private String artwork;
 
     @OneToMany(mappedBy = "playlists", cascade = CascadeType.ALL)
-    @JsonBackReference(value = "track_Playlist")
+    @JsonManagedReference(value = "track_Playlist")
     private List<Track_Playlist> trackPlaylists = new ArrayList<>();
 
 

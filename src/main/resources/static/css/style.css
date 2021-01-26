@@ -46,6 +46,16 @@ h2 {
     background: #19191a;
 }
 
+.tile a{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.tile h3{
+    max-width: 200px;
+}
+
 h3 {
     font-size: 23px;
 }
@@ -60,5 +70,4 @@ h3 {
 #Search:hover {
     background-color: grey;
     color: white;
-
 }
