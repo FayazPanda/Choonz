@@ -5,7 +5,6 @@ import com.qa.choonz.persistence.repository.PlaylistRepository;
 import com.qa.choonz.rest.dto.PlaylistDTO;
 import com.qa.choonz.service.PlaylistService;
 import com.sipios.springsearch.anotation.SearchSpec;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.http.HttpStatus;
@@ -19,11 +18,11 @@ import java.util.List;
 @CrossOrigin
 public class PlaylistController {
 
-	private final PlaylistRepository playlistRepository;
+    private final PlaylistRepository playlistRepository;
     private final PlaylistService service;
 
     @Autowired
-    public PlaylistController(PlaylistService service,PlaylistRepository playlistRepository) {
+    public PlaylistController(PlaylistService service, PlaylistRepository playlistRepository) {
         super();
         this.playlistRepository = playlistRepository;
         this.service = service;
@@ -48,7 +47,7 @@ public class PlaylistController {
     public ResponseEntity<PlaylistDTO> readUser(@PathVariable Long id) {
         return new ResponseEntity<PlaylistDTO>(this.service.read(id), HttpStatus.OK);
     }
-    
+
     @PutMapping("/update/{id}")
     public ResponseEntity<PlaylistDTO> update(@RequestBody Playlist playlist, @PathVariable long id) {
         return new ResponseEntity<PlaylistDTO>(this.service.update(playlist, id), HttpStatus.ACCEPTED);
@@ -59,7 +58,7 @@ public class PlaylistController {
         return this.service.delete(id) ? new ResponseEntity<PlaylistDTO>(HttpStatus.NO_CONTENT)
                 : new ResponseEntity<PlaylistDTO>(HttpStatus.INTERNAL_SERVER_ERROR);
     }
-    
+
     @GetMapping("/search")
     public ResponseEntity<List<Playlist>> searchForPlaylists(@SearchSpec Specification<Playlist> specs) {
         return new ResponseEntity<>(playlistRepository.findAll(Specification.where(specs)), HttpStatus.OK);

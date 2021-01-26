@@ -70,7 +70,7 @@ public class ArtistControllerUnitTest {
     void updateTest() throws Exception {
         when(this.service.update(TARTIST1, TARTIST1.getId())).thenReturn(this.maptoDto(TARTIST1));
         assertThat(new ResponseEntity<ArtistDTO>(this.maptoDto(TARTIST1), HttpStatus.ACCEPTED))
-                .isEqualTo(this.controller.update(TARTIST1,TARTIST1.getId()));
+                .isEqualTo(this.controller.update(TARTIST1, TARTIST1.getId()));
         verify(this.service, atLeastOnce()).update(TARTIST1, TARTIST1.getId());
     }
 

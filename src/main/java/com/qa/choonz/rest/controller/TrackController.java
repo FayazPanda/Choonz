@@ -5,7 +5,6 @@ import com.qa.choonz.persistence.repository.TrackRepository;
 import com.qa.choonz.rest.dto.TrackDTO;
 import com.qa.choonz.service.TrackService;
 import com.sipios.springsearch.anotation.SearchSpec;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.http.HttpStatus;
@@ -18,8 +17,8 @@ import java.util.List;
 @RequestMapping("/tracks")
 @CrossOrigin
 public class TrackController {
-	
-	private final TrackRepository trackRepository;
+
+    private final TrackRepository trackRepository;
     private final TrackService service;
 
     @Autowired
@@ -54,7 +53,7 @@ public class TrackController {
         return this.service.delete(id) ? new ResponseEntity<TrackDTO>(HttpStatus.NO_CONTENT)
                 : new ResponseEntity<TrackDTO>(HttpStatus.INTERNAL_SERVER_ERROR);
     }
-    
+
     @GetMapping("/search")
     public ResponseEntity<List<Track>> searchForTracks(@SearchSpec Specification<Track> specs) {
         return new ResponseEntity<>(trackRepository.findAll(Specification.where(specs)), HttpStatus.OK);

@@ -33,35 +33,34 @@ function getPermission(){
 }
 
 function username() {
-  let username = cookie
-    .split('; ')
-    .find(row => row.startsWith('name'))
-    .split('=')[1];
-  return username;
+    let username = cookie
+        .split('; ')
+        .find(row => row.startsWith('name'))
+        .split('=')[1];
+    return username;
 }
 
 function loginCheck() {
-  let userID = userId();
+    let userID = userId();
 
-  let loggedIn = document.getElementById("logInVisibility");
-  let loggedOut = document.getElementById("logInVisibilty2");
-  let welcomeMesssage = document.getElementById("welcomeMessage");
-  if (userID > 0) {
-    loggedIn.style.visibility = "visible";
-    loggedIn.style.display = "block";
-    loggedOut.style.visibility = "hidden";
-    loggedOut.style.display = "none";
-    welcomeMesssage.innerHTML = "";
-    welcomeMessage.append("Hi, " + username());
-    return userID;
-  }
-  else {
-    loggedOut.style.visibility = "visible";
-    loggedOut.style.display = "block";
-    loggedIn.style.visibility = "hidden";
-    loggedIn.style.display = "none";
-    return 0;
-  }
+    let loggedIn = document.getElementById("logInVisibility");
+    let loggedOut = document.getElementById("logInVisibilty2");
+    let welcomeMesssage = document.getElementById("welcomeMessage");
+    if (userID > 0) {
+        loggedIn.style.visibility = "visible";
+        loggedIn.style.display = "block";
+        loggedOut.style.visibility = "hidden";
+        loggedOut.style.display = "none";
+        welcomeMesssage.innerHTML = "";
+        welcomeMessage.append("Hi, " + username());
+        return userID;
+    } else {
+        loggedOut.style.visibility = "visible";
+        loggedOut.style.display = "block";
+        loggedIn.style.visibility = "hidden";
+        loggedIn.style.display = "none";
+        return 0;
+    }
 }
 
 loginCheck();

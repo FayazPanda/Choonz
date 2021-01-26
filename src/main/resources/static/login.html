@@ -11,61 +11,61 @@
     <title>Choonz Music</title>
 </head>
 <body>
-    <nav class="navbar fixed-top navbar-expand-xl navbar-dark bg-dark">
-        <a class="navbar-brand" href="./">
-            <img class="logo" height="50" ml-auto src="img/Choonz.png" width="auto"></a>
-        <button aria-controls="navbarsExample06" aria-expanded="false" aria-label="Toggle navigation"
+<nav class="navbar fixed-top navbar-expand-xl navbar-dark bg-dark">
+    <a class="navbar-brand" href="./">
+        <img class="logo" height="50" ml-auto src="img/Choonz.png" width="auto"></a>
+    <button aria-controls="navbarsExample06" aria-expanded="false" aria-label="Toggle navigation"
             class="navbar-toggler" data-target="#navbarsExample06" data-toggle="collapse" type="button">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarsExample06">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="/browse.html?page=genres">Genres</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/browse.html?page=albums">Albums</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/browse.html?page=artists">Artists</a>
-                </li>
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarsExample06">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/browse.html?page=genres">Genres</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/browse.html?page=albums">Albums</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/browse.html?page=artists">Artists</a>
+            </li>
 
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Playlists
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item" href="/browse.html?page=playlists">All Playlists</a>
-                      <a class="dropdown-item" href="/browse.html?page=myplaylists">My Playlists</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="createPlaylist.html">Create Playlist</a>
-                    </div>
-                  </li>
-                  <li>
-                    <form class="form-inline my-2 my-md-0">
-                        <input class="form-control" placeholder="Search" type="text">
-                    </form>
-                  </li>        
-            </ul> 
-            <ul class="navbar-nav ml-auto">
+            <li class="nav-item dropdown">
+                <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
+                   id="navbarDropdown" role="button">
+                    Playlists
+                </a>
+                <div aria-labelledby="navbarDropdown" class="dropdown-menu">
+                    <a class="dropdown-item" href="/browse.html?page=playlists">All Playlists</a>
+                    <a class="dropdown-item" href="/browse.html?page=myplaylists">My Playlists</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="createPlaylist.html">Create Playlist</a>
+                </div>
+            </li>
+            <li>
+                <form class="form-inline my-2 my-md-0">
+                    <input class="form-control" placeholder="Search" type="text">
+                </form>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
 
             <li class="nav-item">
                 <div id="logInVisibility" style="visibility: hidden;">
-                   <p1 id="welcomeMessage" style="color:rgb(185, 184, 184); ">Hi, </p1>
-                   <a class="btn btn-primary" href="/login.html" role="button">Log Out</a>
+                    <p1 id="welcomeMessage" style="color:rgb(185, 184, 184); ">Hi,</p1>
+                    <a class="btn btn-primary" href="/login.html" role="button">Log Out</a>
                 </div>
-               </li>
-             <li class="nav-item">
-               <div id="logInVisibilty2">
-                    <a class="btn btn-primary" href="/login.html" role="button">Log In</a> 
-               </div>
-             </li>
-           </ul> 
-        </div>
+            </li>
+            <li class="nav-item">
+                <div id="logInVisibilty2">
+                    <a class="btn btn-primary" href="/login.html" role="button">Log In</a>
+                </div>
+            </li>
+        </ul>
+    </div>
 
 
-       
-    </nav>
+</nav>
 <main>
     <div class="wrapper">
         <div>
@@ -73,13 +73,13 @@
             <form class="logInForm" method="post">
                 <input id="logInName" name="log-username" placeholder="Enter Username" type="text">
                 <input id="logInPassword" name="log-password" placeholder="Enter Password" type="password">
-                <button type="" id="logInButton">Login</button>
+                <button id="logInButton" type="">Login</button>
             </form>
         </div>
         <div>
             <h1>Register</h1>
             <form class="signUpForm" method="post">
-                <input id="signUpName" class="idk" name="log-username" placeholder="Enter Username" type="text">
+                <input class="idk" id="signUpName" name="log-username" placeholder="Enter Username" type="text">
                 <input id="signUpPassword1" name="sign-password" placeholder="Password" type="password">
                 <input id="signUpPassword2" name="sign-password-repeat" placeholder="Password" type="password">
                 <button id="registerButton">Register</button>
@@ -99,6 +99,6 @@
 <script crossorigin="anonymous"
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    
+
 </body>
 </html>

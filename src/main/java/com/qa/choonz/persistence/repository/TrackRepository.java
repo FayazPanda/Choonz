@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface TrackRepository extends JpaRepository<Track, Long>, JpaSpecificationExecutor<Track>{
+public interface TrackRepository extends JpaRepository<Track, Long>, JpaSpecificationExecutor<Track> {
 
 }

@@ -1,6 +1,5 @@
 package com.qa.choonz.service;
 
-import com.qa.choonz.exception.TrackNotFoundException;
 import com.qa.choonz.exception.UserNotFoundException;
 import com.qa.choonz.persistence.domain.User;
 import com.qa.choonz.persistence.repository.UserRepository;
@@ -52,36 +51,37 @@ public class UserService {
         User found = this.repo.findById(id).orElseThrow(UserNotFoundException::new);
         return this.mapToDTO(found);
     }
+
     public UserDTO find(String username) throws UserNotFoundException {
-    	List<UserDTO> all = read();
-    	User found = new User();
-    	for(UserDTO record : all) {
-    		if(record.getUsername().equals(username)) {
-    			found = this.repo.findById(record.getId()).orElseThrow(UserNotFoundException::new);
-    		}    		
-    	}
-       // User found = this.repo.findById(id).orElseThrow(TrackNotFoundException::new);
+        List<UserDTO> all = read();
+        User found = new User();
+        for (UserDTO record : all) {
+            if (record.getUsername().equals(username)) {
+                found = this.repo.findById(record.getId()).orElseThrow(UserNotFoundException::new);
+            }
+        }
+        // User found = this.repo.findById(id).orElseThrow(TrackNotFoundException::new);
         return this.mapToDTO(found);
     }
+
     // Takes in user with password, returns true if password is correct, false if not
     public Boolean login(String username, String password) {
-    	// Get the user from system to check against
+        // Get the user from system to check against
         UserDTO found = find(username);
         Boolean foundBool = false;
 
-        if(found.getUsername()!=null) {
-        	 // Checks inputted password against system
+        if (found.getUsername() != null) {
+            // Checks inputted password against system
             if (BCrypt.checkpw(password, found.getPassword())) {
                 System.out.println("It matches");
-            	foundBool = true;
-            }
-            else {
+                foundBool = true;
+            } else {
                 System.out.println("It does not match");
                 foundBool = false;
             }
         }
 
-       
+
         // Returns true if password matches, false if not
         return foundBool;
     }

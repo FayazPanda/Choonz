@@ -29,10 +29,10 @@ function getGenre(id) {
 
 function albumCard(id, title, artist, cover) {
     return '<div class="tile">\
-    <a href="/album.html?id='+id+'">\
-    <img id="albumCover" src="'+cover+'">\
-    <h3>'+title+'</h3>\
-    <p>By: '+ artist +'</p>\
+    <a href="/album.html?id=' + id + '">\
+    <img id="albumCover" src="' + cover + '">\
+    <h3>' + title + '</h3>\
+    <p>By: ' + artist + '</p>\
     </a>\
 </div>'
 }

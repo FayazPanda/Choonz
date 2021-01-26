@@ -15,16 +15,16 @@ function getAlbum(id) {
                     let title = document.getElementById("trackName");
 
                     let trackDuration = document.getElementById("trackDuration");
-                  
+
                     let trackLyrics = document.getElementById("trackLyrics");
 
-                 title.append(trackData.name);
+                    title.append(trackData.name);
 
-                 trackDuration.append(duration(trackData.duration));
-                 
-                 getArtist(trackData.album.id);
+                    trackDuration.append(duration(trackData.duration));
 
-                 trackLyrics.append(trackData.lyrics);
+                    getArtist(trackData.album.id);
+
+                    trackLyrics.append(trackData.lyrics);
                 });
             }
         )
@@ -33,38 +33,38 @@ function getAlbum(id) {
         });
 }
 
-function getArtist(id){ 
+function getArtist(id) {
     fetch('http://localhost:8082/albums/read/' + id)
-    .then(
-        function (response) {
-            if (response.status !== 200) {
-                console.log('Looks like there was a problem. Status Code: ' +
-                    response.status);
-                return;
+        .then(
+            function (response) {
+                if (response.status !== 200) {
+                    console.log('Looks like there was a problem. Status Code: ' +
+                        response.status);
+                    return;
+                }
+
+                // Examine the text in the response
+                response.json().then(function (albumData) {
+                    console.log(albumData)
+
+                    let trackAlbum = document.getElementById("linkAlbumDiv");
+                    let trackArtist = document.getElementById("linkArtistDiv");
+                    let albumCover = document.getElementById("albumCover");
+                    albumCover.src = albumData["cover"]
+
+                    //trackAlbum.append(albumData.name + " - " +albumData.genre.name);
+                    trackAlbum.insertAdjacentHTML("beforeend", '<a id="linkAlbum" href="album.html?id=' + albumData.id + '"><h3 id="trackAlbum">' + albumData.name + '</h3></a></i>');
+                    trackAlbum.insertAdjacentHTML("beforeend", '<h3 id="dash">-</h3>');
+                    trackAlbum.insertAdjacentHTML("beforeend", '<a id="linkGenre" href="genre.html?id=' + albumData.genre.id + '"><h3 id="trackGenre">' + albumData.genre.name + '</h3></a>');
+
+                    trackArtist.insertAdjacentHTML("beforeend", '<a id="linkArtist" href="artist.html?id=' + albumData.artist.id + '"><p id="trackArtist">' + albumData.artist.name + '</p></a>');
+
+                });
             }
-
-            // Examine the text in the response
-            response.json().then(function (albumData) {
-                console.log(albumData)
-
-                let trackAlbum = document.getElementById("linkAlbumDiv");
-                let trackArtist = document.getElementById("linkArtistDiv");
-                let albumCover = document.getElementById("albumCover");
-                albumCover.src = albumData["cover"]
-
-                //trackAlbum.append(albumData.name + " - " +albumData.genre.name);
-                trackAlbum.insertAdjacentHTML("beforeend", '<a id="linkAlbum" href="album.html?id='+albumData.id+'"><h3 id="trackAlbum">'+albumData.name+'</h3></a></i>');
-                trackAlbum.insertAdjacentHTML("beforeend", '<h3 id="dash">-</h3>');
-                trackAlbum.insertAdjacentHTML("beforeend", '<a id="linkGenre" href="genre.html?id='+albumData.genre.id+'"><h3 id="trackGenre">'+albumData.genre.name+'</h3></a>');
-
-                trackArtist.insertAdjacentHTML("beforeend", '<a id="linkArtist" href="artist.html?id='+ albumData.artist.id +'"><p id="trackArtist">'+ albumData.artist.name +'</p></a>');
-
-            });
-        }
-    )
-    .catch(function (err) {
-        console.log('Fetch Error :-S', err);
-    });
+        )
+        .catch(function (err) {
+            console.log('Fetch Error :-S', err);
+        });
 }
 
 

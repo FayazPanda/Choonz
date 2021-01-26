@@ -4,8 +4,6 @@ import com.qa.choonz.exception.PlaylistNotFoundException;
 import com.qa.choonz.persistence.domain.Playlist;
 import com.qa.choonz.persistence.repository.PlaylistRepository;
 import com.qa.choonz.rest.dto.PlaylistDTO;
-import org.hibernate.SharedSessionContract;
-import org.hibernate.Transaction;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -48,6 +46,7 @@ public class PlaylistService {
         Playlist found = this.repo.findById(id).orElseThrow(PlaylistNotFoundException::new);
         return this.mapToDTO(found);
     }
+
     public PlaylistDTO update(Playlist playlist, long id) {
         Playlist toUpdate = this.repo.findById(id).orElseThrow(PlaylistNotFoundException::new);
         toUpdate.setName(playlist.getName());

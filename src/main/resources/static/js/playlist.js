@@ -3,8 +3,7 @@ let trackToAdd = 0;
 var loggedIn = false;
 if (loginCheck() == 0) {
     loggedIn = false;
-}
-else {
+} else {
     loggedIn = true;
 }
 
@@ -42,7 +41,7 @@ function getPlaylist(id) {
 
                     let trackNumber = 1;
                     for (let track of trackList) {
-                        table.insertAdjacentHTML("beforeend",trackRow(trackNumber,track["id"], track["name"], duration(track["duration"])))
+                        table.insertAdjacentHTML("beforeend", trackRow(trackNumber, track["id"], track["name"], duration(track["duration"])))
                         trackNumber++
                     }
 
@@ -58,21 +57,21 @@ function getPlaylist(id) {
 function trackRow(trackNumber, id, name, duration) {
     if (loggedIn) {
         return '<div class="tracks">\
-                <button class="fas fa-plus plus" data-toggle="modal" data-target="#addToPlaylist" type="button" data-button="'+ id + '"></button>\
-                <a href="/tracks.html?id='+ id + '" class="track">\
-                    <p>'+ trackNumber + '</p>\
-                    <p>'+ name + '</p>\
-                    <p>'+ duration + '</p>\
+                <button class="fas fa-plus plus" data-toggle="modal" data-target="#addToPlaylist" type="button" data-button="' + id + '"></button>\
+                <a href="/tracks.html?id=' + id + '" class="track">\
+                    <p>' + trackNumber + '</p>\
+                    <p>' + name + '</p>\
+                    <p>' + duration + '</p>\
                 </a>\
             </div>'
     }
 
     return '<div class="tracks">\
-                <button class="fas fa-plus plus" data-toggle="modal" data-target="#notLoggedIn" type="button" data-button="'+ id + '"></button>\
-                <a href="/tracks.html?id='+ id + '" class="track">\
-                    <p>'+ trackNumber + '</p>\
-                    <p>'+ name + '</p>\
-                    <p>'+ duration + '</p>\
+                <button class="fas fa-plus plus" data-toggle="modal" data-target="#notLoggedIn" type="button" data-button="' + id + '"></button>\
+                <a href="/tracks.html?id=' + id + '" class="track">\
+                    <p>' + trackNumber + '</p>\
+                    <p>' + name + '</p>\
+                    <p>' + duration + '</p>\
                 </a>\
             </div>'
 

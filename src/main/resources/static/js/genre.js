@@ -55,10 +55,10 @@ function getAlbumArtist(id) {
 
 function albumCard(id, title, cover) {
     return '<div class="tile">\
-    <a href="/album.html?id='+id+'">\
-    <img id="albumCover" src="'+cover+'">\
-    <h3>'+title+'</h3>\
-    <p id='+id+'>By:</p>\
+    <a href="/album.html?id=' + id + '">\
+    <img id="albumCover" src="' + cover + '">\
+    <h3>' + title + '</h3>\
+    <p id=' + id + '>By:</p>\
     </a>\
 </div>'
 }
