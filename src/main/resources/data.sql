@@ -109,7 +109,7 @@ VALUES  (228,'Lorem Ipsum is simply dummy text of the printing and','Rolling in 
         (193,'Lorem Ipsum is simply dummy text of the printing and','MLS',5),
         (164,'Lorem Ipsum is simply dummy text of the printing and','How Far?',5);
 
-INSERT INTO playlist_tracks (playlist_id,tracks_id)
+INSERT INTO track_playlist (playlists_id,tracks_id)
 VALUES  (1,1),
         (1,3),
         (1,18),
