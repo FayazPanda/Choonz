@@ -7,6 +7,9 @@ if (loginCheck() == 0) {
     loggedIn = true;
 }
 
+var albumTitle = "";
+var albumGenre = "";
+
 function getAlbum(id) {
     fetch('http://localhost:8082/albums/read/' + id)
         .then(
@@ -31,6 +34,9 @@ function getAlbum(id) {
 
                     let albumCover = document.getElementById("albumCover");
                     albumCover.src = albumData["cover"];
+
+                    albumTitle = albumData["name"];
+                    albumGenre = albumData["genre"]["id"];
 
                     artist.insertAdjacentHTML("beforeend", '<a href="/artist.html?id=' + albumData["artist"]["id"] + '"><p id="artistName"> Artist: ' + albumData["artist"]["name"] + '</p></a>');
                     title.insertAdjacentHTML("beforeend", albumData["name"]);
@@ -125,6 +131,35 @@ $(document).on("click", "#addTrack", function () {
     //putListData(data);
 });
 
+function getGenres(){
+    fetch('http://localhost:8082/genres/read')
+        .then(
+            function (response) {
+                if (response.status !== 200) {
+                    console.log('Looks like there was a problem. Status Code: ' +
+                        response.status);
+                    return;
+                }
+                // Examine the text in the response
+                response.json().then(function (data) {
+                    let list = document.getElementById("genreListSelect");
+                    list.innerHTML = "";
+
+                    for(let genre of data){
+                        list.insertAdjacentHTML("beforeend", '<option value="'+ genre["id"]+'">'+genre["name"]+'</option>')
+                    }
+
+                    let selectGenre = albumGenre;
+                    document.getElementById("genreListSelect").value = selectGenre;
+                    
+                });
+            }
+        )
+        .catch(function (err) {
+            console.log('Fetch Error :-S', err);
+        });
+}
+
 
 
 // Delete function
@@ -137,3 +172,25 @@ function deleteAlbum(){
   })
 window.location.replace("index.html");
 }
+
+$('#editAlbumModal').on('show.bs.modal', function (e) {
+    getGenres();
+    document.getElementById("album-title").value = albumTitle;
+    let selectGenre = albumGenre;
+    // document.getElementById("genreListSelect").value = selectGenre;
+    // console.log(selectGenre);
+})
+
+$(document).on("click", "#saveEditBtn", function () {
+    // let playlistId = document.getElementById("listSelect").value;
+    // console.log("Add " + trackToAdd + " " + playlistId);
+    // data = {
+    //     "name": name,
+    //     "colour": colour
+    // }
+    // putListData(data);
+
+    //putPlaylistData(data);
+    console.log("SAVED")
+    //location.reload();
+});

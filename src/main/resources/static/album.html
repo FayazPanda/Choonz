@@ -96,6 +96,38 @@
     </div>
 </div>
 
+<!-- Admin Edit Album Modal -->
+<div aria-hidden="true" aria-labelledby="exampleModalCenterTitle" class="modal fade" id="editAlbumModal" role="dialog"
+     tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editAlbumTitle">Edit Album</h5>
+                <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="editPlaylistForm">
+                    <div class="form-group">
+                        <label for="album-title" class="col-form-label">Album Title:</label>
+                        <input type="text" class="form-control" id="album-title" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleFormControlSelect1">Genre</label>
+                        <select class="form-control" id="genreListSelect">
+                            <!-- <option value="1">Pop</option> -->
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-dismiss="modal" id="saveEditBtn" type="button">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Not logged in Modal -->
 <div aria-hidden="true" aria-labelledby="exampleModalCenterTitle" class="modal fade" id="notLoggedIn" role="dialog"
      tabindex="-1">
@@ -137,11 +169,12 @@
                         <p id="artistName">Created by X</p>
                     </div>
                     <button id="delete" style="visibility: hidden" class="btn btn-danger" href="#" onclick="deleteAlbum();">Delete</button>
-                    <button id="edit" style="visibility: hidden" class="btn btn-success" href="#" onclick="">Edit</button>
+                    <button id="edit" style="visibility: hidden" class="btn btn-success" data-toggle="modal" data-target="#editAlbumModal" type="button">Edit</button>
 
               
             </div>
         </div>
+        <br>
         <div class="tracks">
             <button class="fas fa-plus fa-2x" id="firstPlus"></button>
             <a class="track" href="#">
