@@ -125,3 +125,19 @@ $(document).on("click", "#addTrack", function () {
 
     //putListData(data);
 });
+
+if(getPermission()==1){
+    let deleteButton = document.getElementById("delete");
+    deleteButton.style.visibility = "visible";
+}
+
+// Delete function
+function deleteAlbum(){
+    fetch("http://localhost:8082/albums/delete/"+id, {
+        method: 'delete',
+        headers: {
+          "Content-type": "application/json; charset=UTF-8"
+        }
+  })
+window.location.replace("index.html");
+}

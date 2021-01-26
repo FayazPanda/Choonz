@@ -43,3 +43,19 @@ const id = urlParams.get('id');
 console.log(id);
 
 getGenre(id);
+
+if(getPermission()==1){
+    let deleteButton = document.getElementById("delete");
+    deleteButton.style.visibility = "visible";
+}
+
+// Delete function
+function deleteArtist(){
+    fetch("http://localhost:8082/artists/delete/"+id, {
+        method: 'delete',
+        headers: {
+          "Content-type": "application/json; charset=UTF-8"
+        }
+  })
+window.location.replace("index.html");
+}
