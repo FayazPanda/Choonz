@@ -4,7 +4,7 @@ function userId() {
   if(cookie == "") {
     document.cookie = "userid=0; expires=Thu, 01 Jan 2070 00:00:00 UTC; path=/;";
     document.cookie = "name=0; expires=Thu, 01 Jan 2070 00:00:00 UTC; path=/;";
-    document.cookie = "permission=0; expires=Thu, 01 Jan 2070 00:00:00 UTC; path=/;";
+    //document.cookie = "permission=0; expires=Thu, 01 Jan 2070 00:00:00 UTC; path=/;";
     return 0;
     
   }

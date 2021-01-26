@@ -16,7 +16,6 @@ VALUES  ('test','$2a$10$U7fFuQzETf8RxNgoYuHqQ.j5eybKjBc0.Fxo8DK3UwnfkGdYFk4qy'),
         ('alice','$2a$10$OrFa3yYtEAzi7eduZmdmt.6uT67t/6HpRb640bF150g51w8OKM0Qa'),
         ('dog','$2a$10$7aYV7xZrlbHt0L.w4qnnduBhYviB6it69lxUV6aTQtlOY4NeDvz.2');
 
-
 INSERT INTO album (name,artist_id,genre_id, cover)
 VALUES  ('Alone in the Dark',2,4,'https://d1csarkz8obe9u.cloudfront.net/posterpreviews/artistic-album-cover-design-template-d12ef0296af80b58363dc0deef077ecc_screen.jpg?ts=1561488440'),
         ('Bright day outside',1,1,'https://img.apmcdn.org/4f25ecdbbd7af5fed833153302515a94c990de11/square/7aacc5-20130508-favorite-album-covers.jpg'),

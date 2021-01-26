@@ -99,6 +99,7 @@ function login(username) {
                         let expires = "expires=" + date.toUTCString();
                         document.cookie = "userid=" + data.id + ";" + expires;
                         document.cookie = "name=" + data.username + ";" + expires;
+                        document.cookie = "permission=" + data.permissions + ";" + expires;
                         window.location.replace("index.html");
                     }
 

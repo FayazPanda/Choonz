@@ -27,6 +27,9 @@ public class User {
 
     @NotNull
     private String password;
+    
+    @Column(columnDefinition = "integer default 0")
+    private int permissions;
 
     @JsonManagedReference(value = "playlist_user")
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
@@ -36,13 +39,23 @@ public class User {
         super();
         this.username = username;
         this.password = password;
+		
     }
 
-    public User(long id, String username, String password) {
+    public User(long id, String username, String password, int permissions) {
         super();
         this.id = id;
         this.username = username;
         this.password = password;
+        this.permissions = permissions;
     }
+
+	public User(String username, String password, int permissions) {
+		super();
+		this.username = username;
+		this.password = password;
+		this.permissions = permissions;
+	}
+
 
 }

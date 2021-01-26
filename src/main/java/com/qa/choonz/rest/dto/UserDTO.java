@@ -14,4 +14,5 @@ public class UserDTO {
     private String username;
     private String password;
     private List<Playlist> playlists;
+    private int permissions;
 }
