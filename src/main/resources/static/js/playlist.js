@@ -12,8 +12,11 @@ if (loginCheck() == 0) {
 
 var isMyPlaylist = false;
 
+var playlistId = "";
 var playlistName = "";
 var playlistDesc = "";
+var currentPlaylist = "";
+var artworkURL = "";
 
 function getPlaylist(id) {
     fetch('http://localhost:8082/playlists/read/' + id)
@@ -40,7 +43,7 @@ function getPlaylist(id) {
                     let user = document.getElementById("userNameDiv");
                     user.innerHTML = '';
 
-                    if(currentUsername == playlistData["user"]["username"]){
+                    if (currentUsername == playlistData["user"]["username"]) {
                         isMyPlaylist = true;
                     }
                     //artist.innerHTML = "Created by: " + albumData["artist"]["name"];
@@ -52,21 +55,24 @@ function getPlaylist(id) {
                     let table = document.getElementById("table")
 
                     let trackNumber = 1;
-                    if(isMyPlaylist==true || getPermission()==1){
-                        playlistName = playlistData["name"];
-                        playlistDesc = playlistData["description"];
+                    playlistId = playlistData["id"];
+                    playlistName = playlistData["name"];
+                    playlistDesc = playlistData["description"];
+                    artworkURL = playlistData["artwork"];
+
+                    if (isMyPlaylist == true || getPermission() == 1) {
                         //editTitle.innerHTML = "Edit " + playlistData["name"];
 
                         let editDescription = document.getElementById("")
                         let playlistDataHTML = document.getElementById("playlistData");
                         playlistDataHTML.insertAdjacentHTML("beforeend", '<button id="delete" style="visibility: visible" class="btn btn-danger" href="#" onclick="deletePlaylist();">Delete</button>')
-                      
+
                         playlistDataHTML.insertAdjacentHTML("beforeend", '<button class="btn btn-primary" data-toggle="modal" data-target="#editPlaylistModal" type="button">Edit Playlist</button>')
                         for (let track of trackList) {
                             table.insertAdjacentHTML("beforeend", myTrackRow(trackNumber, track["tracks"]["id"], track["tracks"]["name"], duration(track["tracks"]["duration"])))
                             trackNumber++
                         }
-                    }else{
+                    } else {
                         for (let track of trackList) {
                             table.insertAdjacentHTML("beforeend", trackRow(trackNumber, track["tracks"]["id"], track["tracks"]["name"], duration(track["tracks"]["duration"])))
                             trackNumber++
@@ -82,8 +88,8 @@ function getPlaylist(id) {
         });
 }
 
-function putPlaylistData(data) {
-    fetch('http://localhost:9092/list/update/' + listToEdit, {
+function putPlaylistData(listToEdit, data) {
+    fetch('http://localhost:8082/playlists/update/' + listToEdit, {
         method: 'put', //post, put,delete
         headers: {
             "Content-type": "application/json; charset=UTF-8"
@@ -92,7 +98,7 @@ function putPlaylistData(data) {
     })
         .then(function (data) {
             console.log('Request succeeded with JSON response', data);
-            fillPage();
+            //fillPage();
         })
         .catch(function (error) {
             console.log('Request failed', error);
@@ -123,7 +129,7 @@ function trackRow(trackNumber, id, name, duration) {
 }
 
 function myTrackRow(trackNumber, id, name, duration) {
-        return '<div class="tracks">\
+    return '<div class="tracks">\
                 <button class="fas fa-trash trash" data-toggle="modal" data-target="#addToPlaylist" type="button" data-button="' + id + '"></button>\
                 <a href="/tracks.html?id=' + id + '" class="track">\
                     <p>' + trackNumber + '</p>\
@@ -163,6 +169,7 @@ const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const id = urlParams.get('id');
 console.log(id);
+currentPlaylist = id;
 
 getPlaylist(id);
 
@@ -184,28 +191,27 @@ $(document).on("click", "#addTrack", function () {
 $('#editPlaylistModal').on('show.bs.modal', function (e) {
     document.getElementById("playlist-name").value = playlistName;
     document.getElementById("description-text").value = playlistDesc;
+    document.getElementById("artworkURL").value = artworkURL;
 })
 
 $(document).on("click", "#saveEditBtn", function () {
-    // let playlistId = document.getElementById("listSelect").value;
-    // console.log("Add " + trackToAdd + " " + playlistId);
-    // data = {
-    //     "name": name,
-    //     "colour": colour
-    // }
-    // putListData(data);
+    //console.log("Add " + trackToAdd + " " + playlistId);
+    data = {
+        "name": document.getElementById("playlist-name").value,
+        "description": document.getElementById("description-text").value,
+        "artwork": document.getElementById("artworkURL").value
+    }
 
-    //putPlaylistData(data);
-    console.log("SAVED")
-    //location.reload();
+    putPlaylistData(playlistId ,data);
+    location.reload();
 });
 
-function deletePlaylist(){
-    fetch("http://localhost:8082/playlists/delete/"+id, {
+function deletePlaylist() {
+    fetch("http://localhost:8082/playlists/delete/" + id, {
         method: 'delete',
         headers: {
-          "Content-type": "application/json; charset=UTF-8"
+            "Content-type": "application/json; charset=UTF-8"
         }
-  })
-window.location.replace("index.html");
+    })
+    window.location.replace("index.html");
 }
