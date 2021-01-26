@@ -73,10 +73,41 @@
 <!-- /Navbar -->
 
 <!-- main -->
-
+<div aria-hidden="true" aria-labelledby="exampleModalCenterTitle" class="modal fade" id="editGenreModal" role="dialog"
+     tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editAlbumTitle">Edit Genre</h5>
+                <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="editPlaylistForm">
+                    <div class="form-group">
+                        <label for="genre-title" class="col-form-label">Genre Title:</label>
+                        <input type="text" class="form-control" id="genre-title" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="desc" class="col-form-label">Description:</label>
+                        <input type="text" class="form-control" id="desc" required>
+                      </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-dismiss="modal" id="saveEditBtn" type="button">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="wrapper">
     <h1 id="genreName">{Genre Name}</h1>
     <p id="genreDescription">Description: Hello</p>
+    <button id="delete" style="visibility: hidden" class="btn btn-danger" href="#" onclick="">Delete</button>
+                
+    <button id="edit" style="visibility: hidden" class="btn btn-success" data-toggle="modal" data-target="#editGenreModal" type="button">Edit</button>
+
     <h2>Albums</h2>
     <div class="gallery" id="allAlbums">
 
@@ -86,6 +117,11 @@
 <!-- /main -->
 
 <!-- JAVASCRIPT -->
+<script src="js/readCookie.js"></script>
+<script>
+      let deleteButton = document.getElementById("delete");
+  deleteButton.style.visibility = "hidden";
+    </script>
 <script crossorigin="anonymous" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script crossorigin="anonymous" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
