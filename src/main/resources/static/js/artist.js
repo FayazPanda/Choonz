@@ -1,3 +1,4 @@
+var artistID = "";
 var artistNameInput = "";
 
 function getArtist(id) {
@@ -11,6 +12,7 @@ function getArtist(id) {
                 }
                 // Examine the text in the response
                 response.json().then(function (artistData) {
+                    artistId = artistData["id"]
                     console.log(artistData)
                     let artistName = document.getElementById("artistName");
                     artistName.innerHTML = "Artist: " + artistData["name"];
@@ -27,6 +29,23 @@ function getArtist(id) {
         .catch(function (err) {
             console.log('Fetch Error :-S', err);
         });
+}
+
+function putArtistData(artistToEdit, data) {
+    fetch('http://localhost:8082/artists/update/' + artistToEdit, {
+        method: 'put', //post, put,delete
+        headers: {
+            "Content-type": "application/json; charset=UTF-8"
+        },
+        body: JSON.stringify(data)
+    })
+        .then(function (data) {
+            console.log('Request succeeded with JSON response', data);
+            //fillPage();
+        })
+        .catch(function (error) {
+            console.log('Request failed', error);
+        })
 }
 
 function albumCard(id, title, artist, cover) {
@@ -51,17 +70,14 @@ $('#editArtistModal').on('show.bs.modal', function (e) {
 })
 
 $(document).on("click", "#saveEditBtn", function () {
-    // let playlistId = document.getElementById("listSelect").value;
-    // console.log("Add " + trackToAdd + " " + playlistId);
-    // data = {
-    //     "name": name,
-    //     "colour": colour
-    // }
-    // putListData(data);
+    //let playlistId = document.getElementById("listSelect").value;
+    //console.log("Add " + trackToAdd + " " + playlistId);
+    data = {
+        "name": document.getElementById("arist-name").value
+    }
+    putArtistData(artistId, data);
 
-    //putPlaylistData(data);
-    console.log("SAVED")
-    //location.reload();
+    location.reload();
 });
 
 // Delete function
