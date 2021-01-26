@@ -1,15 +1,11 @@
-.gallery div:last-child {
-    display: none;
-}
 
-@media screen and (min-width: 1300px) {
-    .gallery div:last-child {
-        display: block;
-    }
-}
 
 #cover {
     object-fit: cover;
     width: 220px;
     height: 220px;
+}
+
+#createNewPlaylist {
+    margin: 10px 50px;
 }

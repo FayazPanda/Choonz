@@ -99,10 +99,15 @@ function getUserPlaylists(){
 
                 let playlistTitleType = document.getElementById("playlistType")
                 playlistTitleType.innerHTML = "Your Playlists";
-
-                for (let playlist of data) {
-                    gallery.insertAdjacentHTML("beforeend", playlistCard(playlist["id"],playlist["name"], loggedInUsername, playlist["artwork"]));
+                if(data.length == 0){
+                    gallery.insertAdjacentHTML("beforeend", '<div><h1>No Playlists!</h1><a href="/createPlaylist.html" class="btn btn-primary" id="createNewPlaylist">Create New Playlist</a></div>');
+                    //gallery.insertAdjacentHTML("beforeend", "<button>No Playlists!</button>");
+                }else{
+                    for (let playlist of data) {
+                        gallery.insertAdjacentHTML("beforeend", playlistCard(playlist["id"],playlist["name"], loggedInUsername, playlist["artwork"]));
+                    }
                 }
+
             });
         }
     )
