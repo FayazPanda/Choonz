@@ -97,7 +97,11 @@ function getArtist() {
                     name.append("Artists");
                     let gallery = document.getElementById("all");
                     gallery.innerHTML = '';
-
+                    if(getPermission()==1){
+                        let playlistDataHTML = document.getElementById("all");
+                        playlistDataHTML.insertAdjacentHTML("beforeend", '<button id="delete" style="visibility: visible" class="btn btn-success" href="#" onclick="addArtist();">Add</button>');
+                      
+                    }
                     for (let artist of data) {
                         gallery.insertAdjacentHTML("beforeend", artistCard(artist["id"], artist["name"],));
                     }
@@ -108,7 +112,9 @@ function getArtist() {
             console.log('Fetch Error :-S', err);
         });
 }
-
+function addArtist() {
+    window.location.replace("addArtist.html");
+    }
 function artistCard(id, title) {
     return '<div class="tile">\
     <a href="/artist.html?id=' + id + '">\
