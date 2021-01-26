@@ -1,4 +1,4 @@
-function getGenre(id) {
+function getArtist(id) {
     fetch('http://localhost:8082/artists/read/' + id)
         .then(
             function (response) {
@@ -42,9 +42,10 @@ const urlParams = new URLSearchParams(queryString);
 const id = urlParams.get('id');
 console.log(id);
 
-getGenre(id);
+getArtist(id);
 
 if(getPermission()==1){
+
     let deleteButton = document.getElementById("delete");
     deleteButton.style.visibility = "visible";
 }

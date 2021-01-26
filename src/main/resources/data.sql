@@ -15,6 +15,9 @@ VALUES  ('test','$2a$10$U7fFuQzETf8RxNgoYuHqQ.j5eybKjBc0.Fxo8DK3UwnfkGdYFk4qy'),
         ('alice','$2a$10$OrFa3yYtEAzi7eduZmdmt.6uT67t/6HpRb640bF150g51w8OKM0Qa'),
         ('dog','$2a$10$7aYV7xZrlbHt0L.w4qnnduBhYviB6it69lxUV6aTQtlOY4NeDvz.2');
 
+INSERT INTO user (username,password, permissions)
+VALUES  ('admin','$2a$10$U7fFuQzETf8RxNgoYuHqQ.j5eybKjBc0.Fxo8DK3UwnfkGdYFk4qy',1);
+
 INSERT INTO album (name,artist_id,genre_id, cover)
 VALUES  ('21',1,1,'https://upload.wikimedia.org/wikipedia/en/1/1b/Adele_-_21.png'),
         ('Because the Internet',3,3,'https://i.pinimg.com/originals/b9/a1/b7/b9a1b7038d5b9f890e9a6cafbada52ca.jpg'),
