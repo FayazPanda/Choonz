@@ -52,13 +52,15 @@ function getPlaylist(id) {
                     let table = document.getElementById("table")
 
                     let trackNumber = 1;
-                    if(isMyPlaylist){
+                    if(isMyPlaylist==true || getPermission()==1){
                         playlistName = playlistData["name"];
                         playlistDesc = playlistData["description"];
                         //editTitle.innerHTML = "Edit " + playlistData["name"];
 
                         let editDescription = document.getElementById("")
                         let playlistDataHTML = document.getElementById("playlistData");
+                        playlistDataHTML.insertAdjacentHTML("beforeend", '<button id="delete" style="visibility: visible" class="btn btn-danger" href="#" onclick="deletePlaylist();">Delete</button>')
+                      
                         playlistDataHTML.insertAdjacentHTML("beforeend", '<button class="btn btn-primary" data-toggle="modal" data-target="#editPlaylistModal" type="button">Edit Playlist</button>')
                         for (let track of trackList) {
                             table.insertAdjacentHTML("beforeend", myTrackRow(trackNumber, track["tracks"]["id"], track["tracks"]["name"], duration(track["tracks"]["duration"])))
@@ -197,3 +199,13 @@ $(document).on("click", "#saveEditBtn", function () {
     console.log("SAVED")
     //location.reload();
 });
+
+function deletePlaylist(){
+    fetch("http://localhost:8082/playlists/delete/"+id, {
+        method: 'delete',
+        headers: {
+          "Content-type": "application/json; charset=UTF-8"
+        }
+  })
+window.location.replace("index.html");
+}
