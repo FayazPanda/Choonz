@@ -67,7 +67,31 @@
 
 </nav>
 <!-- /Navbar -->
-
+<!-- Edit Artist Modal -->
+<div aria-hidden="true" aria-labelledby="exampleModalCenterTitle" class="modal fade" id="editArtistModal" role="dialog"
+     tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Edit Artist</h5>
+                <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="editArtistForm">
+                    <div class="form-group">
+                        <label for="artist-name" class="col-form-label">Artist Name:</label>
+                        <input type="text" class="form-control" id="arist-name" required>
+                      </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-dismiss="modal" id="saveEditBtn" type="button">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- main -->
 
 
@@ -78,8 +102,8 @@
   <br>   
     <div class="wrapper">
       <h1 id="artistName">{Artist Name}</h1>
-      <button id="delete" style="visibility: hidden" class="btn btn-danger" href="#" onclick="deleteArtist();">Delete</button>
-      <button id="edit" style="visibility: hidden" class="btn btn-success" href="#" onclick="">Edit</button>
+      <button id="delete" style="visibility: hidden; margin: 5px 50px;" class="btn btn-danger" href="#" onclick="deleteArtist();">Delete</button>
+      <button id="edit" style="visibility: hidden; margin: 5px 50px;" class="btn btn-success" data-toggle="modal" data-target="#editArtistModal" type="button">Edit</button>
 
       <h2>All Albums</h2>
       <div class="gallery" id="allAlbums">

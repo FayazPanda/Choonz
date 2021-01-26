@@ -1,3 +1,5 @@
+var artistNameInput = "";
+
 function getArtist(id) {
     fetch('http://localhost:8082/artists/read/' + id)
         .then(
@@ -15,7 +17,7 @@ function getArtist(id) {
 
                     let gallery = document.getElementById("allAlbums");
                     gallery.innerHTML = '';
-
+                    artistNameInput = artistData["name"]
                     for (let album of artistData["albums"]) {
                         gallery.insertAdjacentHTML("beforeend", albumCard(album["id"], album["name"], artistData["name"], album["cover"]));
                     }
@@ -44,7 +46,23 @@ console.log(id);
 
 getArtist(id);
 
+$('#editArtistModal').on('show.bs.modal', function (e) {
+    document.getElementById("arist-name").value = artistNameInput;
+})
 
+$(document).on("click", "#saveEditBtn", function () {
+    // let playlistId = document.getElementById("listSelect").value;
+    // console.log("Add " + trackToAdd + " " + playlistId);
+    // data = {
+    //     "name": name,
+    //     "colour": colour
+    // }
+    // putListData(data);
+
+    //putPlaylistData(data);
+    console.log("SAVED")
+    //location.reload();
+});
 
 // Delete function
 function deleteArtist(){
