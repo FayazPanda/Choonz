@@ -1,3 +1,6 @@
+var trackNameInput = "";
+var trackDurationInput = "";
+
 function getAlbum(id) {
     fetch('http://localhost:8082/tracks/read/' + id)
         .then(
@@ -20,7 +23,11 @@ function getAlbum(id) {
 
                     title.append(trackData.name);
 
+                    trackNameInput = trackData.name;
+
                     trackDuration.append(duration(trackData.duration));
+
+                    trackDurationInput = trackData.duration;
 
                     getArtist(trackData.album.id);
 
@@ -75,7 +82,24 @@ console.log(id);
 
 getAlbum(id);
 
+$('#editTrackModal').on('show.bs.modal', function (e) {
+    document.getElementById("track-name").value = trackNameInput;
+    document.getElementById("duration").value = trackDurationInput;
+})
 
+$(document).on("click", "#saveEditBtn", function () {
+    // let playlistId = document.getElementById("listSelect").value;
+    // console.log("Add " + trackToAdd + " " + playlistId);
+    // data = {
+    //     "name": name,
+    //     "colour": colour
+    // }
+    // putListData(data);
+
+    //putPlaylistData(data);
+    console.log("SAVED")
+    //location.reload();
+});
 
 // Delete function
 function deleteTrack(){
