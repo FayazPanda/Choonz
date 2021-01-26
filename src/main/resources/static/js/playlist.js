@@ -12,6 +12,9 @@ if (loginCheck() == 0) {
 
 var isMyPlaylist = false;
 
+var playlistName = "";
+var playlistDesc = "";
+
 function getPlaylist(id) {
     fetch('http://localhost:8082/playlists/read/' + id)
         .then(
@@ -50,6 +53,13 @@ function getPlaylist(id) {
 
                     let trackNumber = 1;
                     if(isMyPlaylist){
+                        playlistName = playlistData["name"];
+                        playlistDesc = playlistData["description"];
+                        //editTitle.innerHTML = "Edit " + playlistData["name"];
+
+                        let editDescription = document.getElementById("")
+                        let playlistDataHTML = document.getElementById("playlistData");
+                        playlistDataHTML.insertAdjacentHTML("beforeend", '<button class="btn btn-primary" data-toggle="modal" data-target="#editPlaylistModal" type="button">Edit Playlist</button>')
                         for (let track of trackList) {
                             table.insertAdjacentHTML("beforeend", myTrackRow(trackNumber, track["tracks"]["id"], track["tracks"]["name"], duration(track["tracks"]["duration"])))
                             trackNumber++
@@ -68,6 +78,23 @@ function getPlaylist(id) {
         .catch(function (err) {
             console.log('Fetch Error :-S', err);
         });
+}
+
+function putPlaylistData(data) {
+    fetch('http://localhost:9092/list/update/' + listToEdit, {
+        method: 'put', //post, put,delete
+        headers: {
+            "Content-type": "application/json; charset=UTF-8"
+        },
+        body: JSON.stringify(data)
+    })
+        .then(function (data) {
+            console.log('Request succeeded with JSON response', data);
+            fillPage();
+        })
+        .catch(function (error) {
+            console.log('Request failed', error);
+        })
 }
 
 function trackRow(trackNumber, id, name, duration) {
@@ -150,4 +177,23 @@ $(document).on("click", "#addTrack", function () {
     console.log("Add " + trackToAdd + " " + playlistId);
 
     putListData(data);
+});
+
+$('#editPlaylistModal').on('show.bs.modal', function (e) {
+    document.getElementById("playlist-name").value = playlistName;
+    document.getElementById("description-text").value = playlistDesc;
+})
+
+$(document).on("click", "#saveEditBtn", function () {
+    // let playlistId = document.getElementById("listSelect").value;
+    // console.log("Add " + trackToAdd + " " + playlistId);
+    // data = {
+    //     "name": name,
+    //     "colour": colour
+    // }
+    // putListData(data);
+
+    //putPlaylistData(data);
+    console.log("SAVED")
+    //location.reload();
 });

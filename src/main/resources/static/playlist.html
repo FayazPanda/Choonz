@@ -97,6 +97,36 @@
     </div>
 </div>
 
+<!-- Edit Playlist Modal -->
+<div aria-hidden="true" aria-labelledby="exampleModalCenterTitle" class="modal fade" id="editPlaylistModal" role="dialog"
+     tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editPlaylistTitle">Edit Playlist</h5>
+                <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="editPlaylistForm">
+                    <div class="form-group">
+                        <label for="playlist-name" class="col-form-label">Playlist Name:</label>
+                        <input type="text" class="form-control" id="playlist-name" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="description-text" class="col-form-label">Description:</label>
+                        <input class="form-control" id="description-text" required>
+                      </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-dismiss="modal" id="saveEditBtn" type="button">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Not logged in Modal -->
 <div aria-hidden="true" aria-labelledby="exampleModalCenterTitle" class="modal fade" id="notLoggedIn" role="dialog"
      tabindex="-1">
@@ -125,15 +155,17 @@
     <div class="wrapper" id=table>
         <div>
             <img id="playlistCover" src="img/album/alterbridge.png">
-            <div>
+            <div id="playlistData">
                 <h4>Playlist</h4>
                 <h1 id="playlistTitle">Mahmud</h1>
                 <p id="description">{description}</p>
                 <div id="userNameDiv">
                     <p id="userName">Created by X</p>
                 </div>
+                <!-- <button class="btn btn-primary" data-toggle="modal" data-target="#editPlaylist" type="button">Edit Playlist</button> -->
             </div>
         </div>
+        <br>
         <div class="tracks">
             <i class="fas fa-plus fa-2x" id="firstPlus"></i>
             <a class="track" href="#">
