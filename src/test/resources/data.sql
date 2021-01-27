@@ -29,7 +29,7 @@ VALUES  ('https://cms-assets.tutsplus.com/uploads/users/114/posts/34296/image/Fi
         ('https://www.digitalartsonline.co.uk/cmsdata/slideshow/3776245/beck_-_hyperspace.jpg','just a barrel of juice','beetle joose',1),
         ('https://www.digitalmusicnews.com/wp-content/uploads/2020/04/DaBaby-Blame-It-On-Baby.jpg','I lost the keys to my house playlist','canary opener',1),
         ('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmDcpTFXJ_bv1dga9Bag1ryJ7xEY3ztLwAyg&usqp=CAU','I saw this on facebook','dairy dialect',2),
-        ('https://www.sleek-mag.com/wp-content/uploads/2016/08/AlbumCovers_Blonde.jpg','dont try this at homekids','equidistant parabolas',3);
+        ('https://www.sleek-mag.com/wp-content/uploads/2016/08/AlbumCovers_Blonde.jpg','dont try this at homekids','equidistant parabolas',2);
 
 INSERT INTO track (duration,lyrics,name,album_id)
 VALUES  (3363,'Lorem Ipsum is simply dummy text of the printing and','Angsty Teen',1),

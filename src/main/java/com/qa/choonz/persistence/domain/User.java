@@ -42,6 +42,13 @@ public class User {
 		
     }
 
+    public User(String username, String password, int permissions) {
+        super();
+        this.username = username;
+        this.password = password;
+        this.permissions = permissions;
+    }
+
     public User(long id, String username, String password, int permissions) {
         super();
         this.id = id;
@@ -50,12 +57,7 @@ public class User {
         this.permissions = permissions;
     }
 
-	public User(String username, String password, int permissions) {
-		super();
-		this.username = username;
-		this.password = password;
-		this.permissions = permissions;
-	}
+
 
 
 }

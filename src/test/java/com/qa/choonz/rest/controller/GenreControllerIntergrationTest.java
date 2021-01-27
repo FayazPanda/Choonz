@@ -1,12 +1,10 @@
 package com.qa.choonz.rest.controller;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.qa.choonz.persistence.domain.Album;
+import com.qa.choonz.persistence.domain.Genre;
 import com.qa.choonz.persistence.domain.Track;
+import com.qa.choonz.rest.dto.GenreDTO;
 import com.qa.choonz.rest.dto.TrackDTO;
-import org.aspectj.lang.annotation.Before;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,9 +32,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @Sql(scripts = {"classpath:schema.sql",
         "classpath:data.sql"}, executionPhase = ExecutionPhase.BEFORE_TEST_METHOD)
 @ActiveProfiles(profiles = "test")
-public class TrackControllerIntergrationTest {
+public class GenreControllerIntergrationTest {
 
-    private final String URI = "/tracks";
+    private final String URI = "/genres";
     @Autowired
     private MockMvc mvc;
     @Autowired
@@ -44,12 +42,12 @@ public class TrackControllerIntergrationTest {
     @Autowired
     private ModelMapper mapper;
 
-    private TrackDTO mapToDTO(Track tracks) {
-        return this.mapper.map(tracks, TrackDTO.class);
+    private GenreDTO mapToDTO(Genre genre) {
+        return this.mapper.map(genre, GenreDTO.class);
     }
-    
-    void createEntity(Track track) throws Exception {
-        TrackDTO testDTO = mapToDTO(track);
+
+    void createEntity(Genre genre) throws Exception {
+        GenreDTO testDTO = mapToDTO(genre);
         String testDTOAsJSON = this.jsonifier.writeValueAsString(testDTO);
 
         RequestBuilder request = post(URI + "/create").contentType(MediaType.APPLICATION_JSON).content(testDTOAsJSON);
@@ -59,14 +57,14 @@ public class TrackControllerIntergrationTest {
 
     @Test
     void createTest() throws Exception {
-        TrackDTO testDTO = mapToDTO(new Track("Panda",456,"The life of a panda is a simple one"));
+        GenreDTO testDTO = mapToDTO(new Genre("Panda", "Bamboo, Crayons"));
         String testDTOAsJSON = this.jsonifier.writeValueAsString(testDTO);
 
         RequestBuilder request = post(URI + "/create").contentType(MediaType.APPLICATION_JSON).content(testDTOAsJSON);
 
         ResultMatcher checkStatus = status().isCreated();
 
-        TrackDTO testSavedDTO = mapToDTO(new Track(22L,"Panda",456,"The life of a panda is a simple one"));
+        GenreDTO testSavedDTO = mapToDTO(new Genre(6L,"Panda", "Bamboo, Crayons"));
         String testSavedDTOAsJSON = this.jsonifier.writeValueAsString(testSavedDTO);
 
         ResultMatcher checkBody = content().json(testSavedDTOAsJSON);
@@ -78,12 +76,12 @@ public class TrackControllerIntergrationTest {
     @Test
     void readOneTest() throws Exception {
 
-        createEntity(new Track("Panda",456,"The life of a panda is a simple one"));
+        createEntity(new Genre("Panda", "Bamboo, Crayons"));
 
-        RequestBuilder request = get(URI + "/read/22");
+        RequestBuilder request = get(URI + "/read/6");
         ResultMatcher checkStatus = status().isOk();
 
-        TrackDTO testSavedDTO = mapToDTO(new Track(22L,"Panda",456,"The life of a panda is a simple one"));
+        GenreDTO testSavedDTO = mapToDTO(new Genre(6L,"Panda", "Bamboo, Crayons"));
         String testSavedDTOAsJSON = this.jsonifier.writeValueAsString(testSavedDTO);
 
         ResultMatcher checkBody = content().json(testSavedDTOAsJSON);
@@ -98,24 +96,24 @@ public class TrackControllerIntergrationTest {
         RequestBuilder request = get(URI + "/read");
         ResultMatcher checkStatus = status().isOk();
 
-        for (int i=1;i < 22;i++){
+        for (int i=1;i < 6;i++){
             this.mvc.perform(delete(URI + "/delete/"+i));
         }
 
-        List<TrackDTO> tracks = new ArrayList<>();
-        tracks.add(mapToDTO(new Track(22L,"Panda",456,"The life of a panda is a simple one")));
-        tracks.add(mapToDTO(new Track(23L,"Dog",456,"The life of a dog is a simple one")));
-        tracks.add(mapToDTO(new Track(24L,"Cat",456,"The life of a cat is a simple one")));
-        tracks.add(mapToDTO(new Track(25L,"Mamoth",456,"The life of a mamoth is not a simple one")));
-        tracks.add(mapToDTO(new Track(26L,"Panther",456,"The life of a panther is a simple one")));
+        List<GenreDTO> genres = new ArrayList<>();
+        genres.add(mapToDTO(new Genre(6L,"Panda", "Bamboo, Crayons")));
+        genres.add(mapToDTO(new Genre(7L,"Dog", "Bones, Treats, Sit")));
+        genres.add(mapToDTO(new Genre(8L,"Cat", "Whiskers, Meow")));
+        genres.add(mapToDTO(new Genre(9L,"Mamoth", "Tusks")));
+        genres.add(mapToDTO(new Genre(10L,"Panther", "Whiskers, Growl")));
 
-        createEntity(new Track("Panda",456,"The life of a panda is a simple one"));
-        createEntity(new Track("Dog",456,"The life of a dog is a simple one"));
-        createEntity(new Track("Cat",456,"The life of a cat is a simple one"));
-        createEntity(new Track("Mamoth",456,"The life of a mamoth is not a simple one"));
-        createEntity(new Track("Panther",456,"The life of a panther is a simple one"));
+        createEntity(new Genre("Panda", "Bamboo, Crayons"));
+        createEntity(new Genre("Dog", "Bones, Treats, Sit"));
+        createEntity(new Genre("Cat", "Whiskers, Meow"));
+        createEntity(new Genre("Mamoth", "Tusks"));
+        createEntity(new Genre("Panther", "Whiskers, Growl"));
 
-        String testSavedDTOAsJSON = this.jsonifier.writeValueAsString(tracks);
+        String testSavedDTOAsJSON = this.jsonifier.writeValueAsString(genres);
 
         ResultMatcher checkBody = content().json(testSavedDTOAsJSON);
 
@@ -127,16 +125,16 @@ public class TrackControllerIntergrationTest {
     @Test
     void updateTest() throws Exception {
 
-        createEntity(new Track("Panda",456,"The life of a panda is a simple one"));
+        createEntity(new Genre("Panda", "Bamboo, Crayons"));
 
-        TrackDTO testDTO = mapToDTO(new Track("Dog",456,"This was a Panda, Now this is Dog"));
+        GenreDTO testDTO = mapToDTO(new Genre("Dog", "Bones, Treats, Sit"));
         String testDTOAsJSON = this.jsonifier.writeValueAsString(testDTO);
 
-        RequestBuilder request = put(URI + "/update/22").contentType(MediaType.APPLICATION_JSON).content(testDTOAsJSON);
+        RequestBuilder request = put(URI + "/update/6").contentType(MediaType.APPLICATION_JSON).content(testDTOAsJSON);
 
         ResultMatcher checkStatus = status().isAccepted();
 
-        TrackDTO testSavedDTO = mapToDTO(new Track(22L,"Dog",456,"This was a Panda, Now this is Dog"));
+        GenreDTO testSavedDTO = mapToDTO(new Genre(6L,"Dog", "Bones, Treats, Sit"));
         String testSavedDTOAsJSON = this.jsonifier.writeValueAsString(testSavedDTO);
 
         ResultMatcher checkBody = content().json(testSavedDTOAsJSON);
