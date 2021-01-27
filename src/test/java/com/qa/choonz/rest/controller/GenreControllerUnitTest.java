@@ -24,11 +24,11 @@ import static org.mockito.Mockito.*;
 @AutoConfigureTestDatabase
 public class GenreControllerUnitTest {
 
-    private final Genre TGENRE1 = new Genre("Pop", "coca cola, pepsi, fanta");
-    private final Genre TGENRE2 = new Genre("Rock", "sedimentary, metamorphic, igneous");
-    private final Genre TGENRE3 = new Genre("Punk", "cyberpunk 2077");
-    private final Genre TGENRE4 = new Genre("Rap", "bandage");
-    private final Genre TGENRE5 = new Genre("Metal", "steel, alloy,copper");
+    private final Genre TGENRE1 = new Genre(1L,"Pop", "coca cola, pepsi, fanta");
+    private final Genre TGENRE2 = new Genre(2L,"Rock", "sedimentary, metamorphic, igneous");
+    private final Genre TGENRE3 = new Genre(3L,"Punk", "cyberpunk 2077");
+    private final Genre TGENRE4 = new Genre(4L,"Rap", "bandage");
+    private final Genre TGENRE5 = new Genre(5L,"Metal", "steel, alloy,copper");
     private final List<Genre> GENRES = List.of(TGENRE1, TGENRE2, TGENRE3, TGENRE4, TGENRE5);
     @Autowired
     private GenreController controller;
