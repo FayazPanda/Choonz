@@ -11,6 +11,7 @@ var albumTitle = "";
 var albumGenre = "";
 var albumCoverURL = "";
 
+let artistID = "";
 function getAlbum(id) {
     fetch('http://localhost:8082/albums/read/' + id)
         .then(
@@ -40,6 +41,7 @@ function getAlbum(id) {
                     albumGenre = albumData["genre"]["id"];
                     albumCoverURL = albumData["cover"]
 
+                    artistID=albumData["artist"]["id"];
                     artist.insertAdjacentHTML("beforeend", '<a href="/artist.html?id=' + albumData["artist"]["id"] + '"><p id="artistName"> Artist: ' + albumData["artist"]["name"] + '</p></a>');
                     title.insertAdjacentHTML("beforeend", albumData["name"]);
                     genre.insertAdjacentHTML("beforeend", '<a href="/genre.html?id=' + albumData["genre"]["id"] + '"><p id="albumGenre"> Genre: ' + albumData["genre"]["name"] + '</p></a>');
@@ -133,6 +135,44 @@ $(document).on("click", "#addTrack", function () {
     //putListData(data);
 });
 
+$(document).on("click", "#saveEditBtn", function () {
+    let name = document.getElementById("track-name").value;
+    let duration = document.getElementById("duration").value;
+    let lyrics = document.getElementById("lyrics").value;
+    //console.log("Add " + trackToAdd + " " + playlistId);
+    let data = {
+        "name":name,
+        "duration":duration,
+        "lyrics":lyrics,
+        "artist":{
+            "id":artistID
+        },
+        "genre":{
+            "id":albumGenre
+        },
+        "album":{
+            "id":id
+        }
+    }
+    postTrackData(data);
+
+});
+function postTrackData( data) {
+    fetch('http://localhost:8082/tracks/create/', {
+        method: 'post', 
+        headers: {
+            "Content-type": "application/json; charset=UTF-8"
+        },
+        body: JSON.stringify(data)
+    })
+        .then(function (data) {
+            console.log('Request succeeded with JSON response', data);
+            //fillPage();
+        })
+        .catch(function (error) {
+            console.log('Request failed', error);
+        })
+}
 function getGenres(){
     fetch('http://localhost:8082/genres/read')
         .then(
