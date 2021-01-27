@@ -49,7 +49,11 @@ function getAlbum(id) {
                     let trackList = albumData["tracks"];
                     let table = document.getElementById("table")
                     let trackNumber = 1;
-
+                    if(getPermission()==1){
+                       let tracks = document.getElementById("tracks");
+                       tracks.insertAdjacentHTML("afterend", '<button class="btn btn-success" data-toggle="modal" data-target="#editTrackModal" type="button">Edit</button>');
+                      
+                    }
                     for (let track of trackList) {
                         table.insertAdjacentHTML("beforeend", trackRow(trackNumber, track["id"], track["name"], duration(track["duration"])))
 
@@ -135,7 +139,7 @@ $(document).on("click", "#addTrack", function () {
     //putListData(data);
 });
 
-$(document).on("click", "#saveEditBtn", function () {
+$(document).on("click", "#saveTrackBtn", function () {
     let name = document.getElementById("track-name").value;
     let duration = document.getElementById("duration").value;
     let lyrics = document.getElementById("lyrics").value;
@@ -241,6 +245,7 @@ $('#editAlbumModal').on('show.bs.modal', function (e) {
 $(document).on("click", "#saveEditBtn", function () {
 
     data = {
+        "id":id,
         "name": document.getElementById("album-title").value,
         "cover": document.getElementById("album-artwork").value,
         "genre": {

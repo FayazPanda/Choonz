@@ -131,27 +131,8 @@
             </div>
         </div>
     </div>
-<<<<<<< HEAD
 
-    <!-- Not logged in Modal -->
-    <div aria-hidden="true" aria-labelledby="exampleModalCenterTitle" class="modal fade" id="notLoggedIn" role="dialog"
-        tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Not Logged In</h5>
-                    <button aria-label="Close" class="close" data-dismiss="modal" type="button">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <h1 style="color: black;">Please log in to add a track to a playlist!</h1>
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-primary" id="confirmEdit" type="button">Login</button>
-                </div>
-=======
-</div>
+
 <!-- Admin Add track Modal -->
 <div aria-hidden="true" aria-labelledby="exampleModalCenterTitle" class="modal fade" id="editTrackModal"
 role="dialog" tabindex="-1">
@@ -180,7 +161,7 @@ role="dialog" tabindex="-1">
             </form>
         </div>
         <div class="modal-footer">
-            <button class="btn btn-primary" data-dismiss="modal" id="saveEditBtn" type="button">Save</button>
+            <button class="btn btn-primary" data-dismiss="modal" id="saveTrackBtn" type="button">Save</button>
         </div>
     </div>
 </div>
@@ -201,12 +182,11 @@ role="dialog" tabindex="-1">
             </div>
             <div class="modal-footer">
                 <button class="btn btn-primary" id="confirmEdit" type="button">Login</button>
->>>>>>> feature_addTrack
             </div>
         </div>
     </div>
 
-
+</div>
     <main>
         <br>
         <br>
@@ -233,32 +213,18 @@ role="dialog" tabindex="-1">
 
                 </div>
             </div>
-<<<<<<< HEAD
             <br>
-            <div class="tracks">
+            <div class="tracks"id="tracks">
                 <button class="fas fa-plus fa-2x" id="firstPlus"></button>
                 <a class="track" href="#">
                     <p class="header">#</p>
                     <p class="header">Name</p>
                     <p class="header">Duration</p>
                 </a>
+               
             </div>
+            
             <!-- <div class="tracks">
-=======
-        </div>
-        <br>
-        <div class="tracks">
-            <button class="fas fa-plus fa-2x" id="firstPlus"></button>
-            <a class="track" href="#">
-                <p class="header">#</p>
-                <p class="header">Name</p>
-                <p class="header">Duration</p>
-            </a>
-        </div>
-        <button id="edit" style="visibility: visible" class="btn btn-success" data-toggle="modal" data-target="#editTrackModal" type="button">Add Track</button>
-
-        <!-- <div class="tracks">
->>>>>>> feature_addTrack
             <button class="fas fa-plus" id="plus"></button>
             <a href="#" class="track">
                 <p>#</p>
