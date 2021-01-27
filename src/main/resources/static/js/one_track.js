@@ -1,7 +1,8 @@
 var trackNameInput = "";
 var trackDurationInput = "";
+var trackLyricInput = "";
 
-function getAlbum(id) {
+function getTrack(id) {
     fetch('http://localhost:8082/tracks/read/' + id)
         .then(
             function (response) {
@@ -32,6 +33,7 @@ function getAlbum(id) {
                     getArtist(trackData.album.id);
 
                     trackLyrics.append(trackData.lyrics);
+                    trackLyricInput = trackData.lyrics;
                 });
             }
         )
@@ -74,31 +76,48 @@ function getArtist(id) {
         });
 }
 
+function putTrackData(trackToEdit, data) {
+    fetch('http://localhost:8082/tracks/update/' + trackToEdit, {
+        method: 'put', //post, put,delete
+        headers: {
+            "Content-type": "application/json; charset=UTF-8"
+        },
+        body: JSON.stringify(data)
+    })
+        .then(function (data) {
+            console.log('Request succeeded with JSON response', data);
+            //fillPage();
+        })
+        .catch(function (error) {
+            console.log('Request failed', error);
+        })
+}
+
 
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const id = urlParams.get('id');
 console.log(id);
 
-getAlbum(id);
+getTrack(id);
 
 $('#editTrackModal').on('show.bs.modal', function (e) {
     document.getElementById("track-name").value = trackNameInput;
     document.getElementById("duration").value = trackDurationInput;
+    document.getElementById("lyrics").value = trackLyricInput;
 })
 
 $(document).on("click", "#saveEditBtn", function () {
     // let playlistId = document.getElementById("listSelect").value;
     // console.log("Add " + trackToAdd + " " + playlistId);
-    // data = {
-    //     "name": name,
-    //     "colour": colour
-    // }
-    // putListData(data);
+    data = {
+        "name": document.getElementById("track-name").value,
+        "duration": document.getElementById("duration").value,
+        "lyrics": document.getElementById("lyrics").value
+    }
 
-    //putPlaylistData(data);
-    console.log("SAVED")
-    //location.reload();
+    putTrackData(id, data);
+    location.reload();
 });
 
 // Delete function
