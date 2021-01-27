@@ -69,3 +69,32 @@ const id = urlParams.get('id');
 console.log(id);
 
 getGenre(id);
+
+$(document).on("click", "#saveEditBtn", function () {
+    //let playlistId = document.getElementById("listSelect").value;
+    //console.log("Add " + trackToAdd + " " + playlistId);
+    data = {
+        "title": document.getElementById("genre-title").value,
+        "description": document.getElementById("desc").value
+    }
+    putGenre(id, data);
+
+    //location.reload();
+});
+
+function putGenre(id, data) {
+    fetch('http://localhost:8082/genres/update/' + id, {
+        method: 'put', //post, put,delete
+        headers: {
+            "Content-type": "application/json; charset=UTF-8"
+        },
+        body: JSON.stringify(data)
+    })
+        .then(function (data) {
+            console.log('Request succeeded with JSON response', data);
+            //fillPage();
+        })
+        .catch(function (error) {
+            console.log('Request failed', error);
+        })
+}
