@@ -51,7 +51,7 @@ function getAlbum(id) {
                     let trackNumber = 1;
                     if(getPermission()==1){
                        let tracks = document.getElementById("tracks");
-                       tracks.insertAdjacentHTML("afterend", '<button class="btn btn-success" data-toggle="modal" data-target="#editTrackModal" type="button">Edit</button>');
+                       tracks.insertAdjacentHTML("afterend", '<button class="btn btn-success" data-toggle="modal" data-target="#editTrackModal" type="button">Add Track</button>');
                       
                     }
                     for (let track of trackList) {
