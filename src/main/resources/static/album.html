@@ -127,7 +127,39 @@
         </div>
     </div>
 </div>
-
+<!-- Admin Add track Modal -->
+<div aria-hidden="true" aria-labelledby="exampleModalCenterTitle" class="modal fade" id="editTrackModal"
+role="dialog" tabindex="-1">
+<div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">Edit Track</h5>
+            <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <form class="editArtistForm">
+                <div class="form-group">
+                    <label for="track-name" class="col-form-label">Track Name:</label>
+                    <input type="text" class="form-control" id="track-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="duration" class="col-form-label">Duration (in seconds) :</label>
+                    <input type="text" class="form-control" id="duration" required>
+                </div>
+                <div class="form-group">
+                    <label for="duration" class="col-form-label">Lyrics:</label>
+                    <textarea type="text" class="form-control" id="lyrics" required></textarea>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" data-dismiss="modal" id="saveEditBtn" type="button">Save</button>
+        </div>
+    </div>
+</div>
+</div>
 <!-- Not logged in Modal -->
 <div aria-hidden="true" aria-labelledby="exampleModalCenterTitle" class="modal fade" id="notLoggedIn" role="dialog"
      tabindex="-1">
@@ -183,6 +215,8 @@
                 <p class="header">Duration</p>
             </a>
         </div>
+        <button id="edit" style="visibility: visible" class="btn btn-success" data-toggle="modal" data-target="#editTrackModal" type="button">Add Track</button>
+
         <!-- <div class="tracks">
             <button class="fas fa-plus" id="plus"></button>
             <a href="#" class="track">
