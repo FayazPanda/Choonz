@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
     <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" rel="stylesheet">
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" rel="stylesheet">
     <script crossorigin="anonymous" src="https://kit.fontawesome.com/a963db15ce.js"></script>
     <link href="css/style.css" rel="stylesheet">
     <link href="css/album.css" rel="stylesheet">
@@ -14,152 +14,156 @@
 </head>
 
 <body>
-<nav class="navbar fixed-top navbar-expand-xl navbar-dark bg-dark">
-    <a class="navbar-brand" href="./">
-        <img class="logo" height="50" ml-auto src="img/Choonz.png" width="auto"></a>
-    <button aria-controls="navbarsExample06" aria-expanded="false" aria-label="Toggle navigation"
+    <nav class="navbar fixed-top navbar-expand-xl navbar-dark bg-dark">
+        <a class="navbar-brand" href="./">
+            <img class="logo" height="50" ml-auto src="img/Choonz.png" width="auto"></a>
+        <button aria-controls="navbarsExample06" aria-expanded="false" aria-label="Toggle navigation"
             class="navbar-toggler" data-target="#navbarsExample06" data-toggle="collapse" type="button">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarsExample06">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="/browse.html?page=genres">Genres</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/browse.html?page=albums">Albums</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/browse.html?page=artists">Artists</a>
-            </li>
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarsExample06">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/browse.html?page=genres">Genres</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/browse.html?page=albums">Albums</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/browse.html?page=artists">Artists</a>
+                </li>
 
-            <li class="nav-item dropdown">
-                <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown"
-                   href="#" id="navbarDropdown" role="button">
-                    Playlists
-                </a>
-                <div aria-labelledby="navbarDropdown" class="dropdown-menu">
-                    <a class="dropdown-item" href="/browse.html?page=playlists">All Playlists</a>
-                    <a class="dropdown-item" href="/browse.html?page=myplaylists">My Playlists</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="createPlaylist.html">Create Playlist</a>
-                </div>
-            </li>
-            <li>
-                <form class="form-inline my-2 my-md-0">
-                    <input class="form-control" placeholder="Search" type="text">
-                </form>
-            </li>
-        </ul>
-        <ul class="navbar-nav ml-auto">
-
-            <li class="nav-item">
-                <div id="logInVisibility" style="visibility: hidden;">
-                    <p1 id="welcomeMessage" style="color:rgb(185, 184, 184); ">Hi,</p1>
-                    <a class="btn btn-primary" href="/login.html" role="button">Log Out</a>
-                </div>
-            </li>
-            <li class="nav-item">
-                <div id="logInVisibilty2">
-                    <a class="btn btn-primary" href="/login.html" role="button">Log In</a>
-                </div>
-            </li>
-        </ul>
-    </div>
-</nav>
-
-<!-- Add to Playlist Modal -->
-<div aria-hidden="true" aria-labelledby="exampleModalCenterTitle" class="modal fade" id="addToPlaylist" role="dialog"
-     tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Add to Playlist</h5>
-                <button aria-label="Close" class="close" data-dismiss="modal" type="button">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form class="addToPlaylist">
-                    <div class="form-group">
-                        <label for="exampleFormControlSelect1">Add to:</label>
-                        <select class="form-control" id="listSelect">
-                            <option value="1">1</option>
-                        </select>
+                <li class="nav-item dropdown">
+                    <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle"
+                        data-toggle="dropdown" href="#" id="navbarDropdown" role="button">
+                        Playlists
+                    </a>
+                    <div aria-labelledby="navbarDropdown" class="dropdown-menu">
+                        <a class="dropdown-item" href="/browse.html?page=playlists">All Playlists</a>
+                        <a class="dropdown-item" href="/browse.html?page=myplaylists">My Playlists</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="createPlaylist.html">Create Playlist</a>
                     </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-primary" data-dismiss="modal" id="addTrack" type="button">Add</button>
-            </div>
-        </div>
-    </div>
-</div>
+                </li>
+                <li>
+                    <form class="form-inline my-2 my-md-0">
+                        <input class="form-control" placeholder="Search" type="text">
+                    </form>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
 
-<!-- Admin Edit Album Modal -->
-<div aria-hidden="true" aria-labelledby="exampleModalCenterTitle" class="modal fade" id="editAlbumModal" role="dialog"
-     tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="editAlbumTitle">Edit Album</h5>
-                <button aria-label="Close" class="close" data-dismiss="modal" type="button">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form class="editPlaylistForm">
-                    <div class="form-group">
-                        <label for="album-title" class="col-form-label">Album Title:</label>
-                        <input type="text" class="form-control" id="album-title" required>
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleFormControlSelect1">Genre</label>
-                        <select class="form-control" id="genreListSelect">
-                            <!-- <option value="1">Pop</option> -->
-                        </select>
+                <li class="nav-item">
+                    <div id="logInVisibility" style="visibility: hidden;">
+                        <p1 id="welcomeMessage" style="color:rgb(185, 184, 184); ">Hi,</p1>
+                        <a class="btn btn-primary" href="/login.html" role="button">Log Out</a>
                     </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-primary" data-dismiss="modal" id="saveEditBtn" type="button">Save</button>
+                </li>
+                <li class="nav-item">
+                    <div id="logInVisibilty2">
+                        <a class="btn btn-primary" href="/login.html" role="button">Log In</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Add to Playlist Modal -->
+    <div aria-hidden="true" aria-labelledby="exampleModalCenterTitle" class="modal fade" id="addToPlaylist"
+        role="dialog" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Add to Playlist</h5>
+                    <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form class="addToPlaylist">
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Add to:</label>
+                            <select class="form-control" id="listSelect">
+                                <option value="1">1</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" data-dismiss="modal" id="addTrack" type="button">Add</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<!-- Not logged in Modal -->
-<div aria-hidden="true" aria-labelledby="exampleModalCenterTitle" class="modal fade" id="notLoggedIn" role="dialog"
-     tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Not Logged In</h5>
-                <button aria-label="Close" class="close" data-dismiss="modal" type="button">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <h1 style="color: black;">Please log in to add a track to a playlist!</h1>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-primary" id="confirmEdit" type="button">Login</button>
+    <!-- Admin Edit Album Modal -->
+    <div aria-hidden="true" aria-labelledby="exampleModalCenterTitle" class="modal fade" id="editAlbumModal"
+        role="dialog" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editAlbumTitle">Edit Album</h5>
+                    <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form class="editPlaylistForm">
+                        <div class="form-group">
+                            <label for="album-title" class="col-form-label">Album Title:</label>
+                            <input type="text" class="form-control" id="album-title" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Genre</label>
+                            <select class="form-control" id="genreListSelect">
+                                <!-- <option value="1">Pop</option> -->
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Cover Artwork URL:</label>
+                            <input type="text" class="form-control" id="album-artwork" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" data-dismiss="modal" id="saveEditBtn" type="button">Save</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
+
+    <!-- Not logged in Modal -->
+    <div aria-hidden="true" aria-labelledby="exampleModalCenterTitle" class="modal fade" id="notLoggedIn" role="dialog"
+        tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Not Logged In</h5>
+                    <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h1 style="color: black;">Please log in to add a track to a playlist!</h1>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" id="confirmEdit" type="button">Login</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
-<main>
-    <br>
-    <br>
-    <br>
-    <div class="wrapper" id=table>
-        <div>
-            <img id="albumCover" src="img/album/alterbridge.png">
+    <main>
+        <br>
+        <br>
+        <br>
+        <div class="wrapper" id=table>
             <div>
+                <img id="albumCover" src="img/album/alterbridge.png">
+                <div>
 
-           
+
                     <h4>Album</h4>
                     <h1 id="albumTitle">Mahmud</h1>
                     <div id="albumGenreDiv">
@@ -168,22 +172,24 @@
                     <div id="artistNameDiv">
                         <p id="artistName">Created by X</p>
                     </div>
-                    <button id="delete" style="visibility: hidden" class="btn btn-danger" href="#" onclick="deleteAlbum();">Delete</button>
-                    <button id="edit" style="visibility: hidden" class="btn btn-success" data-toggle="modal" data-target="#editAlbumModal" type="button">Edit</button>
+                    <button id="delete" style="visibility: hidden" class="btn btn-danger" href="#"
+                        onclick="deleteAlbum();">Delete</button>
+                    <button id="edit" style="visibility: hidden" class="btn btn-success" data-toggle="modal"
+                        data-target="#editAlbumModal" type="button">Edit</button>
 
-              
+
+                </div>
             </div>
-        </div>
-        <br>
-        <div class="tracks">
-            <button class="fas fa-plus fa-2x" id="firstPlus"></button>
-            <a class="track" href="#">
-                <p class="header">#</p>
-                <p class="header">Name</p>
-                <p class="header">Duration</p>
-            </a>
-        </div>
-        <!-- <div class="tracks">
+            <br>
+            <div class="tracks">
+                <button class="fas fa-plus fa-2x" id="firstPlus"></button>
+                <a class="track" href="#">
+                    <p class="header">#</p>
+                    <p class="header">Name</p>
+                    <p class="header">Duration</p>
+                </a>
+            </div>
+            <!-- <div class="tracks">
             <button class="fas fa-plus" id="plus"></button>
             <a href="#" class="track">
                 <p>#</p>
@@ -191,18 +197,18 @@
                 <p>Duration</p>
             </a>
         </div> -->
-    </div>
-</main>
+        </div>
+    </main>
 
-<script src="js/readCookie.js"></script>
-<script crossorigin="anonymous" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    <script src="js/readCookie.js"></script>
+    <script crossorigin="anonymous" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script crossorigin="anonymous" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    <script crossorigin="anonymous" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
         src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-<script crossorigin="anonymous" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+    <script crossorigin="anonymous" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="js/album.js"></script>
-<script src="js/duration.js"></script>
+    <script src="js/album.js"></script>
+    <script src="js/duration.js"></script>
 </body>
 
 </html>
