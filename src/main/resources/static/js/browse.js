@@ -59,7 +59,11 @@ function getAlbums() {
 
                     let gallery = document.getElementById("all");
                     gallery.innerHTML = '';
-
+                    if(getPermission()==1){
+                        let playlistDataHTML = document.getElementById("all");
+                        playlistDataHTML.insertAdjacentHTML("beforeend", '<button id="delete" style="visibility: visible" class="btn btn-success" href="#" onclick="addAlbum();">Add</button>');
+                      
+                    }
                     for (let album of data) {
                         gallery.insertAdjacentHTML("beforeend", albumCard(album["id"], album["name"], album.artist["name"], album["cover"]));
                     }
@@ -70,7 +74,9 @@ function getAlbums() {
             console.log('Fetch Error :-S', err);
         });
 }
-
+function addAlbum() {
+    window.location.replace("addAlbum.html");
+    }
 function albumCard(id, title, artist, cover) {
     return '<div class="tile">\
     <a href="/album.html?id=' + id + '">\
