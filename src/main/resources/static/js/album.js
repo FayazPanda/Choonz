@@ -250,6 +250,9 @@ $(document).on("click", "#saveEditBtn", function () {
         "cover": document.getElementById("album-artwork").value,
         "genre": {
             "id": document.getElementById("genreListSelect").value
+        },
+        "artist": {
+            "id": artistID
         }
     }
     console.log(data)
