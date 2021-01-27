@@ -9,6 +9,7 @@ if (loginCheck() == 0) {
 
 var albumTitle = "";
 var albumGenre = "";
+var albumCoverURL = "";
 
 function getAlbum(id) {
     fetch('http://localhost:8082/albums/read/' + id)
@@ -37,6 +38,7 @@ function getAlbum(id) {
 
                     albumTitle = albumData["name"];
                     albumGenre = albumData["genre"]["id"];
+                    albumCoverURL = albumData["cover"]
 
                     artist.insertAdjacentHTML("beforeend", '<a href="/artist.html?id=' + albumData["artist"]["id"] + '"><p id="artistName"> Artist: ' + albumData["artist"]["name"] + '</p></a>');
                     title.insertAdjacentHTML("beforeend", albumData["name"]);
@@ -160,7 +162,22 @@ function getGenres(){
         });
 }
 
-
+function putAlbumData(albumToEdit, data) {
+    fetch('http://localhost:8082/albums/update/' + albumToEdit, {
+        method: 'put', //post, put,delete
+        headers: {
+            "Content-type": "application/json; charset=UTF-8"
+        },
+        body: JSON.stringify(data)
+    })
+        .then(function (data) {
+            console.log('Request succeeded with JSON response', data);
+            //fillPage();
+        })
+        .catch(function (error) {
+            console.log('Request failed', error);
+        })
+}
 
 // Delete function
 function deleteAlbum(){
@@ -176,21 +193,23 @@ window.location.replace("index.html");
 $('#editAlbumModal').on('show.bs.modal', function (e) {
     getGenres();
     document.getElementById("album-title").value = albumTitle;
-    let selectGenre = albumGenre;
+    document.getElementById("album-artwork").value = albumCoverURL;
     // document.getElementById("genreListSelect").value = selectGenre;
     // console.log(selectGenre);
 })
 
 $(document).on("click", "#saveEditBtn", function () {
-    // let playlistId = document.getElementById("listSelect").value;
-    // console.log("Add " + trackToAdd + " " + playlistId);
-    // data = {
-    //     "name": name,
-    //     "colour": colour
-    // }
-    // putListData(data);
 
-    //putPlaylistData(data);
+    data = {
+        "name": document.getElementById("album-title").value,
+        "cover": document.getElementById("album-artwork").value,
+        "genre": {
+            "id": document.getElementById("genreListSelect").value
+        }
+    }
+    console.log(data)
+    putAlbumData(id, data);
+
     console.log("SAVED")
-    //location.reload();
+    location.reload();
 });
