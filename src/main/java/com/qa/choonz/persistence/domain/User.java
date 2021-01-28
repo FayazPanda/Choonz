@@ -27,7 +27,7 @@ public class User {
 
     @NotNull
     private String password;
-    
+
     @Column(columnDefinition = "integer default 0")
     private int permissions;
 
@@ -39,7 +39,7 @@ public class User {
         super();
         this.username = username;
         this.password = password;
-		
+
     }
 
     public User(String username, String password, int permissions) {
@@ -56,8 +56,6 @@ public class User {
         this.password = password;
         this.permissions = permissions;
     }
-
-
 
 
 }

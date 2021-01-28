@@ -94,23 +94,23 @@ function getUserPlaylists() {
                     let welcomeMsg = document.getElementById("welcomeMsg")
                     welcomeMsg.innerHTML = "Welcome back " + loggedInUsername + "!";
 
-                let playlistTitleType = document.getElementById("playlistType")
-                playlistTitleType.innerHTML = "Your Playlists";
-                if(data.length == 0){
-                    gallery.insertAdjacentHTML("beforeend", '<div><h1>No Playlists!</h1><a href="/createPlaylist.html" class="btn btn-primary" id="createNewPlaylist">Create New Playlist</a></div>');
-                    //gallery.insertAdjacentHTML("beforeend", "<button>No Playlists!</button>");
-                }else{
-                    for (let playlist of data) {
-                        gallery.insertAdjacentHTML("beforeend", playlistCard(playlist["id"],playlist["name"], loggedInUsername, playlist["artwork"]));
+                    let playlistTitleType = document.getElementById("playlistType")
+                    playlistTitleType.innerHTML = "Your Playlists";
+                    if (data.length == 0) {
+                        gallery.insertAdjacentHTML("beforeend", '<div><h1>No Playlists!</h1><a href="/createPlaylist.html" class="btn btn-primary" id="createNewPlaylist">Create New Playlist</a></div>');
+                        //gallery.insertAdjacentHTML("beforeend", "<button>No Playlists!</button>");
+                    } else {
+                        for (let playlist of data) {
+                            gallery.insertAdjacentHTML("beforeend", playlistCard(playlist["id"], playlist["name"], loggedInUsername, playlist["artwork"]));
+                        }
                     }
-                }
 
-            });
-        }
-    )
-    .catch(function (err) {
-        console.log('Fetch Error :-S', err);
-    });
+                });
+            }
+        )
+        .catch(function (err) {
+            console.log('Fetch Error :-S', err);
+        });
 }
 
 function albumCard(id, title, artist, cover) {

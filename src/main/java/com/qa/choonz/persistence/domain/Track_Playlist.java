@@ -1,7 +1,6 @@
 package com.qa.choonz.persistence.domain;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -14,21 +13,19 @@ import java.io.Serializable;
 @NoArgsConstructor
 public class Track_Playlist implements Serializable {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-
     @ManyToOne
     @NotNull
     @JsonBackReference(value = "playlist_tracks")
     @JoinColumn(name = "tracks_id")
     Track tracks;
-
     @ManyToOne
     @NotNull
     @JsonBackReference(value = "track_Playlist")
     @JoinColumn(name = "playlists_id")
     Playlist playlists;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
 
 
     public Track_Playlist(@NotNull Track tracks, @NotNull Playlist playlists) {

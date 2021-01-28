@@ -81,12 +81,12 @@ $(document).on("click", "#saveEditBtn", function () {
 });
 
 // Delete function
-function deleteArtist(){
-    fetch("http://localhost:8082/artists/delete/"+id, {
+function deleteArtist() {
+    fetch("http://localhost:8082/artists/delete/" + id, {
         method: 'delete',
         headers: {
-          "Content-type": "application/json; charset=UTF-8"
+            "Content-type": "application/json; charset=UTF-8"
         }
-  })
-window.location.replace("index.html");
+    })
+    window.location.replace("index.html");
 }

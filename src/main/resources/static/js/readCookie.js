@@ -1,35 +1,33 @@
 let cookie = document.cookie;
 
 function userId() {
-  if(cookie == "") {
-    document.cookie = "userid=0; expires=Thu, 01 Jan 2070 00:00:00 UTC; path=/;";
-    document.cookie = "name=0; expires=Thu, 01 Jan 2070 00:00:00 UTC; path=/;";
-    //document.cookie = "permission=0; expires=Thu, 01 Jan 2070 00:00:00 UTC; path=/;";
-    return 0;
-    
-  }
-  else {
-    let userID = cookie
-      .split('; ')
-      .find(row => row.startsWith('userid'))
-      .split('=')[1];
-    return userID;
-  }
+    if (cookie == "") {
+        document.cookie = "userid=0; expires=Thu, 01 Jan 2070 00:00:00 UTC; path=/;";
+        document.cookie = "name=0; expires=Thu, 01 Jan 2070 00:00:00 UTC; path=/;";
+        //document.cookie = "permission=0; expires=Thu, 01 Jan 2070 00:00:00 UTC; path=/;";
+        return 0;
+
+    } else {
+        let userID = cookie
+            .split('; ')
+            .find(row => row.startsWith('userid'))
+            .split('=')[1];
+        return userID;
+    }
 }
 
-function getPermission(){
-  if(cookie == "") {
-    document.cookie = "permission=0; expires=Thu, 01 Jan 2070 00:00:00 UTC; path=/;";
-    return 0;
-  }
-  else{
-    let permission = cookie
-    .split('; ')
-    .find(row => row.startsWith('permission'))
-    .split('=')[1];
-  return permission;
-  }
- 
+function getPermission() {
+    if (cookie == "") {
+        document.cookie = "permission=0; expires=Thu, 01 Jan 2070 00:00:00 UTC; path=/;";
+        return 0;
+    } else {
+        let permission = cookie
+            .split('; ')
+            .find(row => row.startsWith('permission'))
+            .split('=')[1];
+        return permission;
+    }
+
 }
 
 function username() {
@@ -65,10 +63,10 @@ function loginCheck() {
 
 loginCheck();
 
-if(getPermission()==1){
+if (getPermission() == 1) {
 
-  let deleteButton = document.getElementById("delete");
-  deleteButton.style.visibility = "visible";
-  let editButton = document.getElementById("edit");
-  editButton.style.visibility = "visible";
+    let deleteButton = document.getElementById("delete");
+    deleteButton.style.visibility = "visible";
+    let editButton = document.getElementById("edit");
+    editButton.style.visibility = "visible";
 }

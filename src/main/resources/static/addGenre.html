@@ -32,7 +32,8 @@
             </li>
 
             <li class="nav-item dropdown">
-                <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
+                <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown"
+                   href="#"
                    id="navbarDropdown" role="button">
                     Playlists
                 </a>
@@ -44,7 +45,7 @@
                 </div>
             </li>
             <li>
-                <form class="form-inline my-2 my-md-0" action="/searchResult.html">
+                <form action="/searchResult.html" class="form-inline my-2 my-md-0">
                     <input class="form-control" name="searchQuery" placeholder="Search" type="text">
                 </form>
             </li>
@@ -70,19 +71,19 @@
 <main>
     <div class="wrapper">
 
-        <form method="post" class="genreForm">
+        <form class="genreForm" method="post">
             <div class="form-group">
-              <label for="title">Genre Title</label>
-              <input type="text" class="form-control" id="title" placeholder="Enter title">
-             
+                <label for="title">Genre Title</label>
+                <input class="form-control" id="title" placeholder="Enter title" type="text">
+
             </div>
             <div class="form-group">
                 <label for="desc">Genre Description</label>
-                <input type="text" class="form-control" id="desc" placeholder="Enter description">
-               
-              </div>
-            <button id="submit" type="submit" class="btn btn-primary">Submit</button>
-          </form>
+                <input class="form-control" id="desc" placeholder="Enter description" type="text">
+
+            </div>
+            <button class="btn btn-primary" id="submit" type="submit">Submit</button>
+        </form>
     </div>
 </main>
 <script src="js/addGenre.js"></script>

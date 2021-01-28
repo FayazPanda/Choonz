@@ -1,4 +1,3 @@
-
 let formElements = document.querySelector("form.genreForm").elements;
 document
     .querySelector("form.genreForm")
@@ -10,7 +9,7 @@ document
 
         let name = formElements["title"].value;
         let desc = formElements["desc"].value;
-   
+
 
         // JSON object for data
         let data = {
@@ -29,7 +28,7 @@ document
 
 function addGenre(data) {
     fetch('http://localhost:8082/genres/create', {
-        method: 'post', 
+        method: 'post',
         headers: {
             "Content-type": "application/json; charset=UTF-8"
         },

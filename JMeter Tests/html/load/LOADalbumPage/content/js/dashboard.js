@@ -69,7 +69,7 @@ function createTable(table, info, formatter, defaultSorts, seriesIndex, headerCr
     var header = tableRef.createTHead();
 
     // Call callback is available
-    if(headerCreator) {
+    if (headerCreator) {
         headerCreator(header);
     }
 
@@ -83,15 +83,15 @@ function createTable(table, info, formatter, defaultSorts, seriesIndex, headerCr
     var tBody;
 
     // Create overall body if defined
-    if(info.overall){
+    if (info.overall) {
         tBody = document.createElement('tbody');
         tBody.className = "tablesorter-no-sort";
         tableRef.appendChild(tBody);
         var newRow = tBody.insertRow(-1);
         var data = info.overall.data;
-        for(var index=0;index < data.length; index++){
+        for (var index = 0; index < data.length; index++) {
             var cell = newRow.insertCell(-1);
-            cell.innerHTML = formatter ? formatter(index, data[index]): data[index];
+            cell.innerHTML = formatter ? formatter(index, data[index]) : data[index];
         }
     }
 
@@ -100,18 +100,18 @@ function createTable(table, info, formatter, defaultSorts, seriesIndex, headerCr
     tableRef.appendChild(tBody);
 
     var regexp;
-    if(seriesFilter) {
+    if (seriesFilter) {
         regexp = new RegExp(seriesFilter, 'i');
     }
     // Populate body with data.items array
-    for(var index=0; index < info.items.length; index++){
+    for (var index = 0; index < info.items.length; index++) {
         var item = info.items[index];
-        if((!regexp || filtersOnlySampleSeries && !info.supportsControllersDiscrimination || regexp.test(item.data[seriesIndex]))
-                &&
-                (!showControllersOnly || !info.supportsControllersDiscrimination || item.isController)){
-            if(item.data.length > 0) {
+        if ((!regexp || filtersOnlySampleSeries && !info.supportsControllersDiscrimination || regexp.test(item.data[seriesIndex]))
+            &&
+            (!showControllersOnly || !info.supportsControllersDiscrimination || item.isController)) {
+            if (item.data.length > 0) {
                 var newRow = tBody.insertRow(-1);
-                for(var col=0; col < item.data.length; col++){
+                for (var col = 0; col < item.data.length; col++) {
                     var cell = newRow.insertCell(-1);
                     cell.innerHTML = formatter ? formatter(col, item.data[col]) : item.data[col];
                 }
@@ -120,13 +120,13 @@ function createTable(table, info, formatter, defaultSorts, seriesIndex, headerCr
     }
 
     // Add support of columns sort
-    table.tablesorter({sortList : defaultSorts});
+    table.tablesorter({sortList: defaultSorts});
 }
 
-$(document).ready(function() {
+$(document).ready(function () {
 
     // Customize table sorter default options
-    $.extend( $.tablesorter.defaults, {
+    $.extend($.tablesorter.defaults, {
         theme: 'blue',
         cssInfoBlock: "tablesorter-no-sort",
         widthFixed: true,
@@ -136,45 +136,56 @@ $(document).ready(function() {
     var data = {"OkPercent": 29.97068062827225, "KoPercent": 70.02931937172775};
     var dataset = [
         {
-            "label" : "FAIL",
-            "data" : data.KoPercent,
-            "color" : "#FF6347"
+            "label": "FAIL",
+            "data": data.KoPercent,
+            "color": "#FF6347"
         },
         {
-            "label" : "PASS",
-            "data" : data.OkPercent,
-            "color" : "#9ACD32"
+            "label": "PASS",
+            "data": data.OkPercent,
+            "color": "#9ACD32"
         }];
     $.plot($("#flot-requests-summary"), dataset, {
-        series : {
-            pie : {
-                show : true,
-                radius : 1,
-                label : {
-                    show : true,
-                    radius : 3 / 4,
-                    formatter : function(label, series) {
+        series: {
+            pie: {
+                show: true,
+                radius: 1,
+                label: {
+                    show: true,
+                    radius: 3 / 4,
+                    formatter: function (label, series) {
                         return '<div style="font-size:8pt;text-align:center;padding:2px;color:white;">'
                             + label
                             + '<br/>'
                             + Math.round10(series.percent, -2)
                             + '%</div>';
                     },
-                    background : {
-                        opacity : 0.5,
-                        color : '#000'
+                    background: {
+                        opacity: 0.5,
+                        color: '#000'
                     }
                 }
             }
         },
-        legend : {
-            show : true
+        legend: {
+            show: true
         }
     });
 
     // Creates APDEX table
-    createTable($("#apdexTable"), {"supportsControllersDiscrimination": true, "overall": {"data": [0.2962254847233077, 500, 1500, "Total"], "isController": false}, "titles": ["Apdex", "T (Toleration threshold)", "F (Frustration threshold)", "Label"], "items": [{"data": [0.31018906975443306, 500, 1500, "Albums Read"], "isController": false}, {"data": [0.2892587326809958, 500, 1500, "Album Page"], "isController": false}, {"data": [0.2892718703812153, 500, 1500, "Transaction Controller"], "isController": true}]}, function(index, item){
-        switch(index){
+    createTable($("#apdexTable"), {
+        "supportsControllersDiscrimination": true,
+        "overall": {"data": [0.2962254847233077, 500, 1500, "Total"], "isController": false},
+        "titles": ["Apdex", "T (Toleration threshold)", "F (Frustration threshold)", "Label"],
+        "items": [{
+            "data": [0.31018906975443306, 500, 1500, "Albums Read"],
+            "isController": false
+        }, {
+            "data": [0.2892587326809958, 500, 1500, "Album Page"],
+            "isController": false
+        }, {"data": [0.2892718703812153, 500, 1500, "Transaction Controller"], "isController": true}]
+    }, function (index, item) {
+        switch (index) {
             case 0:
                 item = item.toFixed(3);
                 break;
@@ -187,8 +198,25 @@ $(document).ready(function() {
     }, [[0, 0]], 3);
 
     // Create statistics table
-    createTable($("#statisticsTable"), {"supportsControllersDiscrimination": true, "overall": {"data": ["Total", 143250, 100317, 70.02931937172775, 98.9409633507859, 1, 322, 7.0, 111.0, 132.0, 148.0, 958.1427080825107, 3898.230519019049, 36.446765442735504], "isController": false}, "titles": ["Label", "#Samples", "FAIL", "Error %", "Average", "Min", "Max", "Median", "90th pct", "95th pct", "99th pct", "Transactions/s", "Received", "Sent"], "items": [{"data": ["Albums Read", 71508, 49327, 68.9810930245567, 98.51866923980565, 1, 276, 101.0, 175.0, 185.0, 202.0, 479.57185395820477, 1474.599812929219, 18.740014840333853], "isController": false}, {"data": ["Album Page", 71742, 50990, 71.07412673190042, 99.36188007025238, 1, 322, 101.0, 174.0, 184.0, 202.0, 479.8539208604222, 2427.5759125347804, 17.756888427375124], "isController": false}, {"data": ["Transaction Controller", 71718, 50972, 71.07281296187847, 197.60323768091587, 1, 453, 214.0, 336.0, 350.0, 378.0, 479.3791692846543, 3894.9260891942836, 36.41776018132629], "isController": true}]}, function(index, item){
-        switch(index){
+    createTable($("#statisticsTable"), {
+        "supportsControllersDiscrimination": true,
+        "overall": {
+            "data": ["Total", 143250, 100317, 70.02931937172775, 98.9409633507859, 1, 322, 7.0, 111.0, 132.0, 148.0, 958.1427080825107, 3898.230519019049, 36.446765442735504],
+            "isController": false
+        },
+        "titles": ["Label", "#Samples", "FAIL", "Error %", "Average", "Min", "Max", "Median", "90th pct", "95th pct", "99th pct", "Transactions/s", "Received", "Sent"],
+        "items": [{
+            "data": ["Albums Read", 71508, 49327, 68.9810930245567, 98.51866923980565, 1, 276, 101.0, 175.0, 185.0, 202.0, 479.57185395820477, 1474.599812929219, 18.740014840333853],
+            "isController": false
+        }, {
+            "data": ["Album Page", 71742, 50990, 71.07412673190042, 99.36188007025238, 1, 322, 101.0, 174.0, 184.0, 202.0, 479.8539208604222, 2427.5759125347804, 17.756888427375124],
+            "isController": false
+        }, {
+            "data": ["Transaction Controller", 71718, 50972, 71.07281296187847, 197.60323768091587, 1, 453, 214.0, 336.0, 350.0, 378.0, 479.3791692846543, 3894.9260891942836, 36.41776018132629],
+            "isController": true
+        }]
+    }, function (index, item) {
+        switch (index) {
             // Errors pct
             case 3:
                 item = item.toFixed(2) + '%';
@@ -209,7 +237,7 @@ $(document).ready(function() {
             case 12:
             // Kbytes/s
             case 13:
-            // Sent Kbytes/s
+                // Sent Kbytes/s
                 item = item.toFixed(2);
                 break;
         }
@@ -217,8 +245,15 @@ $(document).ready(function() {
     }, [[0, 0]], 0, summaryTableHeader);
 
     // Create error table
-    createTable($("#errorsTable"), {"supportsControllersDiscrimination": false, "titles": ["Type of error", "Number of errors", "% in errors", "% in all samples"], "items": [{"data": ["Non HTTP response code: java.net.BindException/Non HTTP response message: Address already in use: connect", 100317, 100.0, 70.02931937172775], "isController": false}]}, function(index, item){
-        switch(index){
+    createTable($("#errorsTable"), {
+        "supportsControllersDiscrimination": false,
+        "titles": ["Type of error", "Number of errors", "% in errors", "% in all samples"],
+        "items": [{
+            "data": ["Non HTTP response code: java.net.BindException/Non HTTP response message: Address already in use: connect", 100317, 100.0, 70.02931937172775],
+            "isController": false
+        }]
+    }, function (index, item) {
+        switch (index) {
             case 2:
             case 3:
                 item = item.toFixed(2) + '%';
@@ -227,8 +262,22 @@ $(document).ready(function() {
         return item;
     }, [[1, 1]]);
 
-        // Create top5 errors by sampler
-    createTable($("#top5ErrorsBySamplerTable"), {"supportsControllersDiscrimination": false, "overall": {"data": ["Total", 143250, 100317, "Non HTTP response code: java.net.BindException/Non HTTP response message: Address already in use: connect", 100317, null, null, null, null, null, null, null, null], "isController": false}, "titles": ["Sample", "#Samples", "#Errors", "Error", "#Errors", "Error", "#Errors", "Error", "#Errors", "Error", "#Errors", "Error", "#Errors"], "items": [{"data": ["Albums Read", 71508, 49327, "Non HTTP response code: java.net.BindException/Non HTTP response message: Address already in use: connect", 49327, null, null, null, null, null, null, null, null], "isController": false}, {"data": ["Album Page", 71742, 50990, "Non HTTP response code: java.net.BindException/Non HTTP response message: Address already in use: connect", 50990, null, null, null, null, null, null, null, null], "isController": false}, {"data": [], "isController": false}]}, function(index, item){
+    // Create top5 errors by sampler
+    createTable($("#top5ErrorsBySamplerTable"), {
+        "supportsControllersDiscrimination": false,
+        "overall": {
+            "data": ["Total", 143250, 100317, "Non HTTP response code: java.net.BindException/Non HTTP response message: Address already in use: connect", 100317, null, null, null, null, null, null, null, null],
+            "isController": false
+        },
+        "titles": ["Sample", "#Samples", "#Errors", "Error", "#Errors", "Error", "#Errors", "Error", "#Errors", "Error", "#Errors", "Error", "#Errors"],
+        "items": [{
+            "data": ["Albums Read", 71508, 49327, "Non HTTP response code: java.net.BindException/Non HTTP response message: Address already in use: connect", 49327, null, null, null, null, null, null, null, null],
+            "isController": false
+        }, {
+            "data": ["Album Page", 71742, 50990, "Non HTTP response code: java.net.BindException/Non HTTP response message: Address already in use: connect", 50990, null, null, null, null, null, null, null, null],
+            "isController": false
+        }, {"data": [], "isController": false}]
+    }, function (index, item) {
         return item;
     }, [[0, 0]], 0);
 

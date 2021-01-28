@@ -12,6 +12,7 @@ var albumGenre = "";
 var albumCoverURL = "";
 
 let artistID = "";
+
 function getAlbum(id) {
     fetch('http://localhost:8082/albums/read/' + id)
         .then(
@@ -41,7 +42,7 @@ function getAlbum(id) {
                     albumGenre = albumData["genre"]["id"];
                     albumCoverURL = albumData["cover"]
 
-                    artistID=albumData["artist"]["id"];
+                    artistID = albumData["artist"]["id"];
                     artist.insertAdjacentHTML("beforeend", '<a href="/artist.html?id=' + albumData["artist"]["id"] + '"><p id="artistName"> Artist: ' + albumData["artist"]["name"] + '</p></a>');
                     title.insertAdjacentHTML("beforeend", albumData["name"]);
                     genre.insertAdjacentHTML("beforeend", '<a href="/genre.html?id=' + albumData["genre"]["id"] + '"><p id="albumGenre"> Genre: ' + albumData["genre"]["name"] + '</p></a>');
@@ -49,10 +50,10 @@ function getAlbum(id) {
                     let trackList = albumData["tracks"];
                     let table = document.getElementById("table")
                     let trackNumber = 1;
-                    if(getPermission()==1){
-                       let tracks = document.getElementById("tracks");
-                       tracks.insertAdjacentHTML("afterend", '<button class="btn btn-success" data-toggle="modal" data-target="#editTrackModal" type="button">Add Track</button>');
-                      
+                    if (getPermission() == 1) {
+                        let tracks = document.getElementById("tracks");
+                        tracks.insertAdjacentHTML("afterend", '<button class="btn btn-success" data-toggle="modal" data-target="#editTrackModal" type="button">Add Track</button>');
+
                     }
                     for (let track of trackList) {
                         table.insertAdjacentHTML("beforeend", trackRow(trackNumber, track["id"], track["name"], duration(track["duration"])))
@@ -71,7 +72,7 @@ function getAlbum(id) {
 
 function addTrackToPlaylist(data) {
     fetch('http://localhost:8082/trackPlaylist/create', {
-        method: 'post', 
+        method: 'post',
         headers: {
             "Content-type": "application/json; charset=UTF-8"
         },
@@ -150,7 +151,7 @@ $('#addToPlaylist').on('show.bs.modal', function (e) {
 
 $(document).on("click", "#addTrack", function () {
     let playlistId = document.getElementById("listSelect").value;
-    
+
     let data = {
         "tracks": {
             "id": trackToAdd
@@ -169,25 +170,26 @@ $(document).on("click", "#saveTrackBtn", function () {
     let lyrics = document.getElementById("lyrics").value;
     //console.log("Add " + trackToAdd + " " + playlistId);
     let data = {
-        "name":name,
-        "duration":duration,
-        "lyrics":lyrics,
-        "artist":{
-            "id":artistID
+        "name": name,
+        "duration": duration,
+        "lyrics": lyrics,
+        "artist": {
+            "id": artistID
         },
-        "genre":{
-            "id":albumGenre
+        "genre": {
+            "id": albumGenre
         },
-        "album":{
-            "id":id
+        "album": {
+            "id": id
         }
     }
     postTrackData(data);
 
 });
-function postTrackData( data) {
+
+function postTrackData(data) {
     fetch('http://localhost:8082/tracks/create/', {
-        method: 'post', 
+        method: 'post',
         headers: {
             "Content-type": "application/json; charset=UTF-8"
         },
@@ -201,7 +203,8 @@ function postTrackData( data) {
             console.log('Request failed', error);
         })
 }
-function getGenres(){
+
+function getGenres() {
     fetch('http://localhost:8082/genres/read')
         .then(
             function (response) {
@@ -215,13 +218,13 @@ function getGenres(){
                     let list = document.getElementById("genreListSelect");
                     list.innerHTML = "";
 
-                    for(let genre of data){
-                        list.insertAdjacentHTML("beforeend", '<option value="'+ genre["id"]+'">'+genre["name"]+'</option>')
+                    for (let genre of data) {
+                        list.insertAdjacentHTML("beforeend", '<option value="' + genre["id"] + '">' + genre["name"] + '</option>')
                     }
 
                     let selectGenre = albumGenre;
                     document.getElementById("genreListSelect").value = selectGenre;
-                    
+
                 });
             }
         )
@@ -248,14 +251,14 @@ function putAlbumData(albumToEdit, data) {
 }
 
 // Delete function
-function deleteAlbum(){
-    fetch("http://localhost:8082/albums/delete/"+id, {
+function deleteAlbum() {
+    fetch("http://localhost:8082/albums/delete/" + id, {
         method: 'delete',
         headers: {
-          "Content-type": "application/json; charset=UTF-8"
+            "Content-type": "application/json; charset=UTF-8"
         }
-  })
-window.location.replace("index.html");
+    })
+    window.location.replace("index.html");
 }
 
 $('#editAlbumModal').on('show.bs.modal', function (e) {
@@ -269,7 +272,7 @@ $('#editAlbumModal').on('show.bs.modal', function (e) {
 $(document).on("click", "#saveEditBtn", function () {
 
     data = {
-        "id":id,
+        "id": id,
         "name": document.getElementById("album-title").value,
         "cover": document.getElementById("album-artwork").value,
         "genre": {

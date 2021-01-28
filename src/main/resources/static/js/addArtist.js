@@ -1,4 +1,3 @@
-
 let formElements = document.querySelector("form.artistForm").elements;
 document
     .querySelector("form.artistForm")
@@ -9,7 +8,7 @@ document
         let formElements = document.querySelector("form.artistForm").elements;
 
         let name = formElements["name"].value;
-   
+
 
         // JSON object for data
         let data = {
@@ -27,7 +26,7 @@ document
 
 function addArtist(data) {
     fetch('http://localhost:8082/artists/create', {
-        method: 'post', 
+        method: 'post',
         headers: {
             "Content-type": "application/json; charset=UTF-8"
         },

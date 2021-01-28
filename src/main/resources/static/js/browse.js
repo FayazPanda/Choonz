@@ -14,12 +14,12 @@ function getGenre() {
                     name.append("Genres");
                     let gallery = document.getElementById("all");
                     gallery.innerHTML = '';
-                    if(getPermission()==1){
+                    if (getPermission() == 1) {
                         let playlistDataHTML = document.getElementById("all");
                         playlistDataHTML.insertAdjacentHTML("beforeend", '<button id="delete" style="visibility: visible" class="btn btn-success" href="#" onclick="addGenre();">Add</button>');
-                      
+
                     }
-                   
+
                     for (let genre of data) {
                         gallery.insertAdjacentHTML("beforeend", card(genre["id"], genre["name"],));
                     }
@@ -30,9 +30,11 @@ function getGenre() {
             console.log('Fetch Error :-S', err);
         });
 }
+
 function addGenre() {
-window.location.replace("addGenre.html");
+    window.location.replace("addGenre.html");
 }
+
 function card(id, title) {
     return '<div class="tile">\
     <a href="/genre.html?id=' + id + '">\
@@ -59,10 +61,10 @@ function getAlbums() {
 
                     let gallery = document.getElementById("all");
                     gallery.innerHTML = '';
-                    if(getPermission()==1){
+                    if (getPermission() == 1) {
                         let playlistDataHTML = document.getElementById("all");
                         playlistDataHTML.insertAdjacentHTML("beforeend", '<button id="delete" style="visibility: visible" class="btn btn-success" href="#" onclick="addAlbum();">Add</button>');
-                      
+
                     }
                     for (let album of data) {
                         gallery.insertAdjacentHTML("beforeend", albumCard(album["id"], album["name"], album.artist["name"], album["cover"]));
@@ -74,9 +76,11 @@ function getAlbums() {
             console.log('Fetch Error :-S', err);
         });
 }
+
 function addAlbum() {
     window.location.replace("addAlbum.html");
-    }
+}
+
 function albumCard(id, title, artist, cover) {
     return '<div class="tile">\
     <a href="/album.html?id=' + id + '">\
@@ -103,10 +107,10 @@ function getArtist() {
                     name.append("Artists");
                     let gallery = document.getElementById("all");
                     gallery.innerHTML = '';
-                    if(getPermission()==1){
+                    if (getPermission() == 1) {
                         let playlistDataHTML = document.getElementById("all");
                         playlistDataHTML.insertAdjacentHTML("beforeend", '<button id="delete" style="visibility: visible" class="btn btn-success" href="#" onclick="addArtist();">Add</button>');
-                      
+
                     }
                     for (let artist of data) {
                         gallery.insertAdjacentHTML("beforeend", artistCard(artist["id"], artist["name"],));
@@ -118,9 +122,11 @@ function getArtist() {
             console.log('Fetch Error :-S', err);
         });
 }
+
 function addArtist() {
     window.location.replace("addArtist.html");
-    }
+}
+
 function artistCard(id, title) {
     return '<div class="tile">\
     <a href="/artist.html?id=' + id + '">\

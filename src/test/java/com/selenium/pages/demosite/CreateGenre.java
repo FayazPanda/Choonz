@@ -10,26 +10,28 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class CreateGenre {
     private WebDriver driver;
 
-	@FindBy(id = "title")
-	private WebElement title;
+    @FindBy(id = "title")
+    private WebElement title;
 
-	@FindBy(id = "desc")
-	private WebElement desc;
-	
-	@FindBy(id = "submit")
-	private WebElement submit;
-	public CreateGenre(WebDriver driver) {
-		super();
-		this.driver = driver;
-		PageFactory.initElements(driver, this);
-		new WebDriverWait(driver, 3);
-	}
-	// METHODS
-		public void create() {
-			new WebDriverWait(driver, 3).until(ExpectedConditions.visibilityOf(title));
-			title.sendKeys("Test Genre");
-			desc.sendKeys("Desc");
-			new WebDriverWait(driver, 3).until(ExpectedConditions.visibilityOf(submit));
-			submit.click();
-		}
+    @FindBy(id = "desc")
+    private WebElement desc;
+
+    @FindBy(id = "submit")
+    private WebElement submit;
+
+    public CreateGenre(WebDriver driver) {
+        super();
+        this.driver = driver;
+        PageFactory.initElements(driver, this);
+        new WebDriverWait(driver, 3);
+    }
+
+    // METHODS
+    public void create() {
+        new WebDriverWait(driver, 3).until(ExpectedConditions.visibilityOf(title));
+        title.sendKeys("Test Genre");
+        desc.sendKeys("Desc");
+        new WebDriverWait(driver, 3).until(ExpectedConditions.visibilityOf(submit));
+        submit.click();
+    }
 }

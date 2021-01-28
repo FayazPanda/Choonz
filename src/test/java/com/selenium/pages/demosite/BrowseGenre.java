@@ -10,20 +10,21 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class BrowseGenre {
     private WebDriver driver;
 
-	@FindBy(xpath = "/html/body/div/div/div[1]/a")
-	private WebElement pop;
+    @FindBy(xpath = "/html/body/div/div/div[1]/a")
+    private WebElement pop;
 
-	
-	public BrowseGenre(WebDriver driver) {
-		super();
-		this.driver = driver;
-		PageFactory.initElements(driver, this);
-		new WebDriverWait(driver, 3);
-	}
-	// METHODS
-		public void clickPop() {
-			new WebDriverWait(driver, 3).until(ExpectedConditions.visibilityOf(pop));
-	
-			pop.click();
-		}
+
+    public BrowseGenre(WebDriver driver) {
+        super();
+        this.driver = driver;
+        PageFactory.initElements(driver, this);
+        new WebDriverWait(driver, 3);
+    }
+
+    // METHODS
+    public void clickPop() {
+        new WebDriverWait(driver, 3).until(ExpectedConditions.visibilityOf(pop));
+
+        pop.click();
+    }
 }

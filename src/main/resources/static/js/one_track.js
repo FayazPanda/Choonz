@@ -121,12 +121,12 @@ $(document).on("click", "#saveEditBtn", function () {
 });
 
 // Delete function
-function deleteTrack(){
-    fetch("http://localhost:8082/tracks/delete/"+id, {
+function deleteTrack() {
+    fetch("http://localhost:8082/tracks/delete/" + id, {
         method: 'delete',
         headers: {
-          "Content-type": "application/json; charset=UTF-8"
+            "Content-type": "application/json; charset=UTF-8"
         }
-  })
-window.location.replace("index.html");
+    })
+    window.location.replace("index.html");
 }

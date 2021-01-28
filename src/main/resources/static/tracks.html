@@ -4,157 +4,159 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
     <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" rel="stylesheet">
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link href="css/track.css" rel="stylesheet">
     <title>Choonz Music</title>
 </head>
 
 <body>
-    <nav class="navbar fixed-top navbar-expand-xl navbar-dark bg-dark">
-        <a class="navbar-brand" href="./">
-            <img class="logo" height="50" ml-auto src="img/Choonz.png" width="auto"></a>
-        <button aria-controls="navbarsExample06" aria-expanded="false" aria-label="Toggle navigation"
+<nav class="navbar fixed-top navbar-expand-xl navbar-dark bg-dark">
+    <a class="navbar-brand" href="./">
+        <img class="logo" height="50" ml-auto src="img/Choonz.png" width="auto"></a>
+    <button aria-controls="navbarsExample06" aria-expanded="false" aria-label="Toggle navigation"
             class="navbar-toggler" data-target="#navbarsExample06" data-toggle="collapse" type="button">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarsExample06">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="/browse.html?page=genres">Genres</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/browse.html?page=albums">Albums</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/browse.html?page=artists">Artists</a>
-                </li>
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarsExample06">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/browse.html?page=genres">Genres</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/browse.html?page=albums">Albums</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/browse.html?page=artists">Artists</a>
+            </li>
 
-                <li class="nav-item dropdown">
-                    <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle"
-                        data-toggle="dropdown" href="#" id="navbarDropdown" role="button">
-                        Playlists
-                    </a>
-                    <div aria-labelledby="navbarDropdown" class="dropdown-menu">
-                        <a class="dropdown-item" href="/browse.html?page=playlists">All Playlists</a>
-                        <a class="dropdown-item" href="/browse.html?page=myplaylists">My Playlists</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="createPlaylist.html">Create Playlist</a>
-                    </div>
-                </li>
-                <li>
-                    <form class="form-inline my-2 my-md-0" action="/searchResult.html">
-                        <input class="form-control" name="searchQuery" placeholder="Search" type="text">
-                    </form>
-                </li>
-            </ul>
-            <ul class="navbar-nav ml-auto">
-
-                <li class="nav-item">
-                    <div id="logInVisibility" style="visibility: hidden;">
-                        <p1 id="welcomeMessage" style="color:rgb(185, 184, 184); ">Hi,</p1>
-                        <a class="btn btn-primary" href="/login.html" role="button">Log Out</a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <div id="logInVisibilty2">
-                        <a class="btn btn-primary" href="/login.html" role="button">Log In</a>
-                    </div>
-                </li>
-            </ul>
-        </div>
-
-
-    </nav>
-
-    <!-- Edit Artist Modal -->
-    <div aria-hidden="true" aria-labelledby="exampleModalCenterTitle" class="modal fade" id="editTrackModal"
-        role="dialog" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Edit Track</h5>
-                    <button aria-label="Close" class="close" data-dismiss="modal" type="button">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+            <li class="nav-item dropdown">
+                <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle"
+                   data-toggle="dropdown" href="#" id="navbarDropdown" role="button">
+                    Playlists
+                </a>
+                <div aria-labelledby="navbarDropdown" class="dropdown-menu">
+                    <a class="dropdown-item" href="/browse.html?page=playlists">All Playlists</a>
+                    <a class="dropdown-item" href="/browse.html?page=myplaylists">My Playlists</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="createPlaylist.html">Create Playlist</a>
                 </div>
-                <div class="modal-body">
-                    <form class="editArtistForm">
-                        <div class="form-group">
-                            <label for="track-name" class="col-form-label">Track Name:</label>
-                            <input type="text" class="form-control" id="track-name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="duration" class="col-form-label">Duration (in seconds) :</label>
-                            <input type="text" class="form-control" id="duration" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="duration" class="col-form-label">Lyrics:</label>
-                            <textarea type="text" class="form-control" id="lyrics" required></textarea>
-                        </div>
-                    </form>
+            </li>
+            <li>
+                <form action="/searchResult.html" class="form-inline my-2 my-md-0">
+                    <input class="form-control" name="searchQuery" placeholder="Search" type="text">
+                </form>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+
+            <li class="nav-item">
+                <div id="logInVisibility" style="visibility: hidden;">
+                    <p1 id="welcomeMessage" style="color:rgb(185, 184, 184); ">Hi,</p1>
+                    <a class="btn btn-primary" href="/login.html" role="button">Log Out</a>
                 </div>
-                <div class="modal-footer">
-                    <button class="btn btn-primary" data-dismiss="modal" id="saveEditBtn" type="button">Save</button>
+            </li>
+            <li class="nav-item">
+                <div id="logInVisibilty2">
+                    <a class="btn btn-primary" href="/login.html" role="button">Log In</a>
                 </div>
+            </li>
+        </ul>
+    </div>
+
+
+</nav>
+
+<!-- Edit Artist Modal -->
+<div aria-hidden="true" aria-labelledby="exampleModalCenterTitle" class="modal fade" id="editTrackModal"
+     role="dialog" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Edit Track</h5>
+                <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="editArtistForm">
+                    <div class="form-group">
+                        <label class="col-form-label" for="track-name">Track Name:</label>
+                        <input class="form-control" id="track-name" required type="text">
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label" for="duration">Duration (in seconds) :</label>
+                        <input class="form-control" id="duration" required type="text">
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label" for="duration">Lyrics:</label>
+                        <textarea class="form-control" id="lyrics" required type="text"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-dismiss="modal" id="saveEditBtn" type="button">Save</button>
             </div>
         </div>
     </div>
+</div>
 
-    <main>
-        <br>
-        <br>
-        <br>
-        <div class="wrapper">
+<main>
+    <br>
+    <br>
+    <br>
+    <div class="wrapper">
+        <div>
+            <img id="albumCover" src="img/album/alterbridge.png">
             <div>
-                <img id="albumCover" src="img/album/alterbridge.png">
-                <div>
 
 
-                    <h1 id="trackName"></h1>
+                <h1 id="trackName"></h1>
 
-                    <div id="linkAlbumDiv">
+                <div id="linkAlbumDiv">
 
-                    </div>
-
-                    <div id="linkArtistDiv">
-                        <a id="linkArtist">
-                            <p id="trackArtist"></p>
-                        </a>
-                    </div>
-                    <p id="trackDuration"></p>
-                    <button id="delete" style="visibility: hidden" class="btn btn-danger" href="#"
-                        onclick="deleteTrack();">Delete</button>
-                    <button id="edit" style="visibility: hidden" class="btn btn-success" data-toggle="modal"
-                        data-target="#editTrackModal" type="button">Edit</button>
-
-
-                    <div id="linkArtistDiv">
-                        <a id="linkArtist">
-                            <p id="trackArtist"></p>
-                        </a>
-                    </div>
-                    <p id="trackDuration"></p>
                 </div>
-            </div>
-            <div>
-                <h2>Lyrics</h2>
-                <p class="lyrics" id="trackLyrics"></p>
+
+                <div id="linkArtistDiv">
+                    <a id="linkArtist">
+                        <p id="trackArtist"></p>
+                    </a>
+                </div>
+                <p id="trackDuration"></p>
+                <button class="btn btn-danger" href="#" id="delete" onclick="deleteTrack();"
+                        style="visibility: hidden">Delete
+                </button>
+                <button class="btn btn-success" data-target="#editTrackModal" data-toggle="modal" id="edit"
+                        style="visibility: hidden" type="button">Edit
+                </button>
+
+
+                <div id="linkArtistDiv">
+                    <a id="linkArtist">
+                        <p id="trackArtist"></p>
+                    </a>
+                </div>
+                <p id="trackDuration"></p>
             </div>
         </div>
-    </main>
+        <div>
+            <h2>Lyrics</h2>
+            <p class="lyrics" id="trackLyrics"></p>
+        </div>
+    </div>
+</main>
 
-    <script src="js/readCookie.js"></script>
-    <script crossorigin="anonymous" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+<script src="js/readCookie.js"></script>
+<script crossorigin="anonymous" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script crossorigin="anonymous" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+<script crossorigin="anonymous" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
         src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <script crossorigin="anonymous" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+<script crossorigin="anonymous" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="js/one_track.js"></script>
-    <script src="js/duration.js"></script>
+<script src="js/one_track.js"></script>
+<script src="js/duration.js"></script>
 </body>
 
 </html>

@@ -33,7 +33,8 @@
             </li>
 
             <li class="nav-item dropdown">
-                <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
+                <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown"
+                   href="#"
                    id="navbarDropdown" role="button">
                     Playlists
                 </a>
@@ -45,7 +46,7 @@
                 </div>
             </li>
             <li>
-                <form class="form-inline my-2 my-md-0" action="/searchResult.html">
+                <form action="/searchResult.html" class="form-inline my-2 my-md-0">
                     <input class="form-control" name="searchQuery" placeholder="Search" type="text">
                 </form>
             </li>
@@ -98,7 +99,8 @@
 </div>
 
 <!-- remove from Playlist Modal -->
-<div aria-hidden="true" aria-labelledby="exampleModalCenterTitle" class="modal fade" id="removeFromPlaylist" role="dialog"
+<div aria-hidden="true" aria-labelledby="exampleModalCenterTitle" class="modal fade" id="removeFromPlaylist"
+     role="dialog"
      tabindex="-1">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -119,7 +121,8 @@
 </div>
 
 <!-- Edit Playlist Modal -->
-<div aria-hidden="true" aria-labelledby="exampleModalCenterTitle" class="modal fade" id="editPlaylistModal" role="dialog"
+<div aria-hidden="true" aria-labelledby="exampleModalCenterTitle" class="modal fade" id="editPlaylistModal"
+     role="dialog"
      tabindex="-1">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -132,17 +135,17 @@
             <div class="modal-body">
                 <form class="editPlaylistForm">
                     <div class="form-group">
-                        <label for="playlist-name" class="col-form-label">Playlist Name:</label>
-                        <input type="text" class="form-control" id="playlist-name" required>
-                      </div>
-                      <div class="form-group">
-                        <label for="description-text" class="col-form-label">Description:</label>
+                        <label class="col-form-label" for="playlist-name">Playlist Name:</label>
+                        <input class="form-control" id="playlist-name" required type="text">
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label" for="description-text">Description:</label>
                         <input class="form-control" id="description-text" required>
-                      </div>
-                      <div class="form-group">
-                        <label for="artworkURL" class="col-form-label">Artwork URL:</label>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label" for="artworkURL">Artwork URL:</label>
                         <input class="form-control" id="artworkURL" required>
-                      </div>
+                    </div>
                 </form>
             </div>
             <div class="modal-footer">
@@ -187,7 +190,7 @@
                 <div id="userNameDiv">
                     <p id="userName">Created by X</p>
                 </div>
-             
+
                 <!-- <button class="btn btn-primary" data-toggle="modal" data-target="#editPlaylist" type="button">Edit Playlist</button> -->
             </div>
         </div>

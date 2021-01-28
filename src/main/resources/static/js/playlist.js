@@ -131,7 +131,7 @@ function putPlaylistData(listToEdit, data) {
 }
 
 function deleteTrackFromPlaylist(id) {
-    fetch('http://localhost:8082/trackPlaylist/delete/'+id, {
+    fetch('http://localhost:8082/trackPlaylist/delete/' + id, {
         method: 'delete', //post, put,delete
         headers: {
             "Content-type": "application/json; charset=UTF-8"
@@ -148,7 +148,7 @@ function deleteTrackFromPlaylist(id) {
 
 function addTrackToPlaylist(data) {
     fetch('http://localhost:8082/trackPlaylist/create', {
-        method: 'post', 
+        method: 'post',
         headers: {
             "Content-type": "application/json; charset=UTF-8"
         },
@@ -247,7 +247,7 @@ $('#removeFromPlaylist').on('show.bs.modal', function (e) {
 
 $(document).on("click", "#addTrack", function () {
     let playlistId = document.getElementById("listSelect").value;
-    
+
     let data = {
         "tracks": {
             "id": trackToAdd
@@ -279,7 +279,7 @@ $(document).on("click", "#saveEditBtn", function () {
         "artwork": document.getElementById("artworkURL").value
     }
 
-    putPlaylistData(playlistId ,data);
+    putPlaylistData(playlistId, data);
     location.reload();
 });
 

@@ -47,7 +47,7 @@ public class GenreService {
         toUpdate.setName(genre.getName());
         toUpdate.setDescription(genre.getDescription());
         toUpdate.setAlbums(genre.getAlbums());
-        Genre updated =this.repo.save(toUpdate);
+        Genre updated = this.repo.save(toUpdate);
         return this.mapToDTO(updated);
     }
 
