@@ -38,7 +38,7 @@ public class Track_PlaylistController {
         return new ResponseEntity<Track_PlaylistDTO>(this.service.read(id), HttpStatus.OK);
     }
 
-    @PostMapping("/update/{id}")
+    @PutMapping("/update/{id}")
     public ResponseEntity<Track_PlaylistDTO> update(@RequestBody Track_Playlist trackPlaylist, @PathVariable long id) {
         return new ResponseEntity<Track_PlaylistDTO>(this.service.update(trackPlaylist, id), HttpStatus.ACCEPTED);
     }

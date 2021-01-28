@@ -18,6 +18,8 @@ var playlistDesc = "";
 var currentPlaylist = "";
 var artworkURL = "";
 
+var playlistTracks = "";
+
 function getPlaylist(id) {
     fetch('http://localhost:8082/playlists/read/' + id)
         .then(
@@ -30,6 +32,7 @@ function getPlaylist(id) {
 
                 // Examine the text in the response
                 response.json().then(function (playlistData) {
+                    getTracks(id);
                     console.log(playlistData)
                     let title = document.getElementById("playlistTitle");
                     title.innerHTML = '';
@@ -61,25 +64,47 @@ function getPlaylist(id) {
                     artworkURL = playlistData["artwork"];
 
                     if (isMyPlaylist == true || getPermission() == 1) {
-                        //editTitle.innerHTML = "Edit " + playlistData["name"];
-
-                        let editDescription = document.getElementById("")
                         let playlistDataHTML = document.getElementById("playlistData");
                         playlistDataHTML.insertAdjacentHTML("beforeend", '<button id="delete" style="visibility: visible" class="btn btn-danger" href="#" onclick="deletePlaylist();">Delete</button>')
 
                         playlistDataHTML.insertAdjacentHTML("beforeend", '<button class="btn btn-primary" data-toggle="modal" data-target="#editPlaylistModal" type="button">Edit Playlist</button>')
-                        for (let track of trackList) {
+                    }
+
+                    console.log(isMyPlaylist)
+                });
+            }
+        )
+        .catch(function (err) {
+            console.log('Fetch Error :-S', err);
+        });
+}
+
+function getTracks(id) {
+    fetch('http://localhost:8082/trackPlaylist/findTracks/' + id)
+        .then(
+            function (response) {
+                if (response.status !== 200) {
+                    console.log('Looks like there was a problem. Status Code: ' +
+                        response.status);
+                    return;
+                }
+
+                // Examine the text in the response
+                response.json().then(function (trackData) {
+                    console.log(trackData)
+                    playlistTracks = trackData;
+                    let trackNumber = 1;
+                    if (isMyPlaylist == true || getPermission() == 1) {
+                        for (let track of trackData) {
                             table.insertAdjacentHTML("beforeend", myTrackRow(trackNumber, track["tracks"]["id"], track["tracks"]["name"], duration(track["tracks"]["duration"])))
                             trackNumber++
                         }
                     } else {
-                        for (let track of trackList) {
+                        for (let track of trackData) {
                             table.insertAdjacentHTML("beforeend", trackRow(trackNumber, track["tracks"]["id"], track["tracks"]["name"], duration(track["tracks"]["duration"])))
                             trackNumber++
                         }
                     }
-
-                    console.log(isMyPlaylist)
                 });
             }
         )
@@ -185,7 +210,7 @@ $(document).on("click", "#addTrack", function () {
     let playlistId = document.getElementById("listSelect").value;
     console.log("Add " + trackToAdd + " " + playlistId);
 
-    putListData(data);
+    putPlaylistData(playlistId, data);
 });
 
 $('#editPlaylistModal').on('show.bs.modal', function (e) {
