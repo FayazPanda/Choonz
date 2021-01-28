@@ -80,12 +80,15 @@ https://www.eclipse.org/
 ```
 
 ## ERD
+Initial ERD
+![Initial ERD](https://raw.githubusercontent.com/FayazPanda/Choonz/development/Documentation/Start%20ERD%20Diagram.png)
 
-TBD
+Final ERD
+![Final ERD](https://raw.githubusercontent.com/FayazPanda/Choonz/development/Documentation/Final%20ERD%20Diagram.png)
 
 ## UML
 
-TBD
+![UML](https://raw.githubusercontent.com/FayazPanda/Choonz/development/Documentation/UML%20Diagram.png)
 
 ## Authors
 
