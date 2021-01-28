@@ -1,22 +1,66 @@
-# Choonz-Starter
+# Choonz - Team 4
+This repo contains a springboot system which allows the end user to create an API and test it using the front end system provided. The user can create, update, read and delete records from the system.
 
-Starter code for SDET final project specification - music website "Choonz"
+## Getting Started
 
-## Concept
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-This code is designed as a starting point for the final project specification for SDET.
+### Prerequisites
 
-This should be scaleable from 3 to 5+ entities:
+To run the file you will need to install the latest version of Java & Maven at the link bellow.
 
-- **MUST HAVE** - Track, Artist, Album
-- **COULD HAVE** - Genre, Playlist
-- Others TBD
+```
+https://www.java.com/en/download/
+http://maven.apache.org/download.cgi
+```
 
-## Specifications
+### Installing
 
-The current idea as of 23-Sep-2020 is to release iterative specifications for this project, with varying degrees of functionality which the client/PO will want.
+Navigate to where you have downloaded the jar file then right click and open bash
 
-These are TBD for now, but will be included here within a `_documentation` folder in due course.
+![open bash screenshot](https://github.com/FayazPanda/To-Do-List/blob/main/images/tut1.png)
+
+Then type **java -jar fat.jar** replacing the fat with whatever you might have renamed it to
+
+![run command screenshot](https://github.com/FayazPanda/To-Do-List/blob/main/images/tut2.png)
+
+Once running, 'Springboot' should appear in ascII text at the start and the system will be fully booted once you see the line ''To-Do List API Initialised''
+
+![Entity usage Screenshot](https://github.com/FayazPanda/To-Do-List/blob/main/images/tut3.png)
+
+## Running the tests
+
+The following section will explain the tests, what they are and how you can run them.
+
+### Unit Tests 
+
+Units tests are to check the functionality of code in a vaccum to see if they work on their own. These tests are set up in `...\src\test\com\qa\demo\rest` and can be run using JUnit with Maven.
+
+### Integration Tests 
+
+Integration tests are to check the functionality of code when used with other aspects. These tests are setup in `...\src\test\com\qa\demo\rest` directory. These use JUnit and Mockito with Maven to run.
+
+### Website Tests
+
+These tests are conducted using selenium and an appropriate driver for the web browser you are testing on. In my case I am using Google Chrome. The testing will check all intractable aspects of the webpage to verify it is working correctly. This can be found at : `...\src\test\com\qa\demo\selenium\pages\demosite`
+
+### Non-Functional Tests
+
+placeholder
+
+## Deployment
+
+Deployment to live system requires constant update for the fat.jar system with every update of the system. Otherwise deployment is the same as installation.
+
+## Future Development
+
+For future development you will need to install maven, java and IDE for Java(Spring Tool Suite or Intellij recommended). For website development I recommend an IDE for Websites(Visual Studio or Webstorm) 
+
+```
+https://www.java.com/en/download/
+http://maven.apache.org/download.cgi
+https://www.eclipse.org/
+```
 
 ## ERD
 
@@ -41,8 +85,10 @@ TBD
 
 ### Development Team
 
-- Team names and roles here, e.g. **Scrum Master**
+- Fayaz Sheikh **UX Lead**
+- Usama Malik **Integration Developer**
+- Harry Fresco **Spring Developer**
 
 ## Acknowledgements
 
-- Probably not needed currently, but teams may wish to credit those outside the academy/stackoverflow users/reddit posts/whatever else they've used here
+- https://www.baeldung.com/
