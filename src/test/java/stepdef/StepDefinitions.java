@@ -121,9 +121,11 @@ public class StepDefinitions {
 
     @When("^I type a term into the search bar$")
     public void i_type_a_term_into_the_search_bar() throws Throwable {
-        //Index index = new Index(driver);
-        //
-        index.search();
+    	  driver.get(Index.URL);
+    	
+    	Index index1 = new Index(driver);
+       
+        index1.search();
 
     }
 
