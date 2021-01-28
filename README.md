@@ -1,6 +1,14 @@
 # Choonz - Team 4
 This repo contains a springboot system which allows the end user to create an API and test it using the front end system provided. The user can create, update, read and delete records from the system.
 
+Tools used:
+* Java
+* Maven
+* Spring Boot
+* JUnit
+* MySQL
+* HTML / CSS / JS
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
@@ -9,9 +17,14 @@ These instructions will get you a copy of the project up and running on your loc
 
 To run the file you will need to install the latest version of Java & Maven at the link bellow.
 
+The Software you will need to install
+
 ```
-https://www.java.com/en/download/
-http://maven.apache.org/download.cgi
+IDE - Spring Tools 4 (https://spring.io/tools)
+JAVA - Java SE Development Kit (https://www.oracle.com/uk/java/technologies/javase/javase-jdk8-downloads.html)
+Database - MySQL (https://dev.mysql.com/downloads/mysql/5.7.html)
+Maven - Apache Maven (https://maven.apache.org/download.cgi?Preferred=ftp://ftp.osuosl.org/pub/apache/)
+Performance Testing - JMeter (https://jmeter.apache.org/download_jmeter.cgi)
 ```
 
 ### Installing
@@ -46,7 +59,11 @@ These tests are conducted using selenium and an appropriate driver for the web b
 
 ### Non-Functional Tests
 
-placeholder
+JMeter tests are present at `\JMeter Tests` folder. There are batch files present which will run the respective tests, please note the time in minutes it could take
+in the filename when running the tests. 
+
+JMeter needs to be installed and added to windows system environment variables for the batch files to work. The batch files are created 
+for utility. Tests can also be run and edited manually using JMeter GUI and runnin .jsx test files.
 
 ## Deployment
 
@@ -91,4 +108,4 @@ TBD
 
 ## Acknowledgements
 
-- https://www.baeldung.com/
+Spring Boot Tutorials - https://www.baeldung.com/
