@@ -130,9 +130,9 @@ public class StepDefinitions {
     @Then("^I can see the correct result$")
     public void i_can_see_the_correct_result() throws Throwable {
         //
-        //Index index = new Index(driver);
-        System.out.println(index.getSearchResult().getText());
-        assertTrue(index.getSearchResult().getText().contains("Because the Internet"));
+        Index index2 = new Index(driver);
+        System.out.println(index2.getSearchResult().getText());
+        assertTrue(index2.getSearchResult().getText().contains("Because the Internet"));
     }
 
     @When("^I register$")
