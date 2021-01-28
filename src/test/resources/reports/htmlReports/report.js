@@ -7,7 +7,7 @@ formatter.feature({
   "keyword": "Feature"
 });
 formatter.before({
-  "duration": 5992750799,
+  "duration": 11342457800,
   "status": "passed"
 });
 formatter.background({
@@ -26,7 +26,7 @@ formatter.match({
   "location": "StepDefinitions.the_correct_web_address()"
 });
 formatter.result({
-  "duration": 639506200,
+  "duration": 642628300,
   "status": "passed"
 });
 formatter.scenario({
@@ -51,22 +51,22 @@ formatter.match({
   "location": "StepDefinitions.i_am_on_the_homepage()"
 });
 formatter.result({
-  "duration": 33401,
+  "duration": 36800,
   "status": "passed"
 });
 formatter.match({
   "location": "StepDefinitions.i_can_see_top_albums()"
 });
 formatter.result({
-  "duration": 477804800,
+  "duration": 147339400,
   "status": "passed"
 });
 formatter.after({
-  "duration": 98070100,
+  "duration": 70489600,
   "status": "passed"
 });
 formatter.before({
-  "duration": 5346284400,
+  "duration": 5427526600,
   "status": "passed"
 });
 formatter.background({
@@ -85,7 +85,7 @@ formatter.match({
   "location": "StepDefinitions.the_correct_web_address()"
 });
 formatter.result({
-  "duration": 246692400,
+  "duration": 246240400,
   "status": "passed"
 });
 formatter.scenario({
@@ -110,22 +110,22 @@ formatter.match({
   "location": "StepDefinitions.i_click_on_Genre()"
 });
 formatter.result({
-  "duration": 156996801,
+  "duration": 128409900,
   "status": "passed"
 });
 formatter.match({
   "location": "StepDefinitions.i_can_see_all_genres()"
 });
 formatter.result({
-  "duration": 181011499,
+  "duration": 51556600,
   "status": "passed"
 });
 formatter.after({
-  "duration": 163646500,
+  "duration": 26015100,
   "status": "passed"
 });
 formatter.before({
-  "duration": 5362298900,
+  "duration": 5557961000,
   "status": "passed"
 });
 formatter.background({
@@ -144,7 +144,7 @@ formatter.match({
   "location": "StepDefinitions.the_correct_web_address()"
 });
 formatter.result({
-  "duration": 233390401,
+  "duration": 553220700,
   "status": "passed"
 });
 formatter.scenario({
@@ -169,22 +169,22 @@ formatter.match({
   "location": "StepDefinitions.i_click_on_Albums()"
 });
 formatter.result({
-  "duration": 236247199,
+  "duration": 138974900,
   "status": "passed"
 });
 formatter.match({
   "location": "StepDefinitions.i_can_see_all_albums()"
 });
 formatter.result({
-  "duration": 130908901,
+  "duration": 113944300,
   "status": "passed"
 });
 formatter.after({
-  "duration": 259677600,
+  "duration": 61333600,
   "status": "passed"
 });
 formatter.before({
-  "duration": 5421280000,
+  "duration": 5739860900,
   "status": "passed"
 });
 formatter.background({
@@ -203,7 +203,7 @@ formatter.match({
   "location": "StepDefinitions.the_correct_web_address()"
 });
 formatter.result({
-  "duration": 252952200,
+  "duration": 758814000,
   "status": "passed"
 });
 formatter.scenario({
@@ -228,22 +228,22 @@ formatter.match({
   "location": "StepDefinitions.i_click_on_Artists()"
 });
 formatter.result({
-  "duration": 137836799,
+  "duration": 151136300,
   "status": "passed"
 });
 formatter.match({
   "location": "StepDefinitions.i_can_see_all_artists()"
 });
 formatter.result({
-  "duration": 125600999,
+  "duration": 54914400,
   "status": "passed"
 });
 formatter.after({
-  "duration": 85486301,
+  "duration": 31192800,
   "status": "passed"
 });
 formatter.before({
-  "duration": 5251482700,
+  "duration": 6154941700,
   "status": "passed"
 });
 formatter.background({
@@ -262,7 +262,7 @@ formatter.match({
   "location": "StepDefinitions.the_correct_web_address()"
 });
 formatter.result({
-  "duration": 249547199,
+  "duration": 803301100,
   "status": "passed"
 });
 formatter.scenario({
@@ -287,22 +287,22 @@ formatter.match({
   "location": "StepDefinitions.i_click_on_All_Playlists()"
 });
 formatter.result({
-  "duration": 102673700,
+  "duration": 184825200,
   "status": "passed"
 });
 formatter.match({
   "location": "StepDefinitions.i_can_see_all_playlists()"
 });
 formatter.result({
-  "duration": 73901000,
+  "duration": 66357600,
   "status": "passed"
 });
 formatter.after({
-  "duration": 123291400,
+  "duration": 25335100,
   "status": "passed"
 });
 formatter.before({
-  "duration": 5174499600,
+  "duration": 5559768800,
   "status": "passed"
 });
 formatter.background({
@@ -321,7 +321,7 @@ formatter.match({
   "location": "StepDefinitions.the_correct_web_address()"
 });
 formatter.result({
-  "duration": 269389300,
+  "duration": 583932400,
   "status": "passed"
 });
 formatter.scenario({
@@ -346,22 +346,22 @@ formatter.match({
   "location": "StepDefinitions.i_type_a_term_into_the_search_bar()"
 });
 formatter.result({
-  "duration": 606257500,
+  "duration": 550010800,
   "status": "passed"
 });
 formatter.match({
   "location": "StepDefinitions.i_can_see_the_correct_result()"
 });
 formatter.result({
-  "duration": 115908200,
+  "duration": 84804800,
   "status": "passed"
 });
 formatter.after({
-  "duration": 155828501,
+  "duration": 26861900,
   "status": "passed"
 });
 formatter.before({
-  "duration": 5582035500,
+  "duration": 7069309800,
   "status": "passed"
 });
 formatter.background({
@@ -380,7 +380,7 @@ formatter.match({
   "location": "StepDefinitions.the_correct_web_address()"
 });
 formatter.result({
-  "duration": 380779500,
+  "duration": 1049684300,
   "status": "passed"
 });
 formatter.scenario({
@@ -405,18 +405,18 @@ formatter.match({
   "location": "StepDefinitions.i_register()"
 });
 formatter.result({
-  "duration": 3882707100,
+  "duration": 4262569200,
   "status": "passed"
 });
 formatter.match({
   "location": "StepDefinitions.i_can_see_my_new_username()"
 });
 formatter.result({
-  "duration": 57561100,
+  "duration": 46178300,
   "status": "passed"
 });
 formatter.after({
-  "duration": 100213401,
+  "duration": 24747200,
   "status": "passed"
 });
 formatter.uri("BReadPage.feature");
@@ -428,7 +428,7 @@ formatter.feature({
   "keyword": "Feature"
 });
 formatter.before({
-  "duration": 5467244499,
+  "duration": 5514302800,
   "status": "passed"
 });
 formatter.background({
@@ -447,7 +447,7 @@ formatter.match({
   "location": "StepDefinitions.the_correct_web_address()"
 });
 formatter.result({
-  "duration": 470423800,
+  "duration": 390430000,
   "status": "passed"
 });
 formatter.scenario({
@@ -472,22 +472,22 @@ formatter.match({
   "location": "StepDefinitions.i_click_an_album()"
 });
 formatter.result({
-  "duration": 811012900,
+  "duration": 565698700,
   "status": "passed"
 });
 formatter.match({
   "location": "StepDefinitions.i_can_see_album_page()"
 });
 formatter.result({
-  "duration": 189267299,
+  "duration": 62801700,
   "status": "passed"
 });
 formatter.after({
-  "duration": 160652700,
+  "duration": 30886600,
   "status": "passed"
 });
 formatter.before({
-  "duration": 5463467301,
+  "duration": 5584893800,
   "status": "passed"
 });
 formatter.background({
@@ -506,7 +506,7 @@ formatter.match({
   "location": "StepDefinitions.the_correct_web_address()"
 });
 formatter.result({
-  "duration": 438738300,
+  "duration": 625254800,
   "status": "passed"
 });
 formatter.scenario({
@@ -531,22 +531,22 @@ formatter.match({
   "location": "StepDefinitions.i_click_an_artist()"
 });
 formatter.result({
-  "duration": 703760800,
+  "duration": 1236725400,
   "status": "passed"
 });
 formatter.match({
   "location": "StepDefinitions.i_can_see_the_artist_page()"
 });
 formatter.result({
-  "duration": 62180600,
+  "duration": 69912000,
   "status": "passed"
 });
 formatter.after({
-  "duration": 70762501,
+  "duration": 38650800,
   "status": "passed"
 });
 formatter.before({
-  "duration": 5257088500,
+  "duration": 5909457300,
   "status": "passed"
 });
 formatter.background({
@@ -565,7 +565,7 @@ formatter.match({
   "location": "StepDefinitions.the_correct_web_address()"
 });
 formatter.result({
-  "duration": 243068200,
+  "duration": 578595800,
   "status": "passed"
 });
 formatter.scenario({
@@ -590,22 +590,22 @@ formatter.match({
   "location": "StepDefinitions.i_click_on_genre()"
 });
 formatter.result({
-  "duration": 353278700,
+  "duration": 582888800,
   "status": "passed"
 });
 formatter.match({
   "location": "StepDefinitions.i_can_see_the_genre_page()"
 });
 formatter.result({
-  "duration": 60962200,
+  "duration": 59997900,
   "status": "passed"
 });
 formatter.after({
-  "duration": 99534400,
+  "duration": 32437900,
   "status": "passed"
 });
 formatter.before({
-  "duration": 5317594400,
+  "duration": 6347485600,
   "status": "passed"
 });
 formatter.background({
@@ -624,7 +624,7 @@ formatter.match({
   "location": "StepDefinitions.the_correct_web_address()"
 });
 formatter.result({
-  "duration": 234296301,
+  "duration": 1252480500,
   "status": "passed"
 });
 formatter.scenario({
@@ -649,18 +649,18 @@ formatter.match({
   "location": "StepDefinitions.i_click_on_a_track()"
 });
 formatter.result({
-  "duration": 706701800,
+  "duration": 1766232700,
   "status": "passed"
 });
 formatter.match({
   "location": "StepDefinitions.i_can_see_the_track_page()"
 });
 formatter.result({
-  "duration": 64746700,
+  "duration": 50833800,
   "status": "passed"
 });
 formatter.after({
-  "duration": 78336800,
+  "duration": 25822800,
   "status": "passed"
 });
 formatter.uri("CLoggedIn.feature");
@@ -672,7 +672,7 @@ formatter.feature({
   "keyword": "Feature"
 });
 formatter.before({
-  "duration": 5691473700,
+  "duration": 7731170300,
   "status": "passed"
 });
 formatter.background({
@@ -691,7 +691,7 @@ formatter.match({
   "location": "StepDefinitions.the_correct_web_address_and_logged_in()"
 });
 formatter.result({
-  "duration": 4270316400,
+  "duration": 5267635700,
   "status": "passed"
 });
 formatter.scenario({
@@ -716,22 +716,22 @@ formatter.match({
   "location": "StepDefinitions.i_go_to_homepage()"
 });
 formatter.result({
-  "duration": 85634500,
+  "duration": 67411600,
   "status": "passed"
 });
 formatter.match({
   "location": "StepDefinitions.i_can_see_my_username()"
 });
 formatter.result({
-  "duration": 187970600,
+  "duration": 77467100,
   "status": "passed"
 });
 formatter.after({
-  "duration": 89451600,
+  "duration": 23850900,
   "status": "passed"
 });
 formatter.before({
-  "duration": 5553954300,
+  "duration": 6205030000,
   "status": "passed"
 });
 formatter.background({
@@ -750,7 +750,7 @@ formatter.match({
   "location": "StepDefinitions.the_correct_web_address_and_logged_in()"
 });
 formatter.result({
-  "duration": 4197456600,
+  "duration": 4338868300,
   "status": "passed"
 });
 formatter.scenario({
@@ -775,22 +775,22 @@ formatter.match({
   "location": "StepDefinitions.i_click_on_My_Playlists()"
 });
 formatter.result({
-  "duration": 72510001,
+  "duration": 111095600,
   "status": "passed"
 });
 formatter.match({
   "location": "StepDefinitions.i_can_see_all_my_playlists()"
 });
 formatter.result({
-  "duration": 853050300,
+  "duration": 1052788300,
   "status": "passed"
 });
 formatter.after({
-  "duration": 109927800,
+  "duration": 87241700,
   "status": "passed"
 });
 formatter.before({
-  "duration": 5478046600,
+  "duration": 7904208700,
   "status": "passed"
 });
 formatter.background({
@@ -809,7 +809,7 @@ formatter.match({
   "location": "StepDefinitions.the_correct_web_address_and_logged_in()"
 });
 formatter.result({
-  "duration": 3854645899,
+  "duration": 3753848400,
   "status": "passed"
 });
 formatter.scenario({
@@ -834,22 +834,23 @@ formatter.match({
   "location": "StepDefinitions.i_click_on_create_playlist_and_fill_in_the_form()"
 });
 formatter.result({
-  "duration": 550706401,
+  "duration": 650667600,
   "status": "passed"
 });
 formatter.match({
   "location": "StepDefinitions.i_can_see_my_created_playlist()"
 });
 formatter.result({
-  "duration": 1811993600,
-  "status": "passed"
+  "duration": 7652441600,
+  "error_message": "org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator \u0027By.id: playlistTitle\u0027 (tried for 3 second(s) with 500 milliseconds interval)\r\n\tat org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)\r\n\tat org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)\r\n\tat com.selenium.pages.demosite.MyPlaylists.getPlaylistName(MyPlaylists.java:47)\r\n\tat stepdef.StepDefinitions.i_can_see_my_created_playlist(StepDefinitions.java:238)\r\n\tat ✽.Then I can see my created playlist(CLoggedIn.feature:17)\r\nCaused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\"#playlistTitle\"}\n  (Session info: chrome\u003d87.0.4280.141)\nFor documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html\nBuild info: version: \u00273.141.59\u0027, revision: \u0027e82be7d358\u0027, time: \u00272018-11-14T08:17:03\u0027\nSystem info: host: \u0027DELLPRECISION\u0027, ip: \u002726.136.37.179\u0027, os.name: \u0027Windows 10\u0027, os.arch: \u0027amd64\u0027, os.version: \u002710.0\u0027, java.version: \u002714.0.2\u0027\nDriver info: org.openqa.selenium.chrome.ChromeDriver\nCapabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 87.0.4280.141, chrome: {chromedriverVersion: 87.0.4280.88 (89e2380a3e36c..., userDataDir: C:\\Users\\DELLPR~1\\AppData\\L...}, goog:chromeOptions: {debuggerAddress: localhost:53621}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}\nSession ID: 0d10d344dbb543fc4a70e5a72997d989\n*** Element info: {Using\u003did, value\u003dplaylistTitle}\r\n\tat java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)\r\n\tat java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)\r\n\tat java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)\r\n\tat java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)\r\n\tat java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)\r\n\tat org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)\r\n\tat org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)\r\n\tat org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)\r\n\tat org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)\r\n\tat org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:372)\r\n\tat org.openqa.selenium.By$ById.findElement(By.java:188)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)\r\n\tat org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)\r\n\tat org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)\r\n\tat com.sun.proxy.$Proxy51.isDisplayed(Unknown Source)\r\n\tat org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:314)\r\n\tat org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:43)\r\n\tat org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:300)\r\n\tat org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:297)\r\n\tat org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)\r\n\tat com.selenium.pages.demosite.MyPlaylists.getPlaylistName(MyPlaylists.java:47)\r\n\tat stepdef.StepDefinitions.i_can_see_my_created_playlist(StepDefinitions.java:238)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\r\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\r\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:564)\r\n\tat cucumber.runtime.Utils$1.call(Utils.java:37)\r\n\tat cucumber.runtime.Timeout.timeout(Timeout.java:13)\r\n\tat cucumber.runtime.Utils.invoke(Utils.java:31)\r\n\tat cucumber.runtime.java.JavaStepDefinition.execute(JavaStepDefinition.java:38)\r\n\tat cucumber.runtime.StepDefinitionMatch.runStep(StepDefinitionMatch.java:37)\r\n\tat cucumber.runtime.Runtime.runStep(Runtime.java:299)\r\n\tat cucumber.runtime.model.StepContainer.runStep(StepContainer.java:44)\r\n\tat cucumber.runtime.model.StepContainer.runSteps(StepContainer.java:39)\r\n\tat cucumber.runtime.model.CucumberScenario.run(CucumberScenario.java:44)\r\n\tat cucumber.runtime.junit.ExecutionUnitRunner.run(ExecutionUnitRunner.java:91)\r\n\tat cucumber.runtime.junit.FeatureRunner.runChild(FeatureRunner.java:63)\r\n\tat cucumber.runtime.junit.FeatureRunner.runChild(FeatureRunner.java:18)\r\n\tat org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)\r\n\tat org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)\r\n\tat org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)\r\n\tat org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)\r\n\tat org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)\r\n\tat org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)\r\n\tat org.junit.runners.ParentRunner.run(ParentRunner.java:413)\r\n\tat cucumber.runtime.junit.FeatureRunner.run(FeatureRunner.java:70)\r\n\tat cucumber.api.junit.Cucumber.runChild(Cucumber.java:93)\r\n\tat cucumber.api.junit.Cucumber.runChild(Cucumber.java:37)\r\n\tat org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)\r\n\tat org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)\r\n\tat org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)\r\n\tat org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)\r\n\tat org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)\r\n\tat org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)\r\n\tat org.junit.runners.ParentRunner.run(ParentRunner.java:413)\r\n\tat cucumber.api.junit.Cucumber.run(Cucumber.java:98)\r\n\tat org.junit.runner.JUnitCore.run(JUnitCore.java:137)\r\n\tat org.junit.runner.JUnitCore.run(JUnitCore.java:115)\r\n\tat org.junit.vintage.engine.execution.RunnerExecutor.execute(RunnerExecutor.java:43)\r\n\tat java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)\r\n\tat java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195)\r\n\tat java.base/java.util.Iterator.forEachRemaining(Iterator.java:133)\r\n\tat java.base/java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1801)\r\n\tat java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:484)\r\n\tat java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:474)\r\n\tat java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150)\r\n\tat java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173)\r\n\tat java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)\r\n\tat java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:497)\r\n\tat org.junit.vintage.engine.VintageTestEngine.executeAllChildren(VintageTestEngine.java:82)\r\n\tat org.junit.vintage.engine.VintageTestEngine.execute(VintageTestEngine.java:73)\r\n\tat org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:248)\r\n\tat org.junit.platform.launcher.core.DefaultLauncher.lambda$execute$5(DefaultLauncher.java:211)\r\n\tat org.junit.platform.launcher.core.DefaultLauncher.withInterceptedStreams(DefaultLauncher.java:226)\r\n\tat org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:199)\r\n\tat org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:132)\r\n\tat com.intellij.junit5.JUnit5IdeaTestRunner.startRunnerWithArgs(JUnit5IdeaTestRunner.java:71)\r\n\tat com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:33)\r\n\tat com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:220)\r\n\tat com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:53)\r\n",
+  "status": "failed"
 });
 formatter.after({
-  "duration": 99704000,
+  "duration": 49357900,
   "status": "passed"
 });
 formatter.before({
-  "duration": 5300584000,
+  "duration": 5795890100,
   "status": "passed"
 });
 formatter.background({
@@ -868,7 +869,7 @@ formatter.match({
   "location": "StepDefinitions.the_correct_web_address_and_logged_in()"
 });
 formatter.result({
-  "duration": 4026810900,
+  "duration": 4148153000,
   "status": "passed"
 });
 formatter.scenario({
@@ -893,22 +894,22 @@ formatter.match({
   "location": "StepDefinitions.i_add_a_song_to_a_playlist()"
 });
 formatter.result({
-  "duration": 1209963100,
+  "duration": 907373600,
   "status": "passed"
 });
 formatter.match({
   "location": "StepDefinitions.i_can_see_my_correctly_updated_playlist()"
 });
 formatter.result({
-  "duration": 300100600,
+  "duration": 297627400,
   "status": "passed"
 });
 formatter.after({
-  "duration": 94054200,
+  "duration": 27999200,
   "status": "passed"
 });
 formatter.before({
-  "duration": 5573225900,
+  "duration": 5743249600,
   "status": "passed"
 });
 formatter.background({
@@ -927,7 +928,7 @@ formatter.match({
   "location": "StepDefinitions.the_correct_web_address_and_logged_in()"
 });
 formatter.result({
-  "duration": 4374032500,
+  "duration": 5007726700,
   "status": "passed"
 });
 formatter.scenario({
@@ -952,18 +953,18 @@ formatter.match({
   "location": "StepDefinitions.i_remove_a_song_from_a_playlist()"
 });
 formatter.result({
-  "duration": 3974051301,
+  "duration": 4010114600,
   "status": "passed"
 });
 formatter.match({
   "location": "StepDefinitions.i_can_see_the_correctly_updated_playlist()"
 });
 formatter.result({
-  "duration": 196751900,
+  "duration": 244209400,
   "status": "passed"
 });
 formatter.after({
-  "duration": 78743400,
+  "duration": 30025200,
   "status": "passed"
 });
 formatter.uri("DCreatePage.feature");
@@ -975,7 +976,7 @@ formatter.feature({
   "keyword": "Feature"
 });
 formatter.before({
-  "duration": 5377038600,
+  "duration": 6898523300,
   "status": "passed"
 });
 formatter.background({
@@ -994,7 +995,7 @@ formatter.match({
   "location": "StepDefinitions.i_have_logged_in_as_admin()"
 });
 formatter.result({
-  "duration": 3715436701,
+  "duration": 4368299200,
   "status": "passed"
 });
 formatter.scenario({
@@ -1019,22 +1020,22 @@ formatter.match({
   "location": "StepDefinitions.i_create_an_album()"
 });
 formatter.result({
-  "duration": 555309200,
+  "duration": 1474629400,
   "status": "passed"
 });
 formatter.match({
   "location": "StepDefinitions.i_can_see_created_album()"
 });
 formatter.result({
-  "duration": 1642981100,
+  "duration": 1622450500,
   "status": "passed"
 });
 formatter.after({
-  "duration": 90542201,
+  "duration": 26667300,
   "status": "passed"
 });
 formatter.before({
-  "duration": 5325809900,
+  "duration": 7720673100,
   "status": "passed"
 });
 formatter.background({
@@ -1053,7 +1054,7 @@ formatter.match({
   "location": "StepDefinitions.i_have_logged_in_as_admin()"
 });
 formatter.result({
-  "duration": 3726242300,
+  "duration": 3998503900,
   "status": "passed"
 });
 formatter.scenario({
@@ -1078,22 +1079,22 @@ formatter.match({
   "location": "StepDefinitions.i_create_an_artist()"
 });
 formatter.result({
-  "duration": 338132501,
+  "duration": 349492000,
   "status": "passed"
 });
 formatter.match({
   "location": "StepDefinitions.i_can_see_the_created_artist()"
 });
 formatter.result({
-  "duration": 129212700,
+  "duration": 98698400,
   "status": "passed"
 });
 formatter.after({
-  "duration": 106713700,
+  "duration": 30732800,
   "status": "passed"
 });
 formatter.before({
-  "duration": 5212683200,
+  "duration": 5828767400,
   "status": "passed"
 });
 formatter.background({
@@ -1112,7 +1113,7 @@ formatter.match({
   "location": "StepDefinitions.i_have_logged_in_as_admin()"
 });
 formatter.result({
-  "duration": 3760594399,
+  "duration": 4001888400,
   "status": "passed"
 });
 formatter.scenario({
@@ -1137,22 +1138,22 @@ formatter.match({
   "location": "StepDefinitions.i_create_a_genre()"
 });
 formatter.result({
-  "duration": 396270901,
+  "duration": 471533000,
   "status": "passed"
 });
 formatter.match({
   "location": "StepDefinitions.i_can_see_the_created_genre()"
 });
 formatter.result({
-  "duration": 113815500,
+  "duration": 135226300,
   "status": "passed"
 });
 formatter.after({
-  "duration": 88488000,
+  "duration": 53153400,
   "status": "passed"
 });
 formatter.before({
-  "duration": 5257490601,
+  "duration": 5999960000,
   "status": "passed"
 });
 formatter.background({
@@ -1171,7 +1172,7 @@ formatter.match({
   "location": "StepDefinitions.i_have_logged_in_as_admin()"
 });
 formatter.result({
-  "duration": 3710707400,
+  "duration": 4319209900,
   "status": "passed"
 });
 formatter.scenario({
@@ -1196,18 +1197,18 @@ formatter.match({
   "location": "StepDefinitions.i_create_a_track()"
 });
 formatter.result({
-  "duration": 2658874100,
+  "duration": 2767433900,
   "status": "passed"
 });
 formatter.match({
   "location": "StepDefinitions.i_can_see_the_created_track()"
 });
 formatter.result({
-  "duration": 176914900,
+  "duration": 183800200,
   "status": "passed"
 });
 formatter.after({
-  "duration": 88499899,
+  "duration": 73846700,
   "status": "passed"
 });
 formatter.uri("UpdatePage.feature");
@@ -1219,7 +1220,7 @@ formatter.feature({
   "keyword": "Feature"
 });
 formatter.before({
-  "duration": 5322522800,
+  "duration": 5924916500,
   "status": "passed"
 });
 formatter.background({
@@ -1238,7 +1239,7 @@ formatter.match({
   "location": "StepDefinitions.i_have_logged_in_as_admin()"
 });
 formatter.result({
-  "duration": 3734859600,
+  "duration": 4337749700,
   "status": "passed"
 });
 formatter.scenario({
@@ -1263,22 +1264,22 @@ formatter.match({
   "location": "StepDefinitions.i_update_an_album()"
 });
 formatter.result({
-  "duration": 1222720900,
+  "duration": 1678606800,
   "status": "passed"
 });
 formatter.match({
   "location": "StepDefinitions.i_can_see_updated_album_page()"
 });
 formatter.result({
-  "duration": 201136100,
+  "duration": 272231000,
   "status": "passed"
 });
 formatter.after({
-  "duration": 100426301,
+  "duration": 33573300,
   "status": "passed"
 });
 formatter.before({
-  "duration": 5260096400,
+  "duration": 5563360300,
   "status": "passed"
 });
 formatter.background({
@@ -1297,7 +1298,7 @@ formatter.match({
   "location": "StepDefinitions.i_have_logged_in_as_admin()"
 });
 formatter.result({
-  "duration": 3720345601,
+  "duration": 4137495400,
   "status": "passed"
 });
 formatter.scenario({
@@ -1322,22 +1323,22 @@ formatter.match({
   "location": "StepDefinitions.i_update_an_artist()"
 });
 formatter.result({
-  "duration": 963526900,
+  "duration": 1116770700,
   "status": "passed"
 });
 formatter.match({
   "location": "StepDefinitions.i_can_see_the_updated_artist_page()"
 });
 formatter.result({
-  "duration": 116053700,
+  "duration": 465351200,
   "status": "passed"
 });
 formatter.after({
-  "duration": 95847500,
+  "duration": 46773600,
   "status": "passed"
 });
 formatter.before({
-  "duration": 5208105500,
+  "duration": 6323435300,
   "status": "passed"
 });
 formatter.background({
@@ -1356,7 +1357,7 @@ formatter.match({
   "location": "StepDefinitions.i_have_logged_in_as_admin()"
 });
 formatter.result({
-  "duration": 3711657800,
+  "duration": 3955635600,
   "status": "passed"
 });
 formatter.scenario({
@@ -1381,22 +1382,22 @@ formatter.match({
   "location": "StepDefinitions.i_update_on_genre()"
 });
 formatter.result({
-  "duration": 991034500,
+  "duration": 1451413900,
   "status": "passed"
 });
 formatter.match({
   "location": "StepDefinitions.i_can_see_the_updated_genre_page()"
 });
 formatter.result({
-  "duration": 151411999,
+  "duration": 188411500,
   "status": "passed"
 });
 formatter.after({
-  "duration": 88032800,
+  "duration": 43964900,
   "status": "passed"
 });
 formatter.before({
-  "duration": 5353638800,
+  "duration": 10579646000,
   "status": "passed"
 });
 formatter.background({
@@ -1415,7 +1416,7 @@ formatter.match({
   "location": "StepDefinitions.i_have_logged_in_as_admin()"
 });
 formatter.result({
-  "duration": 3764723100,
+  "duration": 7007870800,
   "status": "passed"
 });
 formatter.scenario({
@@ -1440,18 +1441,18 @@ formatter.match({
   "location": "StepDefinitions.i_update_on_a_track()"
 });
 formatter.result({
-  "duration": 949038200,
+  "duration": 956799600,
   "status": "passed"
 });
 formatter.match({
   "location": "StepDefinitions.i_can_see_the_updated_track_page()"
 });
 formatter.result({
-  "duration": 54832501,
+  "duration": 44266100,
   "status": "passed"
 });
 formatter.after({
-  "duration": 114922900,
+  "duration": 40529700,
   "status": "passed"
 });
 formatter.uri("ZDeletePage.feature");
@@ -1463,7 +1464,7 @@ formatter.feature({
   "keyword": "Feature"
 });
 formatter.before({
-  "duration": 5306366600,
+  "duration": 6528022800,
   "status": "passed"
 });
 formatter.background({
@@ -1482,7 +1483,7 @@ formatter.match({
   "location": "StepDefinitions.i_have_logged_in_as_admin()"
 });
 formatter.result({
-  "duration": 4009489899,
+  "duration": 6470307300,
   "status": "passed"
 });
 formatter.scenario({
@@ -1507,22 +1508,22 @@ formatter.match({
   "location": "StepDefinitions.i_delete_a_playlist()"
 });
 formatter.result({
-  "duration": 405316400,
+  "duration": 484398700,
   "status": "passed"
 });
 formatter.match({
   "location": "StepDefinitions.i_can_see_the_playlist_is_not_there()"
 });
 formatter.result({
-  "duration": 87873401,
+  "duration": 148254400,
   "status": "passed"
 });
 formatter.after({
-  "duration": 131987900,
+  "duration": 68677400,
   "status": "passed"
 });
 formatter.before({
-  "duration": 5325366400,
+  "duration": 6664244900,
   "status": "passed"
 });
 formatter.background({
@@ -1541,7 +1542,7 @@ formatter.match({
   "location": "StepDefinitions.i_have_logged_in_as_admin()"
 });
 formatter.result({
-  "duration": 3719187399,
+  "duration": 5980161500,
   "status": "passed"
 });
 formatter.scenario({
@@ -1566,22 +1567,22 @@ formatter.match({
   "location": "StepDefinitions.i_delete_an_album()"
 });
 formatter.result({
-  "duration": 496140300,
+  "duration": 568373400,
   "status": "passed"
 });
 formatter.match({
   "location": "StepDefinitions.i_can_see_the_album_is_not_there()"
 });
 formatter.result({
-  "duration": 91480500,
+  "duration": 124026300,
   "status": "passed"
 });
 formatter.after({
-  "duration": 140983700,
+  "duration": 39626000,
   "status": "passed"
 });
 formatter.before({
-  "duration": 5444572501,
+  "duration": 6156942700,
   "status": "passed"
 });
 formatter.background({
@@ -1600,7 +1601,7 @@ formatter.match({
   "location": "StepDefinitions.i_have_logged_in_as_admin()"
 });
 formatter.result({
-  "duration": 4150742400,
+  "duration": 5801882700,
   "status": "passed"
 });
 formatter.scenario({
@@ -1625,22 +1626,22 @@ formatter.match({
   "location": "StepDefinitions.i_delete_an_artist()"
 });
 formatter.result({
-  "duration": 236558301,
+  "duration": 582234000,
   "status": "passed"
 });
 formatter.match({
   "location": "StepDefinitions.i_can_see_the_artist_is_not_there()"
 });
 formatter.result({
-  "duration": 101282401,
+  "duration": 114136500,
   "status": "passed"
 });
 formatter.after({
-  "duration": 90251300,
+  "duration": 59893600,
   "status": "passed"
 });
 formatter.before({
-  "duration": 5347399699,
+  "duration": 5858597500,
   "status": "passed"
 });
 formatter.background({
@@ -1659,7 +1660,7 @@ formatter.match({
   "location": "StepDefinitions.i_have_logged_in_as_admin()"
 });
 formatter.result({
-  "duration": 3827555600,
+  "duration": 5572724700,
   "status": "passed"
 });
 formatter.scenario({
@@ -1684,22 +1685,22 @@ formatter.match({
   "location": "StepDefinitions.i_delete_on_genre()"
 });
 formatter.result({
-  "duration": 30800,
+  "duration": 26900,
   "status": "passed"
 });
 formatter.match({
   "location": "StepDefinitions.i_can_see_the_genre_is_not_there()"
 });
 formatter.result({
-  "duration": 16000,
+  "duration": 25300,
   "status": "passed"
 });
 formatter.after({
-  "duration": 86176699,
+  "duration": 36733000,
   "status": "passed"
 });
 formatter.before({
-  "duration": 5323027301,
+  "duration": 8016862300,
   "status": "passed"
 });
 formatter.background({
@@ -1718,7 +1719,7 @@ formatter.match({
   "location": "StepDefinitions.i_have_logged_in_as_admin()"
 });
 formatter.result({
-  "duration": 3785056500,
+  "duration": 9209525600,
   "status": "passed"
 });
 formatter.scenario({
@@ -1743,18 +1744,18 @@ formatter.match({
   "location": "StepDefinitions.i_delete_on_a_track()"
 });
 formatter.result({
-  "duration": 270702300,
+  "duration": 511289800,
   "status": "passed"
 });
 formatter.match({
   "location": "StepDefinitions.i_can_see_the_track_is_not_there()"
 });
 formatter.result({
-  "duration": 418167599,
+  "duration": 305628800,
   "status": "passed"
 });
 formatter.after({
-  "duration": 97238300,
+  "duration": 29457700,
   "status": "passed"
 });
 });
