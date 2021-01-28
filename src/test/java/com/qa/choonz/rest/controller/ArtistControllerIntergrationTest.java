@@ -2,8 +2,6 @@ package com.qa.choonz.rest.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.qa.choonz.persistence.domain.Artist;
-import com.qa.choonz.persistence.domain.Artist;
-import com.qa.choonz.rest.dto.ArtistDTO;
 import com.qa.choonz.rest.dto.ArtistDTO;
 import org.junit.jupiter.api.Test;
 import org.modelmapper.ModelMapper;
@@ -54,7 +52,7 @@ public class ArtistControllerIntergrationTest {
 
         this.mvc.perform(request);
     }
-    
+
 
     @Test
     void createTest() throws Exception {
@@ -65,7 +63,7 @@ public class ArtistControllerIntergrationTest {
 
         ResultMatcher checkStatus = status().isCreated();
 
-        ArtistDTO testSavedDTO = mapToDTO(new Artist(5L,"Panda"));
+        ArtistDTO testSavedDTO = mapToDTO(new Artist(5L, "Panda"));
         String testSavedDTOAsJSON = this.jsonifier.writeValueAsString(testSavedDTO);
 
         ResultMatcher checkBody = content().json(testSavedDTOAsJSON);
@@ -82,7 +80,7 @@ public class ArtistControllerIntergrationTest {
         RequestBuilder request = get(URI + "/read/5");
         ResultMatcher checkStatus = status().isOk();
 
-        ArtistDTO testSavedDTO = mapToDTO(new Artist(5L,"Panda"));
+        ArtistDTO testSavedDTO = mapToDTO(new Artist(5L, "Panda"));
         String testSavedDTOAsJSON = this.jsonifier.writeValueAsString(testSavedDTO);
 
         ResultMatcher checkBody = content().json(testSavedDTOAsJSON);
@@ -97,16 +95,16 @@ public class ArtistControllerIntergrationTest {
         RequestBuilder request = get(URI + "/read");
         ResultMatcher checkStatus = status().isOk();
 
-        for (int i=1;i < 5;i++){
-            this.mvc.perform(delete(URI + "/delete/"+i));
+        for (int i = 1; i < 5; i++) {
+            this.mvc.perform(delete(URI + "/delete/" + i));
         }
 
         List<ArtistDTO> tracks = new ArrayList<>();
-        tracks.add(mapToDTO(new Artist(5L,"Panda")));
-        tracks.add(mapToDTO(new Artist(6L,"Dog")));
-        tracks.add(mapToDTO(new Artist(7L,"Cat")));
-        tracks.add(mapToDTO(new Artist(8L,"Mamoth")));
-        tracks.add(mapToDTO(new Artist(9L,"Panther")));
+        tracks.add(mapToDTO(new Artist(5L, "Panda")));
+        tracks.add(mapToDTO(new Artist(6L, "Dog")));
+        tracks.add(mapToDTO(new Artist(7L, "Cat")));
+        tracks.add(mapToDTO(new Artist(8L, "Mamoth")));
+        tracks.add(mapToDTO(new Artist(9L, "Panther")));
 
         createEntity(new Artist("Panda"));
         createEntity(new Artist("Dog"));
@@ -135,7 +133,7 @@ public class ArtistControllerIntergrationTest {
 
         ResultMatcher checkStatus = status().isAccepted();
 
-        ArtistDTO testSavedDTO = mapToDTO(new Artist(5L,"Dog"));
+        ArtistDTO testSavedDTO = mapToDTO(new Artist(5L, "Dog"));
         String testSavedDTOAsJSON = this.jsonifier.writeValueAsString(testSavedDTO);
 
         ResultMatcher checkBody = content().json(testSavedDTOAsJSON);

@@ -54,4 +54,8 @@ public class Track_PlaylistService {
         this.repo.deleteById(id);
         return !this.repo.existsById(id);
     }
+
+    public List<Track_PlaylistDTO> findTracks(Long id) {
+        return this.repo.findTracks(id).stream().map(this::mapToDTO).collect(Collectors.toList());
+    }
 }

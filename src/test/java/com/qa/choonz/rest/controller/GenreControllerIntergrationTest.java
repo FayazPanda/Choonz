@@ -2,9 +2,7 @@ package com.qa.choonz.rest.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.qa.choonz.persistence.domain.Genre;
-import com.qa.choonz.persistence.domain.Track;
 import com.qa.choonz.rest.dto.GenreDTO;
-import com.qa.choonz.rest.dto.TrackDTO;
 import org.junit.jupiter.api.Test;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,7 +62,7 @@ public class GenreControllerIntergrationTest {
 
         ResultMatcher checkStatus = status().isCreated();
 
-        GenreDTO testSavedDTO = mapToDTO(new Genre(6L,"Panda", "Bamboo, Crayons"));
+        GenreDTO testSavedDTO = mapToDTO(new Genre(6L, "Panda", "Bamboo, Crayons"));
         String testSavedDTOAsJSON = this.jsonifier.writeValueAsString(testSavedDTO);
 
         ResultMatcher checkBody = content().json(testSavedDTOAsJSON);
@@ -81,7 +79,7 @@ public class GenreControllerIntergrationTest {
         RequestBuilder request = get(URI + "/read/6");
         ResultMatcher checkStatus = status().isOk();
 
-        GenreDTO testSavedDTO = mapToDTO(new Genre(6L,"Panda", "Bamboo, Crayons"));
+        GenreDTO testSavedDTO = mapToDTO(new Genre(6L, "Panda", "Bamboo, Crayons"));
         String testSavedDTOAsJSON = this.jsonifier.writeValueAsString(testSavedDTO);
 
         ResultMatcher checkBody = content().json(testSavedDTOAsJSON);
@@ -96,16 +94,16 @@ public class GenreControllerIntergrationTest {
         RequestBuilder request = get(URI + "/read");
         ResultMatcher checkStatus = status().isOk();
 
-        for (int i=1;i < 6;i++){
-            this.mvc.perform(delete(URI + "/delete/"+i));
+        for (int i = 1; i < 6; i++) {
+            this.mvc.perform(delete(URI + "/delete/" + i));
         }
 
         List<GenreDTO> genres = new ArrayList<>();
-        genres.add(mapToDTO(new Genre(6L,"Panda", "Bamboo, Crayons")));
-        genres.add(mapToDTO(new Genre(7L,"Dog", "Bones, Treats, Sit")));
-        genres.add(mapToDTO(new Genre(8L,"Cat", "Whiskers, Meow")));
-        genres.add(mapToDTO(new Genre(9L,"Mamoth", "Tusks")));
-        genres.add(mapToDTO(new Genre(10L,"Panther", "Whiskers, Growl")));
+        genres.add(mapToDTO(new Genre(6L, "Panda", "Bamboo, Crayons")));
+        genres.add(mapToDTO(new Genre(7L, "Dog", "Bones, Treats, Sit")));
+        genres.add(mapToDTO(new Genre(8L, "Cat", "Whiskers, Meow")));
+        genres.add(mapToDTO(new Genre(9L, "Mamoth", "Tusks")));
+        genres.add(mapToDTO(new Genre(10L, "Panther", "Whiskers, Growl")));
 
         createEntity(new Genre("Panda", "Bamboo, Crayons"));
         createEntity(new Genre("Dog", "Bones, Treats, Sit"));
@@ -134,7 +132,7 @@ public class GenreControllerIntergrationTest {
 
         ResultMatcher checkStatus = status().isAccepted();
 
-        GenreDTO testSavedDTO = mapToDTO(new Genre(6L,"Dog", "Bones, Treats, Sit"));
+        GenreDTO testSavedDTO = mapToDTO(new Genre(6L, "Dog", "Bones, Treats, Sit"));
         String testSavedDTOAsJSON = this.jsonifier.writeValueAsString(testSavedDTO);
 
         ResultMatcher checkBody = content().json(testSavedDTOAsJSON);

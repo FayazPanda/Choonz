@@ -48,4 +48,9 @@ public class Track_PlaylistController {
         return this.service.delete(id) ? new ResponseEntity<Track_PlaylistDTO>(HttpStatus.NO_CONTENT)
                 : new ResponseEntity<Track_PlaylistDTO>(HttpStatus.INTERNAL_SERVER_ERROR);
     }
+
+    @GetMapping("findTracks/{id}")
+    public ResponseEntity<List<Track_PlaylistDTO>> findByName(@PathVariable Long id) {
+        return ResponseEntity.ok(this.service.findTracks(id));
+    }
 }
