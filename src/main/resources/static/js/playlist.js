@@ -96,7 +96,7 @@ function getTracks(id) {
                     let trackNumber = 1;
                     if (isMyPlaylist == true || getPermission() == 1) {
                         for (let track of trackData) {
-                            table.insertAdjacentHTML("beforeend", myTrackRow(trackNumber, track["tracks"]["id"], track["tracks"]["name"], duration(track["tracks"]["duration"])))
+                            table.insertAdjacentHTML("beforeend", myTrackRow(trackNumber, track["id"], track["tracks"]["name"], duration(track["tracks"]["duration"])))
                             trackNumber++
                         }
                     } else {
@@ -130,6 +130,38 @@ function putPlaylistData(listToEdit, data) {
         })
 }
 
+function deleteTrackFromPlaylist(id) {
+    fetch('http://localhost:8082/trackPlaylist/delete/'+id, {
+        method: 'delete', //post, put,delete
+        headers: {
+            "Content-type": "application/json; charset=UTF-8"
+        }
+    })
+        .then(function (data) {
+            console.log('Request succeeded with JSON response', data);
+            //fillPage();
+        })
+        .catch(function (error) {
+            console.log('Request failed', error);
+        })
+}
+
+function addTrackToPlaylist(data) {
+    fetch('http://localhost:8082/trackPlaylist/create', {
+        method: 'post', 
+        headers: {
+            "Content-type": "application/json; charset=UTF-8"
+        },
+        body: JSON.stringify(data)
+    })
+        .then(function (data) {
+            console.log('Request succeeded with JSON response', data);
+        })
+        .catch(function (error) {
+            console.log('Request failed', error);
+        })
+}
+
 function trackRow(trackNumber, id, name, duration) {
     if (loggedIn) {
         return '<div class="tracks">\
@@ -155,7 +187,7 @@ function trackRow(trackNumber, id, name, duration) {
 
 function myTrackRow(trackNumber, id, name, duration) {
     return '<div class="tracks">\
-                <button class="fas fa-trash trash" data-toggle="modal" data-target="#addToPlaylist" type="button" data-button="' + id + '"></button>\
+                <button class="fas fa-trash trash" data-toggle="modal" data-target="#removeFromPlaylist" type="button" data-button="' + id + '"></button>\
                 <a href="/tracks.html?id=' + id + '" class="track">\
                     <p>' + trackNumber + '</p>\
                     <p>' + name + '</p>\
@@ -206,11 +238,31 @@ $('#addToPlaylist').on('show.bs.modal', function (e) {
     myPlaylists();
 })
 
+$('#removeFromPlaylist').on('show.bs.modal', function (e) {
+    var $trigger = $(e.relatedTarget);
+
+    let id = $trigger.data('button');
+    trackToAdd = id;
+})
+
 $(document).on("click", "#addTrack", function () {
     let playlistId = document.getElementById("listSelect").value;
+    
+    let data = {
+        "tracks": {
+            "id": trackToAdd
+        },
+        "playlists": {
+            "id": playlistId
+        }
+    }
     console.log("Add " + trackToAdd + " " + playlistId);
+    addTrackToPlaylist(data);
+});
 
-    putPlaylistData(playlistId, data);
+$(document).on("click", "#confirmDelete", function () {
+    deleteTrackFromPlaylist(trackToAdd)
+    location.reload();
 });
 
 $('#editPlaylistModal').on('show.bs.modal', function (e) {

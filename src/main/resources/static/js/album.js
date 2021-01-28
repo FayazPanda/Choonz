@@ -69,6 +69,22 @@ function getAlbum(id) {
         });
 }
 
+function addTrackToPlaylist(data) {
+    fetch('http://localhost:8082/trackPlaylist/create', {
+        method: 'post', 
+        headers: {
+            "Content-type": "application/json; charset=UTF-8"
+        },
+        body: JSON.stringify(data)
+    })
+        .then(function (data) {
+            console.log('Request succeeded with JSON response', data);
+        })
+        .catch(function (error) {
+            console.log('Request failed', error);
+        })
+}
+
 function myPlaylists() {
     fetch('http://localhost:8082/playlists/search/?search=user.id:' + userId())
         .then(
@@ -134,9 +150,17 @@ $('#addToPlaylist').on('show.bs.modal', function (e) {
 
 $(document).on("click", "#addTrack", function () {
     let playlistId = document.getElementById("listSelect").value;
+    
+    let data = {
+        "tracks": {
+            "id": trackToAdd
+        },
+        "playlists": {
+            "id": playlistId
+        }
+    }
     console.log("Add " + trackToAdd + " " + playlistId);
-
-    //putListData(data);
+    addTrackToPlaylist(data);
 });
 
 $(document).on("click", "#saveTrackBtn", function () {
