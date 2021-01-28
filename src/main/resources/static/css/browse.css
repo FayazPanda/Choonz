@@ -5,3 +5,10 @@
 .tile {
     padding: 40px;
 }
+
+#albumCover {
+    object-fit: cover;
+    width: 220px;
+    height: 220px;
+}
+
